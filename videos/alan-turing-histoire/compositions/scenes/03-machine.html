@@ -1,0 +1,100 @@
+<!doctype html>
+<html data-composition-variables='[{"id":"beats","type":"string","label":"Débuts de phrase (s)","default":"0.25,2.718,6.622,8.238"}]'>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s03-root { position: absolute; inset: 0; overflow: hidden; }
+        #s03-year { position: absolute; left: 60px; top: 300px; font-size: 300px; color: var(--cream); }
+        #s03-age { position: absolute; left: 72px; top: 590px; width: 420px; border-top: 1px solid var(--border); padding-top: 18px; }
+        #s03-age b { display: block; margin-bottom: 14px; font-family: var(--sans); font-weight: 900; font-size: 120px; letter-spacing: -0.04em; line-height: 1.1; color: var(--fire); }
+        #s03-age span { font-family: var(--mono); font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
+        #s03-title { position: absolute; left: 72px; right: 72px; top: 300px; font-size: 150px; color: var(--cream); }
+        #s03-title .accent { display: block; }
+        #s03-tape-wrap { position: absolute; left: 0; right: 0; top: 780px; height: 240px; }
+        #s03-tape { position: absolute; left: 36px; top: 70px; display: flex; gap: 8px; }
+        .s03-cell { width: 104px; height: 120px; border: 1px solid var(--cream-hint); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 64px; color: var(--cream); background: var(--ink-alt); }
+        .s03-cell.hot { background: var(--fire); color: var(--ink); border-color: var(--fire); }
+        #s03-head { position: absolute; left: 36px; top: 0; width: 104px; height: 200px; }
+        #s03-head-box { position: absolute; left: -8px; top: 62px; width: 120px; height: 136px; border: 5px solid var(--fire); }
+        #s03-head-tri { position: absolute; left: 32px; top: 0; width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 34px solid var(--fire); }
+        #s03-state { position: absolute; left: 72px; top: 1020px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
+        #s03-pc { position: absolute; left: 190px; top: 620px; }
+        #s03-pc-label { position: absolute; left: 72px; top: 1080px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fire); }
+      </style>
+
+      <div id="s03-root" data-composition-id="03-machine" data-width="1080" data-height="1920">
+        <div id="s03-year" class="display">1936</div>
+        <div id="s03-age"><b>24 ans</b><span>Étudiant à Cambridge</span></div>
+        <div id="s03-title" class="display">la machine <span class="accent">de turing</span></div>
+
+        <div id="s03-tape-wrap">
+          <div id="s03-tape"></div>
+          <div id="s03-head"><div id="s03-head-tri"></div><div id="s03-head-box"></div></div>
+        </div>
+        <div id="s03-state">Ruban infini · tête de lecture · règles</div>
+
+        <svg id="s03-pc" width="700" height="440" viewBox="0 0 700 440">
+          <rect class="s03-line" x="90" y="10" width="520" height="330" fill="none" stroke="#f0ece5" stroke-width="6" />
+          <rect class="s03-line" x="120" y="40" width="460" height="270" fill="none" stroke="#505048" stroke-width="3" />
+          <path class="s03-line" d="M20 400 L90 340 L610 340 L680 400 Z" fill="none" stroke="#f0ece5" stroke-width="6" stroke-linejoin="round" />
+          <path class="s03-line" d="M290 372 L410 372" fill="none" stroke="#e85d26" stroke-width="6" />
+          <text id="s03-screen" x="150" y="190" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="56" fill="#e85d26">0 1 1 0 1</text>
+          <rect id="s03-cursor" x="468" y="148" width="28" height="52" fill="#e85d26" />
+        </svg>
+        <div id="s03-pc-label">→ l'ordinateur moderne</div>
+      </div>
+
+      <script>
+        (() => {
+          const B = String(window.__hyperframes.getVariables().beats).split(",").map(Number);
+          const tl = gsap.timeline({ paused: true });
+
+          // Temps 1 — 1936, 24 ans
+          tl.fromTo("#s03-year", { opacity: 0, yPercent: 30 }, { opacity: 1, yPercent: 0, duration: 0.5, ease: "power4.out" }, B[0] - 0.1);
+          tl.fromTo("#s03-age", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, B[0] + 1.0);
+
+          // Temps 2 — le ruban et la tête : un vrai programme (incrément binaire) exécuté pas à pas
+          const tape = document.querySelector("#s03-tape");
+          const init = ["", "1", "0", "1", "1", "", "", "", ""];
+          const cells = init.map((v) => { const c = document.createElement("div"); c.className = "s03-cell"; c.textContent = v || "·"; tape.appendChild(c); return c; });
+          tl.to(["#s03-year", "#s03-age"], { opacity: 0, y: -40, duration: 0.35, ease: "power2.in" }, B[1] - 0.2);
+          tl.fromTo(cells, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.04, ease: "power3.out" }, B[1]);
+          tl.fromTo("#s03-head", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[1] + 0.35);
+          tl.fromTo("#s03-state", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[1] + 0.5);
+          // trace : aller au bout du nombre, puis propager la retenue de droite à gauche
+          const step = 112; // largeur cellule + espace
+          const trace = [
+            [1, null], [2, null], [3, null], [4, null], [5, null], // lecture vers la droite
+            [4, "0"], [3, "0"], [2, "1"], // 1011 + 1 = 1100
+          ];
+          let t = B[1] + 0.7;
+          let prev = null;
+          trace.forEach(([pos, write]) => {
+            tl.to("#s03-head", { x: pos * step, duration: 0.22, ease: "power2.inOut" }, t);
+            if (prev !== null) tl.set(cells[prev], { className: "s03-cell" }, t + 0.22);
+            tl.set(cells[pos], { className: "s03-cell hot" }, t + 0.22);
+            if (write) tl.set(cells[pos], { textContent: write }, t + 0.3);
+            prev = pos;
+            t += 0.42;
+          });
+
+          // Temps 3 — le nom de l'idée
+          tl.fromTo("#s03-title", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, B[2] - 0.1);
+
+          // Temps 4 — le ruban devient un ordinateur
+          tl.to(["#s03-tape-wrap", "#s03-state"], { opacity: 0, scale: 0.7, duration: 0.35, ease: "power2.in", transformOrigin: "50% 50%" }, B[3] - 0.2);
+          tl.to("#s03-title", { y: -30, scale: 0.8, transformOrigin: "0% 0%", duration: 0.4, ease: "power2.inOut" }, B[3] - 0.2);
+          tl.fromTo(".s03-line", { strokeDasharray: 2000, strokeDashoffset: 2000 }, { strokeDashoffset: 0, duration: 0.8, stagger: 0.08, ease: "power2.inOut" }, B[3]);
+          tl.fromTo("#s03-screen", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[3] + 0.6);
+          tl.fromTo("#s03-cursor", { opacity: 0 }, { opacity: 1, duration: 0.01, repeat: 5, yoyo: true, repeatDelay: 0.25 }, B[3] + 0.7);
+          tl.fromTo("#s03-pc-label", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4 }, B[3] + 0.5);
+
+          window.__timelines["03-machine"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html data-composition-variables='[{"id":"beats","type":"string","label":"Débuts de phrase (s)","default":"0.25,3.225,4.706,6.334"}]'>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s07-root { position: absolute; inset: 0; overflow: hidden; }
+        #s07-ace { position: absolute; left: 72px; right: 72px; top: 300px; }
+        #s07-ace-note { margin-top: 12px; max-width: 760px; font-family: var(--sans); font-weight: 600; font-size: 40px; line-height: 1.2; color: var(--cream); }
+        #s07-panel { margin-top: 36px; padding: 36px; background: var(--ink-alt); border: 1px solid var(--border); display: grid; grid-template-columns: repeat(12, 1fr); gap: 22px; }
+        .s07-led { width: 44px; height: 44px; border-radius: 50%; background: var(--border); }
+        .s07-led.on { background: var(--fire); box-shadow: 0 0 24px rgba(232, 93, 38, 0.7); }
+        #s07-q { position: absolute; right: 80px; top: 330px; font-family: var(--sans); font-weight: 900; font-size: 640px; line-height: 1; color: var(--fire); }
+        #s07-chat { position: absolute; left: 72px; right: 72px; top: 470px; display: flex; flex-direction: column; gap: 34px; }
+        .s07-msg { max-width: 700px; padding: 28px 36px; font-family: var(--sans); font-weight: 700; font-size: 52px; line-height: 1.15; }
+        .s07-msg small { display: block; margin-bottom: 10px; font-family: var(--mono); font-weight: 500; font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; }
+        #s07-m1 { align-self: flex-start; background: var(--ink-alt); border: 1px solid var(--cream-hint); color: var(--cream); }
+        #s07-m1 small { color: var(--cream-muted); }
+        #s07-m2 { align-self: flex-end; background: var(--fire); color: var(--ink); }
+        #s07-m2 small { color: rgba(17, 17, 17, 0.6); }
+        #s07-typing { align-self: flex-end; display: flex; gap: 14px; padding: 26px 34px; border: 1px solid var(--fire); }
+        .s07-tdot { width: 18px; height: 18px; border-radius: 50%; background: var(--fire); }
+        #s07-verdict { position: absolute; left: 72px; right: 72px; top: 990px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 26px; }
+        #s07-verdict .kicker { font-size: 26px; }
+        #s07-who { font-family: var(--mono); font-weight: 600; font-size: 30px; letter-spacing: 0.14em; color: var(--cream); }
+      </style>
+
+      <div id="s07-root" data-composition-id="07-penser" data-width="1080" data-height="1920">
+        <div id="s07-ace">
+          <div class="kicker">ACE · plans de 1946</div>
+          <p id="s07-ace-note">L'un des premiers ordinateurs à programme enregistré.</p>
+          <div id="s07-panel"></div>
+        </div>
+        <div id="s07-q">?</div>
+        <div id="s07-chat">
+          <div class="s07-msg" id="s07-m1"><small>Juge</small>Es-tu un humain&nbsp;?</div>
+          <div id="s07-typing"><span class="s07-tdot"></span><span class="s07-tdot"></span><span class="s07-tdot"></span></div>
+          <div class="s07-msg" id="s07-m2"><small>Interlocuteur caché</small>Bien sûr. Et toi&nbsp;?</div>
+        </div>
+        <div id="s07-verdict"><span class="kicker">Le test de Turing · 1950</span><span id="s07-who">HUMAIN ?</span></div>
+      </div>
+
+      <script>
+        (() => {
+          const B = String(window.__hyperframes.getVariables().beats).split(",").map(Number);
+          const tl = gsap.timeline({ paused: true });
+          let seed = 1946;
+          const rnd = () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+
+          // Temps 1 — l'ACE : un panneau de voyants qui calcule
+          const panel = document.querySelector("#s07-panel");
+          const leds = [];
+          for (let i = 0; i < 12 * 5; i++) { const l = document.createElement("div"); l.className = "s07-led"; panel.appendChild(l); leds.push(l); }
+          tl.fromTo("#s07-ace .kicker, #s07-ace-note", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.12 }, B[0] - 0.1);
+          tl.fromTo(panel, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, B[0] + 0.2);
+          for (let k = 0; k < 24; k++) {
+            const at = B[0] + 0.5 + k * 0.1;
+            for (let j = 0; j < 8; j++) {
+              const idx = Math.floor(rnd() * leds.length);
+              tl.set(leds[idx], { className: rnd() > 0.45 ? "s07-led on" : "s07-led" }, at);
+            }
+          }
+
+          // Temps 2 — « une question folle »
+          tl.to("#s07-ace", { opacity: 0, x: -80, duration: 0.3, ease: "power2.in" }, B[1] - 0.2);
+          tl.fromTo("#s07-q", { opacity: 0, scale: 0.4, rotation: -20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.6)", transformOrigin: "50% 60%" }, B[1]);
+
+          // Temps 3 — la conversation
+          tl.to("#s07-q", { opacity: 0, scale: 1.1, duration: 0.3 }, B[2] - 0.25);
+          tl.fromTo("#s07-m1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, B[2]);
+          tl.fromTo("#s07-typing", { opacity: 0 }, { opacity: 1, duration: 0.2 }, B[2] + 0.45);
+          tl.fromTo(".s07-tdot", { y: 0 }, { y: -12, duration: 0.18, yoyo: true, repeat: 3, stagger: 0.08, ease: "sine.inOut" }, B[2] + 0.5);
+          tl.to("#s07-typing", { opacity: 0, duration: 0.1 }, B[2] + 1.25);
+          tl.fromTo("#s07-m2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, B[2] + 1.3);
+
+          // Temps 4 — le verdict impossible : humain ? machine ?
+          tl.fromTo("#s07-verdict", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35 }, B[3]);
+          const who = document.querySelector("#s07-who");
+          ["MACHINE ?", "HUMAIN ?", "MACHINE ?", "HUMAIN ?", "???"].forEach((w, i) => tl.set(who, { textContent: w }, B[3] + 0.45 + i * 0.3));
+
+          window.__timelines["07-penser"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

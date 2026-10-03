@@ -1,0 +1,73 @@
+<!doctype html>
+<html data-composition-variables='[{"id":"beats","type":"string","label":"Débuts de phrase (s)","default":"0.25,2.743"}]'>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s10-root { position: absolute; inset: 0; overflow: hidden; }
+        #s10-phone { position: absolute; left: 330px; top: 300px; width: 420px; height: 800px; border: 8px solid var(--cream); border-radius: 56px; overflow: hidden; background: var(--ink-alt); }
+        #s10-notch { position: absolute; left: 140px; top: 18px; width: 124px; height: 26px; border-radius: 13px; background: var(--cream); }
+        #s10-screen { position: absolute; left: 0; right: 0; top: 300px; display: flex; justify-content: center; gap: 8px; }
+        .s10-cell { width: 56px; height: 70px; border: 1px solid var(--cream-hint); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 36px; color: var(--cream); }
+        .s10-cell.hot { background: var(--fire); border-color: var(--fire); color: var(--ink); }
+        #s10-ripple { position: absolute; left: 160px; top: 520px; width: 90px; height: 90px; border-radius: 50%; border: 6px solid var(--fire); }
+        #s10-dot { position: absolute; left: 180px; top: 540px; width: 50px; height: 50px; border-radius: 50%; background: var(--fire); }
+        #s10-orange { position: absolute; inset: 0; background: var(--fire); }
+        #s10-end { position: absolute; left: 72px; right: 72px; top: 330px; color: var(--ink); opacity: 0; }
+        #s10-end .kicker { color: rgba(17, 17, 17, 0.6); }
+        .s10-line { display: block; overflow: hidden; }
+        .s10-word { display: block; font-size: 250px; }
+        #s10-cta { margin-top: 70px; display: inline-flex; align-items: center; gap: 22px; padding: 22px 32px; background: var(--ink); color: var(--cream); font-family: var(--mono); font-weight: 600; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; }
+        #s10-cta i { display: block; width: 18px; height: 18px; background: var(--fire); }
+      </style>
+
+      <div id="s10-root" data-composition-id="10-fin" data-width="1080" data-height="1920">
+        <div id="s10-phone">
+          <div id="s10-notch"></div>
+          <div id="s10-screen"></div>
+          <div id="s10-ripple"></div>
+          <div id="s10-dot"></div>
+        </div>
+
+        <div id="s10-orange"></div>
+        <div id="s10-end">
+          <div class="kicker">Pionnier de l'informatique</div>
+          <span class="s10-line"><span class="s10-word display" id="s10-w1">merci,</span></span>
+          <span class="s10-line"><span class="s10-word display" id="s10-w2">alan.</span></span>
+          <div id="s10-cta"><i></i>Abonne-toi · d'autres histoires vraies</div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const B = String(window.__hyperframes.getVariables().beats).split(",").map(Number);
+          const tl = gsap.timeline({ paused: true });
+          // le titre n'existe visuellement qu'après le volet orange
+          tl.set("#s10-end", { opacity: 1 }, B[1] + 0.15);
+
+          // Temps 1 — un écran d'aujourd'hui… qui cache le ruban de 1936 (rappel de la scène 3)
+          const screen = document.querySelector("#s10-screen");
+          const cells = ["0", "1", "1", "0", "1"].map((v) => { const c = document.createElement("div"); c.className = "s10-cell"; c.textContent = v; screen.appendChild(c); return c; });
+          tl.fromTo("#s10-phone", { opacity: 0, y: 140, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }, 0);
+          tl.fromTo(cells, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, stagger: 0.06 }, B[0] + 0.3);
+          tl.fromTo("#s10-dot", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.15 }, B[0] + 1.1);
+          tl.fromTo("#s10-ripple", { opacity: 0.9, scale: 0.6 }, { opacity: 0, scale: 3.2, duration: 0.7, ease: "power2.out" }, B[0] + 1.2);
+          tl.to("#s10-dot", { opacity: 0, duration: 0.25 }, B[0] + 1.4);
+          cells.forEach((c, i) => tl.set(c, { className: "s10-cell hot" }, B[0] + 1.25 + i * 0.12));
+
+          // Temps 2 — l'hommage
+          tl.fromTo("#s10-orange", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.45, ease: "power3.inOut" }, B[1] - 0.25);
+          tl.set("#s10-phone", { opacity: 0 }, B[1] + 0.21); // couvert par le fond orange
+          tl.fromTo("#s10-end .kicker", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[1] + 0.2);
+          tl.fromTo("#s10-w1", { yPercent: 105 }, { yPercent: 0, duration: 0.55, ease: "power4.out" }, B[1] + 0.2);
+          tl.fromTo("#s10-w2", { yPercent: 105 }, { yPercent: 0, duration: 0.55, ease: "power4.out" }, B[1] + 0.35);
+          tl.fromTo("#s10-cta", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, B[1] + 1.4);
+
+          window.__timelines["10-fin"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html data-composition-variables='[{"id":"beats","type":"string","label":"Débuts de phrase (s)","default":"0.25,3.496"}]'>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s09-root { position: absolute; inset: 0; overflow: hidden; }
+        #s09-kick { position: absolute; left: 72px; top: 300px; }
+        #s09-year { position: absolute; left: 60px; top: 370px; line-height: 1; font-size: 330px; color: var(--fire); font-variant-numeric: tabular-nums; }
+        #s09-wait { position: absolute; left: 76px; top: 740px; font-family: var(--mono); font-size: 26px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
+        #s09-stamp { left: 460px; top: 820px; font-size: 46px; }
+        #s09-note-wrap { position: absolute; left: 60px; top: 560px; width: 960px; }
+        #s09-note { position: relative; overflow: hidden; }
+        #s09-note svg { display: block; width: 960px; height: auto; }
+        #s09-shine { position: absolute; top: -20%; left: 0; width: 160px; height: 140%; background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)); }
+        #s09-note-cap { margin-top: 20px; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
+      </style>
+
+      <div id="s09-root" data-composition-id="09-rehabilitation" data-width="1080" data-height="1920">
+        <div id="s09-kick" class="kicker">Réhabilitation</div>
+        <div id="s09-year" class="display">1954</div>
+        <div id="s09-wait">59 ans d'attente</div>
+        <div id="s09-stamp" class="stamp">Grâce royale</div>
+
+        <div id="s09-note-wrap">
+          <div id="s09-note">
+            <svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="s09-g" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M0 9 H18 M9 0 V18" stroke="#e85d26" stroke-width="1" opacity="0.25" /></pattern>
+                <clipPath id="s09-medal"><circle cx="670" cy="240" r="150" /></clipPath>
+              </defs>
+              <rect width="900" height="480" fill="#f0ece5" />
+              <rect width="900" height="480" fill="url(#s09-g)" />
+              <rect x="20" y="20" width="860" height="440" fill="none" stroke="#111111" stroke-width="3" />
+              <text x="48" y="430" font-family="IBM Plex Mono, monospace" font-size="22" fill="#111111" opacity="0.55">01000001 01001100 01000001 01001110</text>
+              <text x="44" y="160" font-family="Barlow, sans-serif" font-weight="900" font-size="160" fill="#e85d26" letter-spacing="-6">£50</text>
+              <text x="52" y="232" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="26" letter-spacing="4" fill="#111111">FIFTY POUNDS</text>
+              <text x="52" y="312" font-family="Barlow, sans-serif" font-weight="800" font-size="50" fill="#111111">alan turing</text>
+              <text x="52" y="356" font-family="IBM Plex Mono, monospace" font-size="22" letter-spacing="3" fill="#111111">1912 – 1954</text>
+              <circle cx="670" cy="240" r="156" fill="#111111" />
+              <g clip-path="url(#s09-medal)">
+                <rect x="510" y="80" width="320" height="320" fill="#e85d26" />
+                <path d="M540 400 C550 330 600 305 640 300 L700 300 C740 305 790 330 800 400 Z" fill="#111111" />
+                <path d="M648 250 L692 250 L696 305 L670 322 L644 305 Z" fill="#111111" />
+                <ellipse cx="670" cy="200" rx="62" ry="78" fill="#111111" />
+              </g>
+              <circle cx="670" cy="240" r="156" fill="none" stroke="#111111" stroke-width="3" />
+            </svg>
+            <div id="s09-shine"></div>
+          </div>
+          <div id="s09-note-cap"><span>Billet de 50 £ · 2021</span><span>Illustration</span></div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const B = String(window.__hyperframes.getVariables().beats).split(",").map(Number);
+          const tl = gsap.timeline({ paused: true });
+
+          // Temps 1 — 1954 → 2013, puis la grâce royale
+          const year = document.querySelector("#s09-year");
+          const c = { v: 1954 };
+          tl.fromTo("#s09-kick", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35 }, 0);
+          tl.fromTo(year, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, B[0] - 0.1);
+          tl.to(c, { v: 2013, duration: 1.4, ease: "power2.inOut", onUpdate: () => { year.textContent = String(Math.round(c.v)); } }, B[0] + 0.1);
+          tl.fromTo("#s09-wait", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[0] + 0.6);
+          tl.fromTo("#s09-stamp", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.2, ease: "power4.in" }, B[0] + 1.7);
+
+          // Temps 2 — le billet de 50 £
+          tl.to(["#s09-year", "#s09-wait", "#s09-stamp"], { opacity: 0, y: -60, duration: 0.3, ease: "power2.in" }, B[1] - 0.25);
+          tl.to("#s09-kick", { opacity: 0.4, duration: 0.3 }, B[1] - 0.25);
+          tl.fromTo("#s09-note-wrap", { opacity: 0, y: 260, rotation: -9 }, { opacity: 1, y: -200, rotation: -2, duration: 0.7, ease: "back.out(1.3)" }, B[1] - 0.1);
+          tl.fromTo("#s09-shine", { x: -200 }, { x: 1100, duration: 0.9, ease: "power2.inOut" }, B[1] + 0.7);
+          tl.to("#s09-note-wrap", { rotation: 0, scale: 1.03, duration: 2.4, ease: "sine.inOut" }, B[1] + 0.6);
+
+          window.__timelines["09-rehabilitation"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- GÉNÉRÉ par tools/build-index.mjs à partir de timing.json — ne pas éditer à la main -->
+  </head>
+  <body>
+    <template>
+      <style>
+        #chrome-root { position: absolute; inset: 0; pointer-events: none; }
+        /* zone sûre TikTok : rien d'important dans les 160 px du haut */
+        .chrome-bar { position: absolute; left: 72px; right: 72px; top: 168px; height: 4px; background: rgba(240, 236, 229, 0.16); }
+        .chrome-fill { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: var(--fire); transform-origin: left center; }
+        .chrome-label { position: absolute; left: 72px; top: 192px; font-family: var(--mono); font-weight: 500; font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); opacity: 0.85; }
+        .chrome-count { position: absolute; right: 72px; top: 192px; font-family: var(--mono); font-weight: 500; font-size: 22px; letter-spacing: 0.14em; color: var(--cream); opacity: 0; }
+      </style>
+      <div id="chrome-root" data-composition-id="chrome" data-width="1080" data-height="1920">
+        <div class="chrome-bar"><div class="chrome-fill" id="chrome-fill"></div></div>
+        <div class="chrome-label">Alan Turing · 1912–1954</div>
+        <div id="count-0" class="chrome-count">01 / 10</div>
+        <div id="count-1" class="chrome-count">02 / 10</div>
+        <div id="count-2" class="chrome-count">03 / 10</div>
+        <div id="count-3" class="chrome-count">04 / 10</div>
+        <div id="count-4" class="chrome-count">05 / 10</div>
+        <div id="count-5" class="chrome-count">06 / 10</div>
+        <div id="count-6" class="chrome-count">07 / 10</div>
+        <div id="count-7" class="chrome-count">08 / 10</div>
+        <div id="count-8" class="chrome-count">09 / 10</div>
+        <div id="count-9" class="chrome-count">10 / 10</div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#chrome-fill", { scaleX: 0 }, { scaleX: 1, duration: 80.293, ease: "none" }, 0);
+          tl.set("#count-0", { opacity: 1 }, 0);
+          tl.set("#count-0", { opacity: 0 }, 6.479);
+          tl.set("#count-1", { opacity: 1 }, 6.479);
+          tl.set("#count-1", { opacity: 0 }, 14.025);
+          tl.set("#count-2", { opacity: 1 }, 14.025);
+          tl.set("#count-2", { opacity: 0 }, 24.311);
+          tl.set("#count-3", { opacity: 1 }, 24.311);
+          tl.set("#count-3", { opacity: 0 }, 34.578);
+          tl.set("#count-4", { opacity: 1 }, 34.578);
+          tl.set("#count-4", { opacity: 0 }, 42.998);
+          tl.set("#count-5", { opacity: 1 }, 42.998);
+          tl.set("#count-5", { opacity: 0 }, 49.743);
+          tl.set("#count-6", { opacity: 1 }, 49.743);
+          tl.set("#count-6", { opacity: 0 }, 57.847);
+          tl.set("#count-7", { opacity: 1 }, 57.847);
+          tl.set("#count-7", { opacity: 0 }, 67.016);
+          tl.set("#count-8", { opacity: 1 }, 67.016);
+          tl.set("#count-8", { opacity: 0 }, 73.845);
+          tl.set("#count-9", { opacity: 1 }, 73.845);
+          tl.set("#count-9", { opacity: 0 }, 80.293);
+          tl.to(".chrome-label, .chrome-count", { color: "#111111", duration: 0.2 }, 4.287);
+          tl.to("#chrome-fill", { backgroundColor: "#111111", duration: 0.2 }, 4.287);
+          tl.set(".chrome-label, .chrome-count", { color: "#f0ece5" }, 6.479);
+          tl.set("#chrome-fill", { backgroundColor: "#e85d26" }, 6.479);
+          tl.to(".chrome-label, .chrome-count", { color: "#111111", duration: 0.2 }, 76.538);
+          tl.to("#chrome-fill", { backgroundColor: "#111111", duration: 0.2 }, 76.538);
+          tl.set(".chrome-label, .chrome-count", { color: "#f0ece5" }, 80.293);
+          tl.set("#chrome-fill", { backgroundColor: "#e85d26" }, 80.293);
+          window.__timelines["chrome"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

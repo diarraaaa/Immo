@@ -1,0 +1,92 @@
+{
+  "voice": "ff_siwis",
+  "speed": 1.05,
+  "gapAfterLine": 0.14,
+  "gapAfterScene": 0.42,
+  "leadIn": 0.35,
+  "tail": 2.2,
+  "scenes": [
+    {
+      "id": "01-hook",
+      "lines": [
+        { "say": "Cet homme a peut-être sauvé des millions de vies…", "cap": "Cet homme a peut-être sauvé des millions de vies…", "hl": "millions de vies" },
+        { "say": "et son propre pays l'a condamné.", "cap": "…et son propre pays l'a condamné.", "hl": "condamné" },
+        { "say": "Voici l'histoire d'Alan Turing.", "cap": "Voici l'histoire d'Alan Turing.", "hl": "Alan Turing" }
+      ]
+    },
+    {
+      "id": "02-enfance",
+      "lines": [
+        { "say": "Londres, mille neuf cent douze.", "cap": "Londres, 1912.", "hl": "1912" },
+        { "say": "Enfant, il est obsédé par les chiffres et les énigmes.", "cap": "Enfant, il est obsédé par les chiffres et les énigmes.", "hl": "chiffres" },
+        { "say": "À seize ans, il lit déjà Einstein… et il le comprend.", "cap": "À 16 ans, il lit déjà Einstein… et il le comprend.", "hl": "Einstein" }
+      ]
+    },
+    {
+      "id": "03-machine",
+      "lines": [
+        { "say": "En mille neuf cent trente-six, à vingt-quatre ans,", "cap": "En 1936, à 24 ans,", "hl": "24 ans" },
+        { "say": "il imagine une machine capable d'exécuter n'importe quel programme.", "cap": "il imagine une machine capable d'exécuter n'importe quel programme.", "hl": "n'importe quel programme" },
+        { "say": "La machine de Turing.", "cap": "La machine de Turing.", "hl": "machine de Turing" },
+        { "say": "C'est l'idée de l'ordinateur moderne.", "cap": "C'est l'idée de l'ordinateur moderne.", "hl": "l'ordinateur" }
+      ]
+    },
+    {
+      "id": "04-enigma",
+      "lines": [
+        { "say": "Mille neuf cent trente-neuf. La guerre éclate.", "cap": "1939. La guerre éclate.", "hl": "guerre" },
+        { "say": "Les nazis chiffrent leurs messages avec la machine Énigma.", "cap": "Les nazis chiffrent leurs messages avec la machine Enigma.", "hl": "Enigma" },
+        { "say": "Cent cinquante-neuf trillions de combinaisons possibles.", "cap": "159 trillions de combinaisons possibles.", "hl": "159 trillions" },
+        { "say": "Et les réglages changent chaque jour.", "cap": "Et les réglages changent chaque jour.", "hl": "chaque jour" }
+      ]
+    },
+    {
+      "id": "05-bombe",
+      "lines": [
+        { "say": "Dans le secret de Blètchelie Parc,", "cap": "Dans le secret de Bletchley Park,", "hl": "Bletchley Park" },
+        { "say": "Turing et son équipe construisent la Bombe :", "cap": "Turing et son équipe construisent la Bombe :", "hl": "la Bombe" },
+        { "say": "une machine qui teste les réglages d'Énigma à toute vitesse.", "cap": "une machine qui teste les réglages d'Enigma à toute vitesse.", "hl": "à toute vitesse" }
+      ]
+    },
+    {
+      "id": "06-impact",
+      "lines": [
+        { "say": "Le code est brisé.", "cap": "Le code est brisé.", "hl": "brisé" },
+        { "say": "Selon certains historiens, la guerre est raccourcie de deux ans.", "cap": "Selon certains historiens, la guerre est raccourcie de 2 ans.", "hl": "2 ans" },
+        { "say": "Peut-être des millions de vies épargnées.", "cap": "Peut-être des millions de vies épargnées.", "hl": "millions de vies" }
+      ]
+    },
+    {
+      "id": "07-penser",
+      "lines": [
+        { "say": "Après la guerre, il conçoit l'un des premiers ordinateurs,", "cap": "Après la guerre, il conçoit l'un des premiers ordinateurs,", "hl": "premiers ordinateurs" },
+        { "say": "et pose une question folle :", "cap": "et pose une question folle :", "hl": "question folle" },
+        { "say": "une machine peut-elle penser ?", "cap": "une machine peut-elle penser ?", "hl": "penser" },
+        { "say": "C'est le test de Turing.", "cap": "C'est le test de Turing.", "hl": "test de Turing" }
+      ]
+    },
+    {
+      "id": "08-tragedie",
+      "lines": [
+        { "say": "Mais en mille neuf cent cinquante-deux, tout bascule.", "cap": "Mais en 1952, tout bascule.", "hl": "tout bascule" },
+        { "say": "Il est condamné pour homosexualité,", "cap": "Il est condamné pour homosexualité,", "hl": "condamné" },
+        { "say": "et subit une castration chimique.", "cap": "et subit une castration chimique.", "hl": "castration chimique" },
+        { "say": "Il meurt deux ans plus tard, à quarante et un ans.", "cap": "Il meurt deux ans plus tard, à 41 ans.", "hl": "41 ans" }
+      ]
+    },
+    {
+      "id": "09-rehabilitation",
+      "lines": [
+        { "say": "Il faudra attendre deux mille treize pour que la reine le gracie.", "cap": "Il faudra attendre 2013 pour que la reine le gracie.", "hl": "2013" },
+        { "say": "Aujourd'hui, son visage est sur le billet de cinquante livres.", "cap": "Aujourd'hui, son visage est sur le billet de 50 livres.", "hl": "50 livres" }
+      ]
+    },
+    {
+      "id": "10-fin",
+      "lines": [
+        { "say": "Alors la prochaine fois que tu touches un écran…", "cap": "Alors la prochaine fois que tu touches un écran…", "hl": "écran" },
+        { "say": "pense à Alan Turing.", "cap": "pense à Alan Turing.", "hl": "Alan Turing" }
+      ]
+    }
+  ]
+}

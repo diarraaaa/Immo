@@ -1,0 +1,138 @@
+<!doctype html>
+<html data-composition-variables='[{"id":"beats","type":"string","label":"Débuts de phrase (s)","default":"0.25,2.761,5.804,8.533"}]'>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s04-root { position: absolute; inset: 0; overflow: hidden; }
+        #s04-war { position: absolute; left: 60px; top: 300px; }
+        #s04-war .display { font-size: 330px; line-height: 1; color: var(--cream); }
+        #s04-war .kicker { margin: 30px 0 0 12px; font-size: 30px; }
+        #s04-flash { position: absolute; inset: 0; background: var(--fire); opacity: 0; }
+
+        #s04-machine { position: absolute; left: 90px; top: 300px; width: 900px; height: 700px; background: var(--ink-alt); border: 1px solid var(--border); transform-origin: 50% 0%; }
+        #s04-machine .kicker { position: absolute; left: 36px; top: 28px; }
+        #s04-rotors { position: absolute; left: 0; right: 0; top: 90px; display: flex; justify-content: center; gap: 46px; }
+        .s04-win { width: 120px; height: 150px; border: 3px solid var(--cream-hint); overflow: hidden; position: relative; background: var(--ink); }
+        .s04-strip { position: absolute; left: 0; right: 0; top: 0; }
+        .s04-strip span { display: block; height: 150px; line-height: 150px; text-align: center; font-family: var(--mono); font-weight: 600; font-size: 76px; color: var(--cream); }
+        #s04-lamps { position: absolute; left: 0; right: 0; top: 300px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+        .s04-row { display: flex; gap: 18px; }
+        .s04-lamp { width: 78px; height: 78px; border-radius: 50%; border: 2px solid var(--cream-hint); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 32px; color: var(--cream-muted); background: var(--ink); }
+        .s04-lamp.lit { background: var(--fire); border-color: var(--fire); color: var(--ink); box-shadow: 0 0 40px rgba(232, 93, 38, 0.8); }
+        #s04-out { position: absolute; left: 36px; bottom: 30px; font-family: var(--mono); font-size: 26px; letter-spacing: 0.3em; color: var(--fire); }
+
+        #s04-num { position: absolute; left: 72px; right: 72px; top: 610px; }
+        #s04-num .kicker { margin-bottom: 18px; }
+        .s04-numline { display: block; font-family: var(--sans); font-weight: 900; font-size: 116px; line-height: 1.15; letter-spacing: -0.03em; color: var(--fire); font-variant-numeric: tabular-nums; }
+
+        #s04-clock { position: absolute; left: 72px; top: 960px; display: flex; align-items: center; gap: 40px; }
+        #s04-time { font-family: var(--mono); font-weight: 600; font-size: 92px; color: var(--cream); }
+        #s04-time-cap { font-family: var(--mono); font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); margin-top: 6px; }
+      </style>
+
+      <div id="s04-root" data-composition-id="04-enigma" data-width="1080" data-height="1920">
+        <div id="s04-flash"></div>
+        <div id="s04-war"><div class="display" id="s04-y">1939</div><div class="kicker">La guerre éclate</div></div>
+
+        <div id="s04-machine">
+          <div class="kicker">Enigma · armée allemande</div>
+          <div id="s04-rotors"></div>
+          <div id="s04-lamps"></div>
+          <div id="s04-out">Clair : —</div>
+        </div>
+
+        <div id="s04-num">
+          <div class="kicker">Réglages possibles</div>
+          <span class="s04-numline" id="s04-n1">158 962 555 217</span>
+          <span class="s04-numline" id="s04-n2">826 360 000</span>
+        </div>
+
+        <div id="s04-clock">
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#282826" stroke-width="12" />
+            <circle id="s04-ring" cx="100" cy="100" r="86" fill="none" stroke="#e85d26" stroke-width="12" transform="rotate(-90 100 100)" />
+            <line id="s04-hand" x1="100" y1="100" x2="100" y2="34" stroke="#f0ece5" stroke-width="8" stroke-linecap="round" />
+          </svg>
+          <div><div id="s04-time">23:59</div><div id="s04-time-cap">Minuit · nouveaux réglages</div></div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const B = String(window.__hyperframes.getVariables().beats).split(",").map(Number);
+          const tl = gsap.timeline({ paused: true });
+          let seed = 1939;
+          const rnd = () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+          const ABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+          // Temps 1 — 1939 : flash et secousse
+          tl.fromTo("#s04-y", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power4.out", transformOrigin: "0% 50%" }, B[0] - 0.1);
+          tl.fromTo("#s04-flash", { opacity: 0.85 }, { opacity: 0, duration: 0.5, ease: "power2.out" }, B[0] - 0.1);
+          tl.to("#s04-war", { x: 10, duration: 0.04, yoyo: true, repeat: 7, ease: "none" }, B[0] + 0.1);
+          tl.fromTo("#s04-war .kicker", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[0] + 1.1);
+
+          // Temps 2 — la machine : rotors + tableau lumineux (QWERTZ)
+          const rotors = document.querySelector("#s04-rotors");
+          const start = [7, 3, 20]; // H D U
+          const strips = start.map((s) => {
+            const w = document.createElement("div"); w.className = "s04-win";
+            const st = document.createElement("div"); st.className = "s04-strip";
+            for (let i = 0; i < 40; i++) { const sp = document.createElement("span"); sp.textContent = ABC[(s + i) % 26]; st.appendChild(sp); }
+            w.appendChild(st); rotors.appendChild(w); return st;
+          });
+          const lampsEl = document.querySelector("#s04-lamps");
+          const lamp = {};
+          ["QWERTZUIO", "ASDFGHJK", "PYXCVBNML"].forEach((row) => {
+            const r = document.createElement("div"); r.className = "s04-row";
+            for (const ch of row) { const l = document.createElement("div"); l.className = "s04-lamp"; l.textContent = ch; r.appendChild(l); lamp[ch] = l; }
+            lampsEl.appendChild(r);
+          });
+          tl.to("#s04-war", { opacity: 0, y: -60, duration: 0.3, ease: "power2.in" }, B[1] - 0.25);
+          tl.fromTo("#s04-machine", { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, B[1] - 0.1);
+          const word = "WETTER"; // « météo » : les bulletins météo allemands servaient de « crib » aux décrypteurs
+          const out = document.querySelector("#s04-out");
+          let t = B[1] + 0.5;
+          let fast = 0, mid = 0;
+          for (let i = 0; i < word.length; i++) {
+            fast += 1; if (i === 3) mid += 1; // le rotor rapide avance à chaque touche
+            tl.to(strips[2], { y: -150 * fast, duration: 0.12, ease: "power2.out" }, t);
+            tl.to(strips[1], { y: -150 * mid, duration: 0.12, ease: "power2.out" }, t);
+            const ch = word[i];
+            tl.set(lamp[ch], { className: "s04-lamp lit" }, t + 0.06);
+            tl.set(lamp[ch], { className: "s04-lamp" }, t + 0.36);
+            tl.set(out, { textContent: "Clair : " + word.slice(0, i + 1) }, t + 0.06);
+            t += 0.4;
+          }
+
+          // Temps 3 — le chiffre vertigineux (défile puis se fige)
+          tl.to("#s04-machine", { scale: 0.42, y: -20, opacity: 0.35, duration: 0.45, ease: "power3.inOut" }, B[2] - 0.25);
+          const n1 = document.querySelector("#s04-n1"), n2 = document.querySelector("#s04-n2");
+          const final1 = n1.textContent, final2 = n2.textContent;
+          const scramble = (s) => s.replace(/\d/g, () => String(Math.floor(rnd() * 10)));
+          tl.fromTo("#s04-num", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, B[2]);
+          for (let k = 0; k < 12; k++) {
+            tl.set(n1, { textContent: scramble(final1) }, B[2] + k * 0.07);
+            tl.set(n2, { textContent: scramble(final2) }, B[2] + k * 0.07);
+          }
+          tl.set(n1, { textContent: final1 }, B[2] + 0.84);
+          tl.set(n2, { textContent: final2 }, B[2] + 0.84);
+          tl.fromTo(["#s04-n1", "#s04-n2"], { scale: 1.06 }, { scale: 1, duration: 0.3, ease: "back.out(3)", transformOrigin: "0% 50%" }, B[2] + 0.84);
+
+          // Temps 4 — chaque jour, tout recommence
+          const C = 2 * Math.PI * 86;
+          tl.fromTo("#s04-clock", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, B[3] - 0.1);
+          tl.fromTo("#s04-ring", { strokeDasharray: C, strokeDashoffset: C }, { strokeDashoffset: 0, duration: 1.0, ease: "power1.inOut" }, B[3]);
+          tl.fromTo("#s04-hand", { rotation: 0, svgOrigin: "100 100" }, { rotation: 360, svgOrigin: "100 100", duration: 1.0, ease: "power1.inOut" }, B[3]);
+          tl.set("#s04-time", { textContent: "00:00", color: "#e85d26" }, B[3] + 1.0);
+          tl.fromTo("#s04-time", { scale: 1 }, { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, transformOrigin: "0% 50%" }, B[3] + 1.0);
+          tl.to(["#s04-n1", "#s04-n2"], { opacity: 0.35, duration: 0.3 }, B[3] + 1.0);
+
+          window.__timelines["04-enigma"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

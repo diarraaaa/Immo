@@ -1,0 +1,5 @@
+snapshots/*.png
+node_modules/
+*.raw.wav
+renders/work-*/
+renders/.*transaction*/

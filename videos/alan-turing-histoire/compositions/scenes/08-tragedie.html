@@ -1,0 +1,82 @@
+<!doctype html>
+<html data-composition-variables='[{"id":"beats","type":"string","label":"Débuts de phrase (s)","default":"0.25,2.757,4.737,6.575"}]'>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s08-root { position: absolute; inset: 0; overflow: hidden; }
+        #s08-year { position: absolute; left: 60px; top: 300px; font-size: 330px; color: var(--cream-muted); }
+        #s08-crack { position: absolute; left: 0; top: 600px; width: 1080px; height: 6px; background: var(--fire); transform-origin: left center; }
+        #s08-file { position: absolute; left: 90px; top: 300px; width: 900px; padding: 44px 48px 52px; background: var(--cream); color: var(--ink); font-family: var(--mono); }
+        #s08-file .row { display: flex; justify-content: space-between; font-size: 22px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(17, 17, 17, 0.6); border-bottom: 1px solid rgba(17, 17, 17, 0.2); padding-bottom: 16px; }
+        #s08-file h3 { margin-top: 34px; font-family: var(--sans); font-weight: 800; font-size: 72px; letter-spacing: -0.02em; text-transform: lowercase; }
+        .s08-field { margin-top: 26px; font-size: 26px; letter-spacing: 0.06em; line-height: 1.45; text-transform: uppercase; }
+        .s08-field span { display: block; font-size: 18px; letter-spacing: 0.14em; color: rgba(17, 17, 17, 0.55); }
+        #s08-stamp { left: 520px; top: 745px; font-size: 58px; }
+        #s08-life { position: absolute; left: 72px; right: 72px; top: 420px; }
+        #s08-life-years { display: flex; justify-content: space-between; font-family: var(--mono); font-weight: 600; font-size: 44px; letter-spacing: 0.1em; color: var(--cream); }
+        #s08-life-line { margin-top: 26px; height: 4px; background: var(--cream-hint); transform-origin: left center; }
+        #s08-age { margin-top: 70px; font-family: var(--sans); font-weight: 900; font-size: 300px; letter-spacing: -0.05em; line-height: 1.05; color: var(--fire); }
+        #s08-age-cap { margin-top: 36px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
+      </style>
+
+      <div id="s08-root" data-composition-id="08-tragedie" data-width="1080" data-height="1920">
+        <div id="s08-year" class="display">1952</div>
+        <div id="s08-crack"></div>
+
+        <div id="s08-file">
+          <div class="row"><span>Royaume-Uni</span><span>31 mars 1952</span></div>
+          <h3>alan m. turing</h3>
+          <div class="s08-field"><span>Chef d'accusation</span><b id="s08-f1">« Indécence grave » — homosexualité</b></div>
+          <div class="s08-field"><span>Peine</span><b id="s08-f2">Traitement hormonal imposé · 1 an</b></div>
+        </div>
+        <div id="s08-stamp" class="stamp">Condamné</div>
+
+        <div id="s08-life">
+          <div id="s08-life-years"><span>1912</span><span>1954</span></div>
+          <div id="s08-life-line"></div>
+          <div id="s08-age">41 ans</div>
+          <div id="s08-age-cap">Mort le 7 juin 1954</div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const B = String(window.__hyperframes.getVariables().beats).split(",").map(Number);
+          const tl = gsap.timeline({ paused: true });
+
+          // Temps 1 — « tout bascule » : l'année se fissure et tombe
+          tl.fromTo("#s08-year", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, B[0] - 0.1);
+          tl.fromTo("#s08-crack", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power4.inOut" }, B[0] + 1.2);
+          tl.to("#s08-year", { rotation: 7, y: 50, duration: 0.8, ease: "power2.in", transformOrigin: "0% 100%" }, B[0] + 1.35);
+
+          // Temps 2 — le dossier judiciaire, tapé à la machine
+          tl.to(["#s08-year", "#s08-crack"], { opacity: 0, duration: 0.3 }, B[1] - 0.25);
+          tl.fromTo("#s08-file", { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, B[1] - 0.15);
+          const type = (sel, at, dur) => {
+            const el = document.querySelector(sel); const full = el.textContent; const n = full.length;
+            tl.set(el, { textContent: "" }, 0);
+            for (let i = 1; i <= n; i++) tl.set(el, { textContent: full.slice(0, i) }, at + (i / n) * dur);
+          };
+          type("#s08-f1", B[1] + 0.35, 1.1);
+          tl.fromTo("#s08-stamp", { opacity: 0, scale: 2.5 }, { opacity: 1, scale: 1, rotation: -10, duration: 0.2, ease: "power4.in" }, B[1] + 1.3);
+          tl.to("#s08-file", { x: 10, duration: 0.05, yoyo: true, repeat: 3, ease: "none" }, B[1] + 1.5);
+
+          // Temps 3 — la peine
+          type("#s08-f2", B[2] + 0.1, 1.1);
+
+          // Temps 4 — une vie trop courte
+          tl.to(["#s08-file", "#s08-stamp"], { opacity: 0, y: -40, duration: 0.4, ease: "power2.in" }, B[3] - 0.3);
+          tl.fromTo("#s08-life-years", { opacity: 0 }, { opacity: 1, duration: 0.5 }, B[3]);
+          tl.fromTo("#s08-life-line", { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power2.inOut" }, B[3] + 0.1);
+          tl.fromTo("#s08-age", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, B[3] + 1.0);
+          tl.fromTo("#s08-age-cap", { opacity: 0 }, { opacity: 1, duration: 0.5 }, B[3] + 1.4);
+
+          window.__timelines["08-tragedie"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

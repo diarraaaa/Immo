@@ -1,0 +1,74 @@
+<!doctype html>
+<html data-composition-variables='[{"id":"beats","type":"string","label":"Débuts de phrase (s)","default":"0.35,2.638,4.287"}]'>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s01-root { position: absolute; inset: 0; overflow: hidden; }
+        #s01-kicker { position: absolute; left: 72px; top: 290px; display: flex; align-items: center; gap: 20px; }
+        #s01-card { left: 200px; top: 370px; width: 680px; }
+        #s01-img-wrap { overflow: hidden; }
+        #s01-img { width: 100%; }
+        #s01-stamp { left: 330px; top: 760px; font-size: 64px; }
+        #s01-orange { position: absolute; inset: 0; background: var(--fire); }
+        #s01-title { position: absolute; left: 72px; right: 72px; top: 330px; color: var(--ink); opacity: 0; }
+        #s01-title .kicker { color: rgba(17, 17, 17, 0.6); }
+        .s01-line { display: block; overflow: hidden; }
+        .s01-word { display: block; font-size: 270px; }
+        #s01-years { margin-top: 44px; font-family: var(--mono); font-weight: 600; font-size: 40px; letter-spacing: 0.14em; color: rgba(17, 17, 17, 0.75); }
+        #s01-sub { margin-top: 18px; font-family: var(--sans); font-weight: 600; font-size: 44px; line-height: 1.2; color: var(--ink); max-width: 760px; }
+      </style>
+
+      <div id="s01-root" data-composition-id="01-hook" data-width="1080" data-height="1920">
+        <div id="s01-kicker"><span class="rule"></span><span class="kicker">Une histoire vraie</span></div>
+
+        <div id="s01-card" class="photo-card">
+          <div id="s01-img-wrap"><img id="s01-img" src="assets/illustrations/portrait-turing.svg" alt="Portrait stylisé d'Alan Turing" /></div>
+          <div class="photo-cap"><span>A. M. Turing</span><span>Illustration</span></div>
+        </div>
+        <div id="s01-stamp" class="stamp">Condamné</div>
+
+        <div id="s01-orange"></div>
+        <div id="s01-title">
+          <div class="kicker">No. 01 — mathématicien · 1912</div>
+          <span class="s01-line"><span class="s01-word display" id="s01-w1">alan</span></span>
+          <span class="s01-line"><span class="s01-word display" id="s01-w2">turing</span></span>
+          <div id="s01-years">1912 — 1954</div>
+          <p id="s01-sub">L'homme qui a inventé l'idée de l'ordinateur.</p>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const B = String(window.__hyperframes.getVariables().beats).split(",").map(Number);
+          const tl = gsap.timeline({ paused: true });
+          // le titre n'existe visuellement qu'après le volet orange
+          tl.set("#s01-title", { opacity: 1 }, B[2] + 0.15);
+
+          // Temps 1 — la carte photo arrive, lent travelling avant (Ken Burns)
+          tl.fromTo("#s01-kicker", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.05);
+          tl.fromTo("#s01-card", { opacity: 0, y: 80, rotation: 3 }, { opacity: 1, y: 0, rotation: -2, duration: 0.7, ease: "power3.out" }, 0.1);
+          tl.fromTo("#s01-img", { scale: 1.18 }, { scale: 1, duration: B[2], ease: "none" }, 0);
+
+          // Temps 2 — « condamné » : le tampon s'écrase, la carte encaisse le choc
+          tl.fromTo("#s01-stamp", { opacity: 0, scale: 2.6, rotation: -4 }, { opacity: 1, scale: 1, rotation: -12, duration: 0.22, ease: "power4.in" }, B[1] + 0.35);
+          tl.to("#s01-card", { x: 14, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, B[1] + 0.57);
+          tl.to("#s01-img", { filter: "grayscale(1) brightness(0.7)", duration: 0.4 }, B[1] + 0.57);
+
+          // Temps 3 — volet orange, le nom en très grand
+          tl.fromTo("#s01-orange", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.45, ease: "power3.inOut" }, B[2] - 0.2);
+          tl.set(["#s01-kicker", "#s01-card", "#s01-stamp"], { opacity: 0 }, B[2] + 0.26); // couverts par le volet : on les retire
+          tl.fromTo("#s01-title .kicker", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[2] + 0.2);
+          tl.fromTo("#s01-w1", { yPercent: 105 }, { yPercent: 0, duration: 0.5, ease: "power4.out" }, B[2] + 0.2);
+          tl.fromTo("#s01-w2", { yPercent: 105 }, { yPercent: 0, duration: 0.5, ease: "power4.out" }, B[2] + 0.32);
+          tl.fromTo("#s01-years", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, B[2] + 0.6);
+          tl.fromTo("#s01-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, B[2] + 0.8);
+
+          window.__timelines["01-hook"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

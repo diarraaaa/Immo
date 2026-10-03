@@ -1,0 +1,391 @@
+{
+  "total": 80.293,
+  "scenes": [
+    {
+      "id": "01-hook",
+      "index": 0,
+      "lines": [
+        {
+          "cap": "Cet homme a peut-être sauvé des millions de vies…",
+          "hl": "millions de vies",
+          "start": 0.35,
+          "end": 2.498
+        },
+        {
+          "cap": "…et son propre pays l'a condamné.",
+          "hl": "condamné",
+          "start": 2.638,
+          "end": 4.147
+        },
+        {
+          "cap": "Voici l'histoire d'Alan Turing.",
+          "hl": "Alan Turing",
+          "start": 4.287,
+          "end": 6.309
+        }
+      ],
+      "start": 0,
+      "end": 6.479,
+      "duration": 6.479,
+      "beats": [
+        0.35,
+        2.638,
+        4.287
+      ],
+      "beatEnds": [
+        2.498,
+        4.147,
+        6.309
+      ]
+    },
+    {
+      "id": "02-enfance",
+      "index": 1,
+      "lines": [
+        {
+          "cap": "Londres, 1912.",
+          "hl": "1912",
+          "start": 6.729,
+          "end": 8.237
+        },
+        {
+          "cap": "Enfant, il est obsédé par les chiffres et les énigmes.",
+          "hl": "chiffres",
+          "start": 8.377,
+          "end": 11.021
+        },
+        {
+          "cap": "À 16 ans, il lit déjà Einstein… et il le comprend.",
+          "hl": "Einstein",
+          "start": 11.161,
+          "end": 13.855
+        }
+      ],
+      "start": 6.479,
+      "end": 14.025,
+      "duration": 7.546,
+      "beats": [
+        0.25,
+        1.898,
+        4.682
+      ],
+      "beatEnds": [
+        1.758,
+        4.542,
+        7.376
+      ]
+    },
+    {
+      "id": "03-machine",
+      "index": 2,
+      "lines": [
+        {
+          "cap": "En 1936, à 24 ans,",
+          "hl": "24 ans",
+          "start": 14.275,
+          "end": 16.603
+        },
+        {
+          "cap": "il imagine une machine capable d'exécuter n'importe quel programme.",
+          "hl": "n'importe quel programme",
+          "start": 16.743,
+          "end": 20.507
+        },
+        {
+          "cap": "La machine de Turing.",
+          "hl": "machine de Turing",
+          "start": 20.647,
+          "end": 22.123
+        },
+        {
+          "cap": "C'est l'idée de l'ordinateur moderne.",
+          "hl": "l'ordinateur",
+          "start": 22.263,
+          "end": 24.141
+        }
+      ],
+      "start": 14.025,
+      "end": 24.311,
+      "duration": 10.286,
+      "beats": [
+        0.25,
+        2.718,
+        6.622,
+        8.238
+      ],
+      "beatEnds": [
+        2.578,
+        6.482,
+        8.098,
+        10.116
+      ]
+    },
+    {
+      "id": "04-enigma",
+      "index": 3,
+      "lines": [
+        {
+          "cap": "1939. La guerre éclate.",
+          "hl": "guerre",
+          "start": 24.561,
+          "end": 26.932
+        },
+        {
+          "cap": "Les nazis chiffrent leurs messages avec la machine Enigma.",
+          "hl": "Enigma",
+          "start": 27.072,
+          "end": 29.975
+        },
+        {
+          "cap": "159 trillions de combinaisons possibles.",
+          "hl": "159 trillions",
+          "start": 30.115,
+          "end": 32.704
+        },
+        {
+          "cap": "Et les réglages changent chaque jour.",
+          "hl": "chaque jour",
+          "start": 32.844,
+          "end": 34.408
+        }
+      ],
+      "start": 24.311,
+      "end": 34.578,
+      "duration": 10.267,
+      "beats": [
+        0.25,
+        2.761,
+        5.804,
+        8.533
+      ],
+      "beatEnds": [
+        2.621,
+        5.664,
+        8.393,
+        10.097
+      ]
+    },
+    {
+      "id": "05-bombe",
+      "index": 4,
+      "lines": [
+        {
+          "cap": "Dans le secret de Bletchley Park,",
+          "hl": "Bletchley Park",
+          "start": 34.828,
+          "end": 36.451
+        },
+        {
+          "cap": "Turing et son équipe construisent la Bombe :",
+          "hl": "la Bombe",
+          "start": 36.591,
+          "end": 39.434
+        },
+        {
+          "cap": "une machine qui teste les réglages d'Enigma à toute vitesse.",
+          "hl": "à toute vitesse",
+          "start": 39.574,
+          "end": 42.828
+        }
+      ],
+      "start": 34.578,
+      "end": 42.998,
+      "duration": 8.42,
+      "beats": [
+        0.25,
+        2.013,
+        4.996
+      ],
+      "beatEnds": [
+        1.873,
+        4.856,
+        8.25
+      ]
+    },
+    {
+      "id": "06-impact",
+      "index": 5,
+      "lines": [
+        {
+          "cap": "Le code est brisé.",
+          "hl": "brisé",
+          "start": 43.248,
+          "end": 44.29
+        },
+        {
+          "cap": "Selon certains historiens, la guerre est raccourcie de 2 ans.",
+          "hl": "2 ans",
+          "start": 44.43,
+          "end": 47.531
+        },
+        {
+          "cap": "Peut-être des millions de vies épargnées.",
+          "hl": "millions de vies",
+          "start": 47.671,
+          "end": 49.573
+        }
+      ],
+      "start": 42.998,
+      "end": 49.743,
+      "duration": 6.745,
+      "beats": [
+        0.25,
+        1.432,
+        4.673
+      ],
+      "beatEnds": [
+        1.292,
+        4.533,
+        6.575
+      ]
+    },
+    {
+      "id": "07-penser",
+      "index": 6,
+      "lines": [
+        {
+          "cap": "Après la guerre, il conçoit l'un des premiers ordinateurs,",
+          "hl": "premiers ordinateurs",
+          "start": 49.993,
+          "end": 52.828
+        },
+        {
+          "cap": "et pose une question folle :",
+          "hl": "question folle",
+          "start": 52.968,
+          "end": 54.309
+        },
+        {
+          "cap": "une machine peut-elle penser ?",
+          "hl": "penser",
+          "start": 54.449,
+          "end": 55.937
+        },
+        {
+          "cap": "C'est le test de Turing.",
+          "hl": "test de Turing",
+          "start": 56.077,
+          "end": 57.677
+        }
+      ],
+      "start": 49.743,
+      "end": 57.847,
+      "duration": 8.104,
+      "beats": [
+        0.25,
+        3.225,
+        4.706,
+        6.334
+      ],
+      "beatEnds": [
+        3.085,
+        4.566,
+        6.194,
+        7.934
+      ]
+    },
+    {
+      "id": "08-tragedie",
+      "index": 7,
+      "lines": [
+        {
+          "cap": "Mais en 1952, tout bascule.",
+          "hl": "tout bascule",
+          "start": 58.097,
+          "end": 60.464
+        },
+        {
+          "cap": "Il est condamné pour homosexualité,",
+          "hl": "condamné",
+          "start": 60.604,
+          "end": 62.444
+        },
+        {
+          "cap": "et subit une castration chimique.",
+          "hl": "castration chimique",
+          "start": 62.584,
+          "end": 64.282
+        },
+        {
+          "cap": "Il meurt deux ans plus tard, à 41 ans.",
+          "hl": "41 ans",
+          "start": 64.422,
+          "end": 66.846
+        }
+      ],
+      "start": 57.847,
+      "end": 67.016,
+      "duration": 9.169,
+      "beats": [
+        0.25,
+        2.757,
+        4.737,
+        6.575
+      ],
+      "beatEnds": [
+        2.617,
+        4.597,
+        6.435,
+        8.999
+      ]
+    },
+    {
+      "id": "09-rehabilitation",
+      "index": 8,
+      "lines": [
+        {
+          "cap": "Il faudra attendre 2013 pour que la reine le gracie.",
+          "hl": "2013",
+          "start": 67.266,
+          "end": 70.372
+        },
+        {
+          "cap": "Aujourd'hui, son visage est sur le billet de 50 livres.",
+          "hl": "50 livres",
+          "start": 70.512,
+          "end": 73.675
+        }
+      ],
+      "start": 67.016,
+      "end": 73.845,
+      "duration": 6.829,
+      "beats": [
+        0.25,
+        3.496
+      ],
+      "beatEnds": [
+        3.356,
+        6.659
+      ]
+    },
+    {
+      "id": "10-fin",
+      "index": 9,
+      "lines": [
+        {
+          "cap": "Alors la prochaine fois que tu touches un écran…",
+          "hl": "écran",
+          "start": 74.095,
+          "end": 76.448
+        },
+        {
+          "cap": "pense à Alan Turing.",
+          "hl": "Alan Turing",
+          "start": 76.588,
+          "end": 78.093
+        }
+      ],
+      "start": 73.845,
+      "end": 80.293,
+      "duration": 6.448,
+      "beats": [
+        0.25,
+        2.743
+      ],
+      "beatEnds": [
+        2.603,
+        4.248
+      ]
+    }
+  ]
+}
