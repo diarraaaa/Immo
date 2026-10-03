@@ -19,11 +19,15 @@ Les photos sous CC BY-SA imposent de partager la vidéo sous la même licence (C
 | pilot-ace.jpg | Pilot ACE (Science Museum) | Antoine Taveneaux | CC BY-SA 3.0 | Commons : « Pilot ACE3.jpg » |
 | maison-wilmslow.jpg | Sa maison de Wilmslow (1950-1954) | Dunk (Flickr : dullhunk) | CC BY 4.0 | Commons : « Alan Turing's House from 1950 to 1954.jpg » |
 
+## Voix
+
+Voix off générée par **Chatterbox Multilingual** (Resemble AI, licence MIT ; les fichiers portent le filigrane audio inaudible « Perth » qui les signale comme générés par IA), en prenant pour référence la **SIWIS French Speech Synthesis Database** (P.-E. Honnet, A. Lazaridis, P. N. Garner, J. Yamagishi — Idiap / NII, **CC BY 4.0**), un corpus enregistré pour la synthèse vocale. Extraits utilisés : `neut_book_s01_0023` et `neut_book_s01_0143` → `assets/audio/voix-reference-siwis.wav`.
+
 Le billet de 50 £ est une **version stylisée** (le vrai billet est protégé par la Banque d'Angleterre) ; le portrait qu'il contient est la photo Elliott & Fry de 1951, celle-là même utilisée sur le billet réel.
 
 ## Texte à coller dans la description TikTok
 
 ```
 L'histoire vraie d'Alan Turing 🧠 #alanturing #histoire #enigma #informatique #apprendresurtiktok
-Photos : Wikimedia Commons — Elliott & Fry (DP), Bundesarchiv/E. Borchert & Walther (CC BY-SA 3.0 DE), DeFacto (CC BY-SA 4.0), D. Tonkonog (CC BY-SA 3.0), A. Taveneaux (CC BY-SA 3.0), Dunk (CC BY 4.0), S. Harriyott (CC BY 2.0), TedColes (CC0) ; Library of Congress (photochrome). Vidéo sous licence CC BY-SA 4.0.
+Photos : Wikimedia Commons — Elliott & Fry (DP), Bundesarchiv/E. Borchert & Walther (CC BY-SA 3.0 DE), DeFacto (CC BY-SA 4.0), D. Tonkonog (CC BY-SA 3.0), A. Taveneaux (CC BY-SA 3.0), Dunk (CC BY 4.0), S. Harriyott (CC BY 2.0), TedColes (CC0) ; Library of Congress (photochrome). Voix : Chatterbox (MIT) + SIWIS French Speech Synthesis Database (CC BY 4.0). Vidéo sous licence CC BY-SA 4.0.
 ```

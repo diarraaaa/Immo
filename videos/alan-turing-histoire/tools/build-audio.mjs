@@ -35,7 +35,9 @@ const probe = (file) =>
 // (Chatterbox Multilingual, plus naturel, lancé par lot via tools/tts-chatterbox.py).
 const ENGINE = story.engine ?? "kokoro";
 const keyFor = (text) => {
-  const sig = ENGINE === "kokoro" ? `${story.voice}|${story.speed}|${text}` : `${ENGINE}|${JSON.stringify(story.engineOptions ?? {})}|${text}`;
+  // Seules les options qui changent la voix entrent dans la clé de cache.
+  const { verify, attempts, tempo, ...voiceOpts } = story.engineOptions ?? {};
+  const sig = ENGINE === "kokoro" ? `${story.voice}|${story.speed}|${text}` : `${ENGINE}|${JSON.stringify(voiceOpts)}|${text}`;
   return createHash("sha1").update(sig).digest("hex").slice(0, 12);
 };
 const outFor = (text) => join(VO_DIR, `${keyFor(text)}.wav`);
@@ -79,6 +81,9 @@ function synth(text) {
   return { file: out, duration: probe(out) };
 }
 
+// Accélération sans changer la hauteur de la voix (filtre atempo à l'assemblage)
+const TEMPO = (story.engineOptions ?? {}).tempo ?? 1;
+
 // 1) Synthèse + placement temporel
 let t = story.leadIn;
 const pieces = []; // { file?, silence?, duration }
@@ -87,7 +92,8 @@ const scenes = [];
 for (const [si, scene] of story.scenes.entries()) {
   const lines = [];
   for (const [li, line] of scene.lines.entries()) {
-    const { file, duration } = synth(line.say);
+    const { file, duration: raw } = synth(line.say);
+    const duration = raw / TEMPO; // durée après accélération (atempo)
     lines.push({ cap: line.cap, hl: line.hl, start: r3(t), end: r3(t + duration) });
     pieces.push({ file, duration });
     t += duration;
@@ -120,18 +126,23 @@ for (const [i, s] of scenes.entries()) {
 // 3) Concaténation de la voix off (filtre concat avec silences générés)
 const inputs = [];
 const filters = [];
+const pre = []; // filtres atempo appliqués avant la concaténation
 pieces.forEach((p, i) => {
   if (p.silence) {
     inputs.push("-f", "lavfi", "-t", String(p.duration), "-i", "anullsrc=r=24000:cl=mono");
   } else {
     inputs.push("-i", p.file);
   }
-  filters.push(`[${i}:a]`);
+  if (p.silence || TEMPO === 1) filters.push(`[${i}:a]`);
+  else {
+    pre.push(`[${i}:a]atempo=${TEMPO}[t${i}]`);
+    filters.push(`[t${i}]`);
+  }
 });
 const narration = join(ROOT, "assets/audio/narration.wav");
 execFileSync("ffmpeg", [
   "-y", "-v", "error", ...inputs,
-  "-filter_complex", `${filters.join("")}concat=n=${pieces.length}:v=0:a=1,apad=whole_dur=${total}[out]`,
+  "-filter_complex", `${pre.map((f) => f + ";").join("")}${filters.join("")}concat=n=${pieces.length}:v=0:a=1,apad=whole_dur=${total}[out]`,
   "-map", "[out]", "-ar", "48000", "-ac", "1", narration,
 ]);
 

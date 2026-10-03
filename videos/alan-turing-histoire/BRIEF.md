@@ -9,7 +9,7 @@ language: fr
 audience: grand public francophone sur TikTok, 16-35 ans
 length: 75s
 angle: narrative
-voice: ff_siwis
+voice: chatterbox+siwis
 style_preset: broadside
 ---
 

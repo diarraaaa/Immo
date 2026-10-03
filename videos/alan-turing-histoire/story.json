@@ -1,6 +1,15 @@
 {
-  "voice": "ff_siwis",
-  "speed": 1.05,
+  "engine": "chatterbox",
+  "engineOptions": {
+    "language": "fr",
+    "exaggeration": 0.5,
+    "cfg_weight": 0.5,
+    "seed": 1912,
+    "voice_prompt": "assets/audio/voix-reference-siwis.wav",
+    "verify": true,
+    "attempts": 5,
+    "tempo": 1.1
+  },
   "gapAfterLine": 0.14,
   "gapAfterScene": 0.42,
   "leadIn": 0.35,
@@ -20,7 +29,7 @@
           "hl": "condamné"
         },
         {
-          "say": "Voici l'histoire d'Alan Tiourinng.",
+          "say": "Voici l'histoire d'Alan Turing.",
           "cap": "Voici l'histoire d'Alan Turing.",
           "hl": "Alan Turing"
         }
@@ -60,7 +69,7 @@
           "hl": "n'importe quel programme"
         },
         {
-          "say": "La machine de Tiourinng.",
+          "say": "La machine de Turing.",
           "cap": "La machine de Turing.",
           "hl": "machine de Turing"
         },
@@ -100,12 +109,12 @@
       "id": "05-bombe",
       "lines": [
         {
-          "say": "Dans le secret de Blètchelie Parc,",
+          "say": "Dans le secret de Bletchley Park,",
           "cap": "Dans le secret de Bletchley Park,",
           "hl": "Bletchley Park"
         },
         {
-          "say": "Tiourinng et son équipe construisent la Bombe :",
+          "say": "Turing et son équipe construisent la Bombe :",
           "cap": "Turing et son équipe construisent la Bombe :",
           "hl": "la Bombe"
         },
@@ -155,7 +164,7 @@
           "hl": "penser"
         },
         {
-          "say": "C'est le test de Tiourinng.",
+          "say": "C'est le test de Turing.",
           "cap": "C'est le test de Turing.",
           "hl": "test de Turing"
         }
@@ -210,7 +219,7 @@
           "hl": "écran"
         },
         {
-          "say": "pense à Alan Tiourinng.",
+          "say": "pense à Alan Turing.",
           "cap": "pense à Alan Turing.",
           "hl": "Alan Turing"
         }

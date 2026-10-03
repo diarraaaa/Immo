@@ -5,7 +5,7 @@ Vidéo verticale 1080×1920 de ~78 s, en français, réalisée avec
 
 - **Rendu final :** `renders/alan-turing-tiktok.mp4`
 - **Style :** preset *Broadside* (fond encre, un seul accent orange, Barlow 900 + IBM Plex Mono)
-- **Voix :** Kokoro `ff_siwis` (TTS locale, gratuite), sous-titres synchronisés phrase par phrase
+- **Voix :** Chatterbox Multilingual + voix de référence SIWIS (local, gratuit), sous-titres synchronisés phrase par phrase
 - **Musique :** nappe sombre + tic-tac synthétisés par FFmpeg (aucune banque de sons n'était accessible)
 
 ## Comment c'est construit
@@ -22,18 +22,22 @@ Chaque scène reçoit, via la variable HyperFrames `beats`, l'instant (en second
 commence chacune de ses phrases : les animations restent calées sur la voix même si
 on change le texte.
 
-## Prononciation
+## La voix
 
-Le champ `say` de `story.json` est écrit **pour l'oreille**, pas pour l'œil. La voix
-française de Kokoro passe les noms anglais en phonèmes anglais et les écorche ; on les
-réécrit donc en orthographe française, vérifiée phonème par phonème avec espeak :
+`story.json` choisit le moteur de voix :
 
-| Mot à l'écran | Écrit pour la voix | Phonèmes obtenus |
-| --- | --- | --- |
-| Turing | `Tiourinng` | `tjuʁiŋ` (« Tiou-ring ») |
-| Bletchley Park | `Blètchelie Parc` | `blɛtʃli paʁk` |
-| Enigma | `Énigma` | `eniɡma` |
-| 1912, 159… | en toutes lettres | — |
+- `"engine": "chatterbox"` (actuel) — **Chatterbox Multilingual** (Resemble AI, MIT), bien
+  plus naturel que Kokoro. On lui donne une **voix de référence française**
+  (`assets/audio/voix-reference-siwis.wav`, corpus SIWIS, CC BY 4.0) : sans elle, sa voix par
+  défaut est anglophone et garde l'accent (Whisper entendait « millions de J's » au lieu de
+  « millions de vies »). Environ 6× plus lent que le temps réel sur CPU (~10 min pour la vidéo).
+  Installation : `python3 -m venv cbx && cbx/bin/pip install chatterbox-tts`, puis
+  `CHATTERBOX_PYTHON=cbx/bin/python node tools/build-audio.mjs`.
+- `"engine": "kokoro"` (ou absent) — Kokoro `ff_siwis` via `hyperframes tts` : instantané mais
+  robotique. Kokoro passe les noms anglais en phonèmes anglais ; il faut alors les écrire « pour
+  l'oreille » dans `say` (`Tiourinng` → `tjuʁiŋ`, `Blètchelie Parc`, `Énigma`).
+
+Dans les deux cas, `say` écrit les nombres en toutes lettres.
 
 ## Modifier puis régénérer
 
