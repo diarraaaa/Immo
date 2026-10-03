@@ -33,8 +33,12 @@ function chunkLine(line) {
     else s.split(/\s+/).filter(Boolean).forEach((w) => tokens.push({ text: w, hl: false }));
   };
   if (hlAt >= 0) {
-    pushWords(cap.slice(0, hlAt), false);
+    // Préfixe élidé collé au mot-clé (« d'Alan Turing ») → rattaché au token surligné
+    const before = cap.slice(0, hlAt);
+    const head = before.match(/[^\s]*$/)[0];
+    pushWords(before.slice(0, before.length - head.length), false);
     pushWords(cap.slice(hlAt, hlAt + hl.length), true);
+    if (head) tokens[tokens.length - 1].head = head;
     // ponctuation collée au mot-clé (« condamné. ») → rattachée au token surligné
     const rest = cap.slice(hlAt + hl.length);
     const glued = rest.match(/^[^\s]*/)[0];
@@ -44,7 +48,7 @@ function chunkLine(line) {
 
   const groups = [];
   let cur = [];
-  const len = (g) => g.reduce((n, t) => n + t.text.length + (t.tail?.length ?? 0) + 1, 0);
+  const len = (g) => g.reduce((n, t) => n + (t.head?.length ?? 0) + t.text.length + (t.tail?.length ?? 0) + 1, 0);
   for (const tok of tokens) {
     const words = cur.reduce((n, t) => n + t.text.split(" ").length, 0);
     if (cur.length && (words >= 4 || len(cur) + tok.text.length > 26)) {
@@ -87,7 +91,7 @@ const capHtml = captions
     const words = c.tokens
       .map((t) =>
         t.hl
-          ? `<span class="cap-hl">${esc(t.text)}</span>${t.tail ? esc(t.tail) : ""}`
+          ? `${t.head ? esc(t.head) : ""}<span class="cap-hl">${esc(t.text)}</span>${t.tail ? esc(t.tail) : ""}`
           : `<span class="cap-w">${esc(t.text)}</span>`,
       )
       .join(" ");
