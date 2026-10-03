@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- GÉNÉRÉ par tools/build-index.mjs à partir de timing.json — ne pas éditer à la main -->
+  </head>
+  <body>
+    <template>
+      <style>
+        #transitions-root { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+        .wipe-panel { position: absolute; inset: 0; background: var(--fire); visibility: hidden; }
+      </style>
+      <div id="transitions-root" data-composition-id="transitions" data-width="1080" data-height="1920">
+        <div class="wipe-panel" id="wipe-panel-0"></div>
+        <div class="wipe-panel" id="wipe-panel-1"></div>
+        <div class="wipe-panel" id="wipe-panel-2"></div>
+        <div class="wipe-panel" id="wipe-panel-3"></div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          tl.set("#wipe-panel-0", { visibility: "visible" }, 6.485);
+          tl.fromTo("#wipe-panel-0", { yPercent: 100 }, { yPercent: 0, duration: 0.28, ease: "power3.in" }, 6.485);
+          tl.to("#wipe-panel-0", { yPercent: -100, duration: 0.3, ease: "power3.out" }, 6.785);
+          tl.set("#wipe-panel-0", { visibility: "hidden" }, 7.085);
+          tl.set("#wipe-panel-1", { visibility: "visible" }, 24.552);
+          tl.fromTo("#wipe-panel-1", { yPercent: 100 }, { yPercent: 0, duration: 0.28, ease: "power3.in" }, 24.552);
+          tl.to("#wipe-panel-1", { yPercent: -100, duration: 0.3, ease: "power3.out" }, 24.852);
+          tl.set("#wipe-panel-1", { visibility: "hidden" }, 25.152);
+          tl.set("#wipe-panel-2", { visibility: "visible" }, 57.891);
+          tl.fromTo("#wipe-panel-2", { yPercent: 100 }, { yPercent: 0, duration: 0.28, ease: "power3.in" }, 57.891);
+          tl.to("#wipe-panel-2", { yPercent: -100, duration: 0.3, ease: "power3.out" }, 58.191);
+          tl.set("#wipe-panel-2", { visibility: "hidden" }, 58.491);
+          tl.set("#wipe-panel-3", { visibility: "visible" }, 74.541);
+          tl.fromTo("#wipe-panel-3", { yPercent: 100 }, { yPercent: 0, duration: 0.28, ease: "power3.in" }, 74.541);
+          tl.to("#wipe-panel-3", { yPercent: -100, duration: 0.3, ease: "power3.out" }, 74.841);
+          tl.set("#wipe-panel-3", { visibility: "hidden" }, 75.141);
+          window.__timelines["transitions"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

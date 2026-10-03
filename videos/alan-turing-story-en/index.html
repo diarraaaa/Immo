@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Alan Turing — the story</title>
+    <!-- GÉNÉRÉ par tools/build-index.mjs à partir de timing.json — ne pas éditer à la main -->
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Barlow"; font-weight: 400; src: url("assets/fonts/barlow-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Barlow"; font-weight: 500; src: url("assets/fonts/barlow-latin-500-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Barlow"; font-weight: 600; src: url("assets/fonts/barlow-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Barlow"; font-weight: 700; src: url("assets/fonts/barlow-latin-700-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Barlow"; font-weight: 800; src: url("assets/fonts/barlow-latin-800-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Barlow"; font-weight: 900; src: url("assets/fonts/barlow-latin-900-normal.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 400; src: url("assets/fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 500; src: url("assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 600; src: url("assets/fonts/ibm-plex-mono-latin-600-normal.woff2") format("woff2"); }
+
+      /* ── Jetons Broadside (frame.md) ── */
+      :root {
+        --ink: #111111;
+        --ink-alt: #1a1a18;
+        --fire: #e85d26;
+        --cream: #f0ece5;
+        --cream-muted: #888880;
+        --cream-hint: #505048;
+        --border: #282826;
+        --mono: "IBM Plex Mono", ui-monospace, monospace;
+        --sans: "Barlow", system-ui, sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ink); }
+      body { font-family: var(--sans); color: var(--cream); -webkit-font-smoothing: antialiased; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--ink); }
+      .clip { position: absolute; inset: 0; }
+
+      /* ── Atomes partagés par toutes les scènes (le DOM des scènes est cloné ici) ── */
+      .kicker { font-family: var(--mono); font-weight: 500; font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fire); }
+      .kicker.muted { color: var(--cream-muted); }
+      .rule { display: block; width: 64px; height: 4px; background: var(--fire); }
+      .display { font-family: var(--sans); font-weight: 900; text-transform: lowercase; letter-spacing: -0.045em; line-height: 0.86; }
+      .h1 { font-family: var(--sans); font-weight: 800; text-transform: lowercase; letter-spacing: -0.03em; line-height: 0.92; }
+      .h2 { font-family: var(--sans); font-weight: 700; text-transform: lowercase; letter-spacing: -0.02em; line-height: 1.05; }
+      .lead { font-family: var(--sans); font-weight: 500; font-size: 34px; line-height: 1.35; color: var(--cream-muted); }
+      .accent { color: var(--fire); }
+      /* carte « photo » : cadre net, filet 1px, légende mono — remplaçable par une vraie photo */
+      .photo-card { position: absolute; background: var(--ink-alt); border: 1px solid var(--border); padding: 18px 18px 0; }
+      .photo-card img { display: block; width: 100%; height: auto; }
+      /* cadre à hauteur fixe : la photo est recadrée (cover) — fixer la hauteur par carte */
+      .photo-card .frame { overflow: hidden; background: #000; }
+      .photo-card .frame img { width: 100%; height: 100%; object-fit: cover; }
+      .photo-card .photo-cap { display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: space-between; font-family: var(--mono); font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); padding: 16px 2px 18px; }
+      .stamp { position: absolute; font-family: var(--mono); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fire); border: 6px solid var(--fire); padding: 10px 26px; }
+      .scene-ground { position: absolute; inset: 0; background: var(--ink); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="80.432" data-width="1080" data-height="1920">
+      <div id="ground" class="clip scene-ground" data-start="0" data-duration="80.432" data-track-index="0"></div>
+
+      <!-- Scènes -->
+      <div id="scene-01-hook" data-composition-id="01-hook" data-composition-src="compositions/scenes/01-hook.html" data-start="0" data-duration="6.785" data-track-index="1" data-width="1080" data-height="1920" data-variable-values='{&quot;beats&quot;:&quot;0.35,2.74,4.747&quot;}'></div>
+      <div id="scene-02-enfance" data-composition-id="02-enfance" data-composition-src="compositions/scenes/02-enfance.html" data-start="6.785" data-duration="8.578" data-track-index="2" data-width="1080" data-height="1920" data-variable-values='{&quot;beats&quot;:&quot;0.25,1.934,4.854&quot;}'></div>
+      <div id="scene-03-machine" data-composition-id="03-machine" data-composition-src="compositions/scenes/03-machine.html" data-start="15.363" data-duration="9.489" data-track-index="1" data-width="1080" data-height="1920" data-variable-values='{&quot;beats&quot;:&quot;0.25,3.212,5.898,7.227&quot;}'></div>
+      <div id="scene-04-enigma" data-composition-id="04-enigma" data-composition-src="compositions/scenes/04-enigma.html" data-start="24.852" data-duration="11.734" data-track-index="2" data-width="1080" data-height="1920" data-variable-values='{&quot;beats&quot;:&quot;0.25,2.829,6.099,9.246&quot;}'></div>
+      <div id="scene-05-bombe" data-composition-id="05-bombe" data-composition-src="compositions/scenes/05-bombe.html" data-start="36.586" data-duration="7.234" data-track-index="1" data-width="1080" data-height="1920" data-variable-values='{&quot;beats&quot;:&quot;0.25,2.213,4.183&quot;}'></div>
+      <div id="scene-06-impact" data-composition-id="06-impact" data-composition-src="compositions/scenes/06-impact.html" data-start="43.82" data-duration="6.719" data-track-index="2" data-width="1080" data-height="1920" data-variable-values='{&quot;beats&quot;:&quot;0.25,1.701,4.721&quot;}'></div>
+      <div id="scene-07-penser" data-composition-id="07-penser" data-composition-src="compositions/scenes/07-penser.html" data-start="50.539" data-duration="7.652" data-track-index="1" data-width="1080" data-height="1920" data-variable-values='{&quot;beats&quot;:&quot;0.25,3.224,4.93,6.293&quot;}'></div>
+      <div id="scene-08-tragedie" data-composition-id="08-tragedie" data-composition-src="compositions/scenes/08-tragedie.html" data-start="58.191" data-duration="10.438" data-track-index="2" data-width="1080" data-height="1920" data-variable-values='{&quot;beats&quot;:&quot;0.25,3.201,5.586,7.814&quot;}'></div>
+      <div id="scene-09-rehabilitation" data-composition-id="09-rehabilitation" data-composition-src="compositions/scenes/09-rehabilitation.html" data-start="68.629" data-duration="6.212" data-track-index="1" data-width="1080" data-height="1920" data-variable-values='{&quot;beats&quot;:&quot;0.25,3.439&quot;}'></div>
+      <div id="scene-10-fin" data-composition-id="10-fin" data-composition-src="compositions/scenes/10-fin.html" data-start="74.841" data-duration="5.591" data-track-index="2" data-width="1080" data-height="1920" data-variable-values='{&quot;beats&quot;:&quot;0.25,2.138&quot;}'></div>
+
+      <!-- Calques communs : habillage, sous-titres, transitions -->
+      <div id="layer-chrome" data-composition-id="chrome" data-composition-src="compositions/chrome.html" data-start="0" data-duration="80.432" data-track-index="10" data-width="1080" data-height="1920"></div>
+      <div id="layer-captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0" data-duration="80.432" data-track-index="20" data-width="1080" data-height="1920" data-track-kind="captions"></div>
+      <div id="layer-transitions" data-composition-id="transitions" data-composition-src="compositions/transitions.html" data-start="0" data-duration="80.432" data-track-index="30" data-width="1080" data-height="1920"></div>
+
+      <!-- Audio : voix off + nappe synthétisée -->
+      <audio id="vo" src="assets/audio/narration.wav" data-start="0" data-duration="80.432" data-track-index="90" data-volume="1"></audio>
+      <audio id="bgm" src="assets/audio/music.wav" data-start="0" data-duration="80.432" data-track-index="91" data-volume="0.22" data-fade-in="1.5" data-fade-out="2.5"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

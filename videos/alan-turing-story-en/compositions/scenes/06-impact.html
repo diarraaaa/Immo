@@ -1,0 +1,81 @@
+<!doctype html>
+<html data-composition-variables='[{"id":"beats","type":"string","label":"Débuts de phrase (s)","default":"0.25,1.432,4.673"}]'>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s06-root { position: absolute; inset: 0; overflow: hidden; }
+        #s06-bg { position: absolute; left: 0; right: 0; top: 250px; height: 760px; overflow: hidden; }
+        #s06-bg img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.1); opacity: 0.4; }
+        #s06-bg-fade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17, 17, 17, 0.2) 0%, rgba(17, 17, 17, 0.55) 55%, #111111 100%); }
+        #s06-bg-cap { position: absolute; right: 72px; top: 1030px; font-family: var(--mono); font-size: 18px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-muted); }
+        #s06-cipher { position: absolute; left: 72px; right: 72px; top: 300px; font-family: var(--mono); font-weight: 500; font-size: 62px; line-height: 1.25; letter-spacing: 0.06em; color: var(--cream-hint); }
+        #s06-cipher div { white-space: nowrap; }
+        #s06-solved { position: absolute; left: 66px; top: 330px; font-size: 210px; color: var(--cream); }
+        #s06-solved .accent { display: block; }
+        #s06-stat { position: absolute; left: 72px; right: 72px; top: 760px; border-top: 1px solid var(--border); padding-top: 24px; }
+        #s06-stat b { display: block; font-family: var(--sans); font-weight: 900; font-size: 190px; letter-spacing: -0.05em; line-height: 1.05; color: var(--fire); margin-bottom: 10px; }
+        #s06-stat p { font-family: var(--sans); font-weight: 700; font-size: 52px; color: var(--cream); text-transform: lowercase; letter-spacing: -0.02em; }
+        #s06-stat small { display: block; margin-top: 10px; font-family: var(--mono); font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
+        #s06-dots { position: absolute; left: 72px; top: 690px; display: grid; grid-template-columns: repeat(16, 40px); gap: 18px; }
+        .s06-dot { width: 40px; height: 40px; border-radius: 50%; background: var(--cream-hint); }
+        #s06-dots-cap { position: absolute; left: 72px; top: 1100px; font-family: var(--mono); font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
+      </style>
+
+      <div id="s06-root" data-composition-id="06-impact" data-width="1080" data-height="1920">
+        <div id="s06-bg"><img id="s06-bg-photo" src="assets/photos/enigma-1943.jpg" alt="Opérateur tapant sur une Enigma, 1943" /><div id="s06-bg-fade"></div></div>
+        <div id="s06-bg-cap">Enigma, 1943 · Bundesarchiv · CC BY-SA 3.0 DE</div>
+        <div id="s06-cipher"></div>
+        <div id="s06-solved" class="display">code <span class="accent">broken.</span></div>
+        <div id="s06-stat">
+          <b>−2 years</b>
+          <p>of war, cut short*</p>
+          <small>* According to some historians</small>
+        </div>
+        <div id="s06-dots"></div>
+        <div id="s06-dots-cap">Millions of lives saved · estimate</div>
+      </div>
+
+      <script>
+        (() => {
+          const B = String(window.__hyperframes.getVariables().beats).split(",").map(Number);
+          const tl = gsap.timeline({ paused: true });
+          let seed = 1941;
+          const rnd = () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+          const ABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          const group = () => Array.from({ length: 5 }, () => ABC[Math.floor(rnd() * 26)]).join("");
+          const line = () => [group(), group(), group()].join(" ");
+
+          // Temps 1 — texte chiffré qui s'agite, puis se résout
+          const cipher = document.querySelector("#s06-cipher");
+          const rows = [0, 1, 2, 3].map(() => { const d = document.createElement("div"); d.textContent = line(); cipher.appendChild(d); return d; });
+          tl.fromTo(cipher, { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0);
+          for (let k = 0; k < 9; k++) rows.forEach((r) => tl.set(r, { textContent: line() }, B[0] + k * 0.08));
+          tl.to(cipher, { opacity: 0, duration: 0.2 }, B[0] + 0.62);
+          tl.fromTo("#s06-solved", { opacity: 0, scale: 1.15 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power4.out", transformOrigin: "0% 50%" }, B[0] + 0.82);
+
+          // Temps 2 — l'impact chiffré (estimation, sourcée à l'écran)
+          tl.fromTo("#s06-bg-photo", { scale: 1.15 }, { scale: 1, duration: B[1] + 0.4, ease: "none" }, 0);
+          tl.fromTo(["#s06-bg", "#s06-bg-cap"], { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0);
+          tl.to(["#s06-bg", "#s06-bg-cap"], { opacity: 0, duration: 0.35 }, B[1] - 0.2);
+          tl.fromTo("#s06-stat", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, B[1]);
+          tl.fromTo("#s06-stat small", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[1] + 1.2);
+
+          // Temps 3 — des vies : une grille de points qui s'allume en vague
+          tl.to(["#s06-cipher", "#s06-solved"], { opacity: 0, y: -60, duration: 0.3, ease: "power2.in" }, B[2] - 0.3);
+          tl.to("#s06-stat", { y: -460, duration: 0.45, ease: "power3.inOut" }, B[2] - 0.3);
+          const dots = document.querySelector("#s06-dots");
+          const all = [];
+          for (let i = 0; i < 16 * 7; i++) { const d = document.createElement("div"); d.className = "s06-dot"; dots.appendChild(d); all.push(d); }
+          tl.fromTo(all, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.25, stagger: { each: 0.004, grid: [7, 16], from: "start" } }, B[2]);
+          tl.to(all, { backgroundColor: "#e85d26", duration: 0.2, stagger: { each: 0.012, grid: [7, 16], from: [0, 0] } }, B[2] + 0.3);
+          tl.fromTo("#s06-dots-cap", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[2] + 0.6);
+
+          window.__timelines["06-impact"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

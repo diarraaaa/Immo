@@ -31,26 +31,50 @@ const probe = (file) =>
       .trim(),
   );
 
+// Moteur de voix : "kokoro" (défaut, via `hyperframes tts`) ou "chatterbox"
+// (Chatterbox Multilingual, plus naturel, lancé par lot via tools/tts-chatterbox.py).
+const ENGINE = story.engine ?? "kokoro";
+const keyFor = (text) => {
+  const sig = ENGINE === "kokoro" ? `${story.voice}|${story.speed}|${text}` : `${ENGINE}|${JSON.stringify(story.engineOptions ?? {})}|${text}`;
+  return createHash("sha1").update(sig).digest("hex").slice(0, 12);
+};
+const outFor = (text) => join(VO_DIR, `${keyFor(text)}.wav`);
+const rawFor = (text) => join(VO_DIR, `${keyFor(text)}.raw.wav`);
+
+// Coupe le silence de tête/queue pour que les durées soient « utiles », normalise en 24 kHz mono.
+function trim(raw, out) {
+  execFileSync("ffmpeg", [
+    "-y", "-v", "error", "-i", raw,
+    "-af",
+    "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.02," +
+      "areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.06,areverse",
+    "-ar", "24000", "-ac", "1", out,
+  ]);
+  rmSync(raw, { force: true });
+}
+
+// Chatterbox : toutes les phrases manquantes en un seul lancement (le modèle met ~30 s à charger).
+if (ENGINE === "chatterbox") {
+  const todo = [...new Set(story.scenes.flatMap((s) => s.lines.map((l) => l.say)))].filter((t) => !existsSync(outFor(t)));
+  if (todo.length) {
+    const jobsPath = join(VO_DIR, "_jobs.json");
+    writeFileSync(jobsPath, JSON.stringify({ ...(story.engineOptions ?? {}), jobs: todo.map((text) => ({ text, out: rawFor(text) })) }));
+    execFileSync(process.env.CHATTERBOX_PYTHON || "python3", [join(ROOT, "tools/tts-chatterbox.py"), jobsPath], { stdio: ["ignore", "inherit", "inherit"] });
+    rmSync(jobsPath);
+    todo.forEach((text) => trim(rawFor(text), outFor(text)));
+  }
+}
+
 function synth(text) {
-  const key = createHash("sha1").update(`${story.voice}|${story.speed}|${text}`).digest("hex").slice(0, 12);
-  const raw = join(VO_DIR, `${key}.raw.wav`);
-  const out = join(VO_DIR, `${key}.wav`);
+  const out = outFor(text);
   if (!existsSync(out)) {
+    const raw = rawFor(text);
     execFileSync(
       "npx",
       ["hyperframes", "tts", text, "-v", story.voice, "-s", String(story.speed), "-o", raw, "--json"],
       { stdio: ["ignore", "ignore", "inherit"] },
     );
-    // Coupe le silence de tête/queue de Kokoro pour que les durées soient « utiles »
-    // et normalise en 24 kHz mono.
-    execFileSync("ffmpeg", [
-      "-y", "-v", "error", "-i", raw,
-      "-af",
-      "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.02," +
-        "areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.06,areverse",
-      "-ar", "24000", "-ac", "1", out,
-    ]);
-    execFileSync("rm", ["-f", raw]);
+    trim(raw, out);
   }
   return { file: out, duration: probe(out) };
 }

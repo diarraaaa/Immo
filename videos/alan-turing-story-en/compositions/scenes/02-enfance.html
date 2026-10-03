@@ -1,0 +1,102 @@
+<!doctype html>
+<html data-composition-variables='[{"id":"beats","type":"string","label":"Débuts de phrase (s)","default":"0.25,1.898,4.682"}]'>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s02-root { position: absolute; inset: 0; overflow: hidden; }
+        #s02-head { position: absolute; left: 72px; top: 290px; display: flex; align-items: center; gap: 20px; }
+        #s02-year { position: absolute; left: 60px; top: 360px; line-height: 1; font-size: 330px; color: var(--fire); }
+        #s02-sub { position: absolute; left: 76px; top: 720px; font-family: var(--mono); font-size: 30px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
+        #s02-grid { position: absolute; left: 72px; right: 72px; top: 800px; display: grid; grid-template-columns: repeat(8, 1fr); row-gap: 10px; font-family: var(--mono); font-weight: 500; font-size: 44px; color: var(--cream-hint); text-align: center; }
+        #s02-photo { left: 120px; top: 770px; width: 760px; }
+        #s02-photo-img { height: 330px; }
+        #s02-plaque { position: absolute; left: 770px; top: 400px; width: 250px; height: 250px; border-radius: 50%; overflow: hidden; border: 6px solid var(--cream); }
+        #s02-plaque img { width: 100%; height: 100%; object-fit: cover; }
+        #s02-plaque-cap { position: absolute; left: 730px; top: 668px; width: 330px; text-align: center; font-family: var(--mono); font-size: 18px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-muted); }
+        #s02-teen { left: 650px; top: 236px; width: 330px; z-index: 2; }
+        #s02-teen-img { height: 360px; }
+        #s02-grid span { display: block; }
+        #s02-grid span.on { color: var(--fire); }
+        #s02-card { position: absolute; left: 110px; top: 600px; width: 860px; padding: 40px 48px 44px; background: var(--cream); color: var(--ink); }
+        #s02-card .kicker { color: rgba(17, 17, 17, 0.55); }
+        #s02-eq { display: block; margin-top: 44px; font-family: var(--sans); font-weight: 900; font-size: 190px; letter-spacing: -0.04em; line-height: 1; }
+        #s02-eq sup { font-size: 0.5em; line-height: 0; vertical-align: 0.8em; }
+        #s02-under { display: block; margin-top: 6px; }
+        #s02-note { margin-top: 20px; font-family: var(--sans); font-weight: 600; font-size: 38px; }
+      </style>
+
+      <div id="s02-root" data-composition-id="02-enfance" data-width="1080" data-height="1920">
+        <div id="s02-head"><span class="rule"></span><span class="kicker">London · 23 June</span></div>
+        <div id="s02-year" class="display">1900</div>
+        <div id="s02-sub">Born · Maida Vale</div>
+        <div id="s02-photo" class="photo-card">
+          <div id="s02-photo-img" class="frame"><img id="s02-img" src="assets/photos/londres-parlement.jpg" alt="Le Parlement de Londres vu de la Tamise, photochrome" /></div>
+          <div class="photo-cap"><span>London · c. 1900</span><span>Library of Congress</span></div>
+        </div>
+        <div id="s02-plaque"><img src="assets/photos/memorial-manchester.jpg" alt="Plaque bleue sur la maison natale d'Alan Turing" /></div>
+        <div id="s02-plaque-cap">Birthplace · S. Harriyott · CC BY 2.0</div>
+        <div id="s02-teen" class="photo-card">
+          <div id="s02-teen-img" class="frame"><img id="s02-teen-photo" src="assets/photos/turing-16-ans.jpg" alt="Alan Turing à 16 ans" /></div>
+          <div class="photo-cap"><span>Age 16</span><span>Public domain</span></div>
+        </div>
+        <div id="s02-grid"></div>
+        <div id="s02-card">
+          <div class="kicker">Age 16 · his reading</div>
+          <span id="s02-eq">E = mc<sup>2</sup></span>
+          <svg id="s02-under" width="620" height="40" viewBox="0 0 620 40"><path id="s02-under-path" d="M6 26 C120 6 260 38 380 18 S560 10 612 24" fill="none" stroke="#e85d26" stroke-width="9" stroke-linecap="round" /></svg>
+          <p id="s02-note">He reads Einstein… and gets it.</p>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const B = String(window.__hyperframes.getVariables().beats).split(",").map(Number);
+          const tl = gsap.timeline({ paused: true });
+          // PRNG déterministe (mulberry32) : même temps → même image, exigé par le rendu image par image
+          let seed = 1912;
+          const rnd = () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+
+          // Temps 1 — l'année défile jusqu'à 1912
+          const year = document.querySelector("#s02-year");
+          const counter = { v: 1900 };
+          tl.fromTo("#s02-head", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0);
+          tl.fromTo(year, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: "power4.out" }, B[0] - 0.15);
+          tl.to(counter, { v: 1912, duration: 1.1, ease: "power2.out", onUpdate: () => { year.textContent = String(Math.round(counter.v)); } }, B[0]);
+          tl.fromTo("#s02-sub", { opacity: 0 }, { opacity: 1, duration: 0.4 }, B[0] + 0.6);
+          // carte illustrée : Londres en 1912, léger travelling avant
+          tl.fromTo("#s02-photo", { opacity: 0, x: 140, rotation: 4 }, { opacity: 1, x: 0, rotation: 1.5, duration: 0.6, ease: "power3.out" }, B[0] + 0.1);
+          tl.fromTo("#s02-img", { scale: 1.15 }, { scale: 1, duration: B[1] + 0.3, ease: "none" }, 0);
+          tl.fromTo("#s02-plaque", { opacity: 0, scale: 0.3, rotation: -40 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.5, ease: "back.out(1.8)" }, B[0] + 0.7);
+          tl.fromTo("#s02-plaque-cap", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[0] + 1.0);
+          tl.to(["#s02-photo", "#s02-plaque", "#s02-plaque-cap"], { opacity: 0, x: -140, duration: 0.3, ease: "power2.in" }, B[1] - 0.2);
+
+          // Temps 2 — grille de chiffres qui « calcule »
+          const grid = document.querySelector("#s02-grid");
+          const cells = [];
+          for (let i = 0; i < 8 * 5; i++) { const s = document.createElement("span"); s.textContent = String(Math.floor(rnd() * 10)); grid.appendChild(s); cells.push(s); }
+          tl.fromTo(cells, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, stagger: { each: 0.012, from: "start" }, ease: "power2.out" }, B[1]);
+          // changements de chiffres pré-calculés, posés sur la timeline (seek-safe)
+          for (let k = 0; k < 26; k++) {
+            const at = B[1] + 0.25 + k * 0.1;
+            const picks = [0, 1, 2, 3, 4, 5].map(() => Math.floor(rnd() * cells.length));
+            picks.forEach((idx, j) => tl.set(cells[idx], { textContent: String(Math.floor(rnd() * 10)), className: j < 2 ? "on" : "" }, at));
+          }
+
+          // Temps 3 — carte « cahier » Einstein
+          tl.to(cells, { opacity: 0, duration: 0.3 }, B[2] - 0.2);
+          tl.to(["#s02-year", "#s02-sub", "#s02-head"], { opacity: 0, y: -40, duration: 0.3 }, B[2] - 0.2);
+          tl.fromTo("#s02-card", { opacity: 0, y: 120, rotation: 4 }, { opacity: 1, y: 0, rotation: -1.5, duration: 0.55, ease: "back.out(1.4)" }, B[2] - 0.1);
+          tl.fromTo("#s02-teen", { opacity: 0, y: -60, rotation: 8 }, { opacity: 1, y: 0, rotation: 3, duration: 0.55, ease: "back.out(1.4)" }, B[2] + 0.15);
+          tl.fromTo("#s02-teen-photo", { scale: 1.15 }, { scale: 1, duration: 3, ease: "none" }, B[2]);
+          tl.fromTo("#s02-under-path", { strokeDasharray: 700, strokeDashoffset: 700 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, B[2] + 0.5);
+          tl.fromTo("#s02-note", { opacity: 0 }, { opacity: 1, duration: 0.4 }, B[2] + 1.4);
+
+          window.__timelines["02-enfance"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

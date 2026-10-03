@@ -1,0 +1,92 @@
+{
+  "voice": "bf_emma",
+  "speed": 1.0,
+  "gapAfterLine": 0.14,
+  "gapAfterScene": 0.42,
+  "leadIn": 0.35,
+  "tail": 2.2,
+  "scenes": [
+    {
+      "id": "01-hook",
+      "lines": [
+        { "say": "This man may have saved millions of lives…", "cap": "This man may have saved millions of lives…", "hl": "millions of lives" },
+        { "say": "and his own country convicted him.", "cap": "…and his own country convicted him.", "hl": "convicted" },
+        { "say": "This is the story of Alan Turing.", "cap": "This is the story of Alan Turing.", "hl": "Alan Turing" }
+      ]
+    },
+    {
+      "id": "02-enfance",
+      "lines": [
+        { "say": "London, nineteen twelve.", "cap": "London, 1912.", "hl": "1912" },
+        { "say": "As a child, he was obsessed with numbers and puzzles.", "cap": "As a child, he was obsessed with numbers and puzzles.", "hl": "numbers" },
+        { "say": "At sixteen, he was already reading Einstein… and understanding him.", "cap": "At 16, he was already reading Einstein… and understanding him.", "hl": "Einstein" }
+      ]
+    },
+    {
+      "id": "03-machine",
+      "lines": [
+        { "say": "In nineteen thirty-six, aged just twenty-four,", "cap": "In 1936, aged just 24,", "hl": "24" },
+        { "say": "he imagined a machine that could run any program.", "cap": "he imagined a machine that could run any program.", "hl": "any program" },
+        { "say": "The Turing machine.", "cap": "The Turing machine.", "hl": "Turing machine" },
+        { "say": "The idea behind the modern computer.", "cap": "The idea behind the modern computer.", "hl": "modern computer" }
+      ]
+    },
+    {
+      "id": "04-enigma",
+      "lines": [
+        { "say": "Nineteen thirty-nine. War breaks out.", "cap": "1939. War breaks out.", "hl": "War" },
+        { "say": "The Nazis encrypt their messages with the Enigma machine.", "cap": "The Nazis encrypt their messages with the Enigma machine.", "hl": "Enigma" },
+        { "say": "A hundred and fifty-nine quintillion possible settings.", "cap": "159 quintillion possible settings.", "hl": "159 quintillion" },
+        { "say": "And the settings change every single day.", "cap": "And the settings change every single day.", "hl": "every single day" }
+      ]
+    },
+    {
+      "id": "05-bombe",
+      "lines": [
+        { "say": "In secret, at Bletchley Park,", "cap": "In secret, at Bletchley Park,", "hl": "Bletchley Park" },
+        { "say": "Turing and his team build the Bomb:", "cap": "Turing and his team build the Bombe:", "hl": "the Bombe" },
+        { "say": "a machine that tests Enigma settings at lightning speed.", "cap": "a machine that tests Enigma settings at lightning speed.", "hl": "lightning speed" }
+      ]
+    },
+    {
+      "id": "06-impact",
+      "lines": [
+        { "say": "The code is broken.", "cap": "The code is broken.", "hl": "broken" },
+        { "say": "Some historians say it shortened the war by two years.", "cap": "Some historians say it shortened the war by 2 years.", "hl": "2 years" },
+        { "say": "Perhaps millions of lives saved.", "cap": "Perhaps millions of lives saved.", "hl": "millions of lives" }
+      ]
+    },
+    {
+      "id": "07-penser",
+      "lines": [
+        { "say": "After the war, he designs one of the first computers,", "cap": "After the war, he designs one of the first computers,", "hl": "first computers" },
+        { "say": "and asks a wild question:", "cap": "and asks a wild question:", "hl": "wild question" },
+        { "say": "can a machine think?", "cap": "can a machine think?", "hl": "think" },
+        { "say": "The Turing test.", "cap": "The Turing test.", "hl": "Turing test" }
+      ]
+    },
+    {
+      "id": "08-tragedie",
+      "lines": [
+        { "say": "But in nineteen fifty-two, everything falls apart.", "cap": "But in 1952, everything falls apart.", "hl": "falls apart" },
+        { "say": "He is convicted for homosexuality,", "cap": "He is convicted for homosexuality,", "hl": "convicted" },
+        { "say": "and forced into chemical castration.", "cap": "and forced into chemical castration.", "hl": "chemical castration" },
+        { "say": "He dies two years later, aged forty-one.", "cap": "He dies two years later, aged 41.", "hl": "41" }
+      ]
+    },
+    {
+      "id": "09-rehabilitation",
+      "lines": [
+        { "say": "It took until twenty thirteen for the Queen to pardon him.", "cap": "It took until 2013 for the Queen to pardon him.", "hl": "2013" },
+        { "say": "Today, his face is on the fifty-pound note.", "cap": "Today, his face is on the £50 note.", "hl": "£50 note" }
+      ]
+    },
+    {
+      "id": "10-fin",
+      "lines": [
+        { "say": "So next time you touch a screen…", "cap": "So next time you touch a screen…", "hl": "screen" },
+        { "say": "think of Alan Turing.", "cap": "think of Alan Turing.", "hl": "Alan Turing" }
+      ]
+    }
+  ]
+}

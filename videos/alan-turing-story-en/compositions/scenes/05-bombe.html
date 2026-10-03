@@ -1,0 +1,109 @@
+<!doctype html>
+<html data-composition-variables='[{"id":"beats","type":"string","label":"Débuts de phrase (s)","default":"0.25,2.013,4.996"}]'>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s05-root { position: absolute; inset: 0; overflow: hidden; }
+        #s05-card { left: 72px; top: 330px; width: 936px; }
+        #s05-card-img { height: 520px; }
+        #s05-real { left: 72px; top: 410px; width: 936px; }
+        #s05-real-img { height: 600px; }
+        #s05-stamp { left: 560px; top: 300px; font-size: 44px; }
+        #s05-bombe { position: absolute; left: 72px; right: 72px; top: 300px; height: 860px; }
+        #s05-bombe .kicker { display: block; }
+        #s05-credit { margin-top: 12px; font-family: var(--mono); font-size: 20px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-muted); }
+        #s05-cab { position: absolute; left: 0; right: 0; top: 110px; padding: 34px 30px; background: var(--ink-alt); border: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); row-gap: 30px; justify-items: center; }
+        .s05-drum { width: 160px; height: 160px; }
+        #s05-count { position: absolute; left: 0; top: 750px; display: flex; align-items: baseline; gap: 24px; }
+        #s05-n { font-family: var(--sans); font-weight: 900; font-size: 110px; letter-spacing: -0.03em; color: var(--fire); line-height: 1; }
+        #s05-n-cap { max-width: 300px; font-family: var(--mono); font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
+      </style>
+
+      <div id="s05-root" data-composition-id="05-bombe" data-width="1080" data-height="1920">
+        <div id="s05-card" class="photo-card">
+          <div id="s05-card-img" class="frame"><img id="s05-card-photo" src="assets/photos/bletchley-park.jpg" alt="Manoir de Bletchley Park" /></div>
+          <div class="photo-cap"><span>Bletchley Park</span><span>DeFacto · CC BY-SA 4.0</span></div>
+        </div>
+        <div id="s05-stamp" class="stamp">Top secret</div>
+
+        <div id="s05-bombe">
+          <span class="kicker">The Bombe · 1940</span>
+          <div id="s05-credit">Based on the Polish codebreakers' “bomba”</div>
+          <div id="s05-cab"></div>
+          <div id="s05-count"><span id="s05-n">0</span><span id="s05-n-cap">rotor positions tested</span></div>
+        </div>
+        <div id="s05-real" class="photo-card">
+          <div id="s05-real-img" class="frame"><img id="s05-real-photo" src="assets/photos/bombe.jpg" alt="Bombe reconstruite à Bletchley Park" /></div>
+          <div class="photo-cap"><span>Rebuilt Bombe · Bletchley Park</span><span>TedColes · CC0</span></div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const B = String(window.__hyperframes.getVariables().beats).split(",").map(Number);
+          const tl = gsap.timeline({ paused: true });
+          const NS = "http://www.w3.org/2000/svg";
+          const ABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+          // Temps 1 — Bletchley Park, classé secret
+          tl.fromTo("#s05-card", { opacity: 0, x: -120, rotation: -4 }, { opacity: 1, x: 0, rotation: 1.5, duration: 0.6, ease: "power3.out" }, B[0] - 0.15);
+          tl.fromTo("#s05-card-photo", { scale: 1.12 }, { scale: 1, duration: B[1], ease: "none" }, 0);
+          tl.fromTo("#s05-stamp", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.2, ease: "power4.in" }, B[0] + 0.9);
+
+          // Temps 2 — la Bombe : 12 tambours, chacun avec son anneau de 26 lettres
+          const cab = document.querySelector("#s05-cab");
+          const drums = [];
+          for (let i = 0; i < 12; i++) {
+            const svg = document.createElementNS(NS, "svg");
+            svg.setAttribute("viewBox", "0 0 180 180"); svg.setAttribute("class", "s05-drum");
+            const g = document.createElementNS(NS, "g"); g.setAttribute("id", "s05-d" + i);
+            const ring = document.createElementNS(NS, "circle");
+            ring.setAttribute("cx", 90); ring.setAttribute("cy", 90); ring.setAttribute("r", 82);
+            ring.setAttribute("fill", "#111111"); ring.setAttribute("stroke", i % 5 === 2 ? "#e85d26" : "#505048"); ring.setAttribute("stroke-width", 4);
+            g.appendChild(ring);
+            for (let k = 0; k < 26; k++) {
+              const a = (k / 26) * Math.PI * 2;
+              const tx = document.createElementNS(NS, "text");
+              tx.setAttribute("x", 90 + Math.sin(a) * 62); tx.setAttribute("y", 90 - Math.cos(a) * 62 + 6);
+              tx.setAttribute("text-anchor", "middle"); tx.setAttribute("font-family", "IBM Plex Mono, monospace");
+              tx.setAttribute("font-size", 15); tx.setAttribute("font-weight", 600); tx.setAttribute("fill", k === 0 ? "#e85d26" : "#888880");
+              tx.textContent = ABC[k]; g.appendChild(tx);
+            }
+            const hub = document.createElementNS(NS, "circle");
+            hub.setAttribute("cx", 90); hub.setAttribute("cy", 90); hub.setAttribute("r", 22); hub.setAttribute("fill", "#282826");
+            g.appendChild(hub);
+            svg.appendChild(g); cab.appendChild(svg); drums.push(g);
+          }
+          tl.to(["#s05-card", "#s05-stamp"], { opacity: 0, y: -80, duration: 0.35, ease: "power2.in" }, B[1] - 0.25);
+          tl.fromTo("#s05-bombe .kicker, #s05-credit", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, stagger: 0.1 }, B[1]);
+          // la vraie machine (photo), puis le schéma animé quand elle « s'emballe »
+          tl.fromTo("#s05-real", { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, B[1] + 0.05);
+          tl.fromTo("#s05-real-photo", { scale: 1.2, xPercent: -4 }, { scale: 1.05, xPercent: 4, duration: B[2] - B[1] + 0.3, ease: "none" }, B[1]);
+          tl.to("#s05-real", { opacity: 0, scale: 0.9, duration: 0.3, ease: "power2.in" }, B[2] - 0.3);
+          tl.fromTo("#s05-cab", { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, B[2] - 0.15);
+          tl.fromTo(drums.map((d) => d.parentNode), { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, stagger: 0.03, ease: "back.out(2)" }, B[2] - 0.1);
+          // rotation : lente, puis « à toute vitesse » au temps 3 (vitesses différentes par rangée)
+          const end = 8.4;
+          drums.forEach((g, i) => {
+            const row = Math.floor(i / 4);
+            const dir = i % 2 ? -1 : 1;
+            tl.fromTo(g, { rotation: 0, svgOrigin: "90 90" }, { rotation: dir * (40 + row * 25), svgOrigin: "90 90", duration: B[2] - B[1], ease: "none" }, B[1]);
+            tl.to(g, { rotation: dir * (40 + row * 25 + 900 + row * 500), svgOrigin: "90 90", duration: end - B[2], ease: "power1.in" }, B[2]);
+          });
+
+          // Temps 3 — compteur des positions testées (26 × 26 × 26 = 17 576)
+          const n = document.querySelector("#s05-n");
+          const c = { v: 0 };
+          tl.fromTo("#s05-count", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 }, B[2]);
+          tl.to(c, { v: 17576, duration: 2.4, ease: "power2.in", onUpdate: () => { n.textContent = String(Math.round(c.v)).replace(/\B(?=(\d{3})+(?!\d))/g, ","); } }, B[2] + 0.1);
+          tl.fromTo("#s05-cab", { x: 0 }, { x: 4, duration: 0.03, yoyo: true, repeat: 40, ease: "none" }, B[2] + 1.2);
+
+          window.__timelines["05-bombe"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
