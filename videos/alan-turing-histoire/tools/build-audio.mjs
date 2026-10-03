@@ -15,7 +15,7 @@
 
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
@@ -74,6 +74,10 @@ for (const [si, scene] of story.scenes.entries()) {
   scenes.push({ id: scene.id, index: si, lines });
   process.stderr.write(`  ${scene.id}: ${lines.length} lignes, fin ${r3(t)}s\n`);
 }
+
+// Nettoyage du cache : supprime les phrases qui ne sont plus dans story.json
+const used = new Set(pieces.filter((p) => p.file).map((p) => p.file));
+for (const f of readdirSync(VO_DIR)) if (!used.has(join(VO_DIR, f))) rmSync(join(VO_DIR, f));
 
 // 2) Bornes de scène : chaque scène démarre 0,25 s avant sa première phrase
 //    (la coupe visuelle précède la voix, comme au montage).

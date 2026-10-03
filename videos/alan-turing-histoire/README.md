@@ -1,6 +1,6 @@
 # Alan Turing — l'histoire (TikTok, 9:16)
 
-Vidéo verticale 1080×1920 de ~80 s, en français, réalisée avec
+Vidéo verticale 1080×1920 de ~78 s, en français, réalisée avec
 [HyperFrames](https://hyperframes.heygen.com) (HTML → vidéo).
 
 - **Rendu final :** `renders/alan-turing-tiktok.mp4`
@@ -15,12 +15,25 @@ story.json                 ← LE texte : scènes, phrases (say = prononcé, cap
 tools/build-audio.mjs      → voix off proposition par proposition + timing.json
 tools/build-index.mjs      → index.html + compositions/{captions,chrome,transitions}.html
 compositions/scenes/*.html ← les 10 scènes animées (GSAP), écrites à la main
-assets/illustrations/      ← illustrations SVG (portrait stylisé, Bletchley Park)
+assets/illustrations/      ← illustrations SVG (portrait, Londres, Cambridge, Bletchley Park)
 ```
 
 Chaque scène reçoit, via la variable HyperFrames `beats`, l'instant (en secondes) où
 commence chacune de ses phrases : les animations restent calées sur la voix même si
 on change le texte.
+
+## Prononciation
+
+Le champ `say` de `story.json` est écrit **pour l'oreille**, pas pour l'œil. La voix
+française de Kokoro passe les noms anglais en phonèmes anglais et les écorche ; on les
+réécrit donc en orthographe française, vérifiée phonème par phonème avec espeak :
+
+| Mot à l'écran | Écrit pour la voix | Phonèmes obtenus |
+| --- | --- | --- |
+| Turing | `Tiourinng` | `tjuʁiŋ` (« Tiou-ring ») |
+| Bletchley Park | `Blètchelie Parc` | `blɛtʃli paʁk` |
+| Enigma | `Énigma` | `eniɡma` |
+| 1912, 159… | en toutes lettres | — |
 
 ## Modifier puis régénérer
 
