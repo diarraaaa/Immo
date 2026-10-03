@@ -7,12 +7,14 @@
     <template>
       <style>
         #s03-root { position: absolute; inset: 0; overflow: hidden; }
-        #s03-year { position: absolute; left: 60px; top: 300px; font-size: 300px; color: var(--cream); }
+        #s03-year { position: absolute; left: 60px; top: 300px; font-size: 270px; color: var(--cream); }
         #s03-age { position: absolute; left: 72px; top: 590px; width: 420px; border-top: 1px solid var(--border); padding-top: 18px; }
         #s03-age b { display: block; margin-bottom: 14px; font-family: var(--sans); font-weight: 900; font-size: 120px; letter-spacing: -0.04em; line-height: 1.1; color: var(--fire); }
         #s03-age span { font-family: var(--mono); font-size: 22px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
-        #s03-photo { left: 180px; top: 820px; width: 720px; }
-        #s03-photo-img { overflow: hidden; }
+        #s03-photo { left: 120px; top: 830px; width: 760px; }
+        #s03-photo-img { height: 270px; }
+        #s03-young { left: 716px; top: 296px; width: 300px; }
+        #s03-young-img { height: 380px; }
         #s03-title { position: absolute; left: 72px; right: 72px; top: 300px; font-size: 150px; color: var(--cream); }
         #s03-title .accent { display: block; }
         #s03-tape-wrap { position: absolute; left: 0; right: 0; top: 780px; height: 240px; }
@@ -31,8 +33,12 @@
         <div id="s03-year" class="display">1936</div>
         <div id="s03-age"><b>24 ans</b><span>Étudiant à Cambridge</span></div>
         <div id="s03-photo" class="photo-card">
-          <div id="s03-photo-img"><img id="s03-img" src="assets/illustrations/cambridge-kings.svg" alt="Chapelle du King's College, Cambridge (illustration)" /></div>
-          <div class="photo-cap"><span>King's College · Cambridge</span><span>Illustration</span></div>
+          <div id="s03-photo-img" class="frame"><img id="s03-img" src="assets/photos/kings-college.jpg" alt="King's College, Cambridge" /></div>
+          <div class="photo-cap"><span>King's College</span><span>D. Tonkonog · CC BY-SA 3.0</span></div>
+        </div>
+        <div id="s03-young" class="photo-card">
+          <div id="s03-young-img" class="frame"><img id="s03-young-photo" src="assets/photos/turing-1930s.jpg" alt="Alan Turing dans les années 1930" /></div>
+          <div class="photo-cap"><span>Années 1930</span><span>Domaine public</span></div>
         </div>
         <div id="s03-title" class="display">la machine <span class="accent">de turing</span></div>
 
@@ -63,13 +69,15 @@
           tl.fromTo("#s03-age", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, B[0] + 1.0);
           // carte illustrée : Cambridge, où il étudie et écrit son article de 1936
           tl.fromTo("#s03-photo", { opacity: 0, y: 120, rotation: -4 }, { opacity: 1, y: 0, rotation: -1.5, duration: 0.6, ease: "power3.out" }, B[0] + 0.4);
+          tl.fromTo("#s03-young", { opacity: 0, x: 80, rotation: 6 }, { opacity: 1, x: 0, rotation: 2.5, duration: 0.55, ease: "power3.out" }, B[0] + 0.15);
+          tl.fromTo("#s03-young-photo", { scale: 1.15 }, { scale: 1, duration: B[1] + 0.3, ease: "none" }, 0);
           tl.fromTo("#s03-img", { scale: 1.15 }, { scale: 1, duration: B[1] + 0.3, ease: "none" }, 0);
 
           // Temps 2 — le ruban et la tête : un vrai programme (incrément binaire) exécuté pas à pas
           const tape = document.querySelector("#s03-tape");
           const init = ["", "1", "0", "1", "1", "", "", "", ""];
           const cells = init.map((v) => { const c = document.createElement("div"); c.className = "s03-cell"; c.textContent = v || "·"; tape.appendChild(c); return c; });
-          tl.to(["#s03-year", "#s03-age", "#s03-photo"], { opacity: 0, y: -40, duration: 0.35, ease: "power2.in" }, B[1] - 0.2);
+          tl.to(["#s03-year", "#s03-age", "#s03-photo", "#s03-young"], { opacity: 0, y: -40, duration: 0.35, ease: "power2.in" }, B[1] - 0.2);
           tl.fromTo(cells, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.04, ease: "power3.out" }, B[1]);
           tl.fromTo("#s03-head", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[1] + 0.35);
           tl.fromTo("#s03-state", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[1] + 0.5);

@@ -47,7 +47,10 @@
       /* carte « photo » : cadre net, filet 1px, légende mono — remplaçable par une vraie photo */
       .photo-card { position: absolute; background: var(--ink-alt); border: 1px solid var(--border); padding: 18px 18px 0; }
       .photo-card img { display: block; width: 100%; height: auto; }
-      .photo-card .photo-cap { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); padding: 16px 2px 18px; }
+      /* cadre à hauteur fixe : la photo est recadrée (cover) — fixer la hauteur par carte */
+      .photo-card .frame { overflow: hidden; background: #000; }
+      .photo-card .frame img { width: 100%; height: 100%; object-fit: cover; }
+      .photo-card .photo-cap { display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: space-between; font-family: var(--mono); font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); padding: 16px 2px 18px; }
       .stamp { position: absolute; font-family: var(--mono); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fire); border: 6px solid var(--fire); padding: 10px 26px; }
       .scene-ground { position: absolute; inset: 0; background: var(--ink); }
     </style>

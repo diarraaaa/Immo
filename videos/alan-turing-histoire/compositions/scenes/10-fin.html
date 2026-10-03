@@ -20,6 +20,7 @@
         .s10-line { display: block; overflow: hidden; padding-bottom: 60px; margin-bottom: -60px; }
         .s10-word { display: block; font-size: 250px; }
         #s10-cta { margin-top: 70px; display: inline-flex; align-items: center; gap: 22px; padding: 22px 32px; background: var(--ink); color: var(--cream); font-family: var(--mono); font-weight: 600; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; }
+        #s10-credits { margin-top: 36px; max-width: 900px; font-family: var(--mono); font-weight: 500; font-size: 19px; line-height: 1.5; letter-spacing: 0.06em; color: rgba(17, 17, 17, 0.75); }
         #s10-cta i { display: block; width: 18px; height: 18px; background: var(--fire); }
       </style>
 
@@ -37,6 +38,7 @@
           <span class="s10-line"><span class="s10-word display" id="s10-w1">merci,</span></span>
           <span class="s10-line"><span class="s10-word display" id="s10-w2">alan.</span></span>
           <div id="s10-cta"><i></i>Abonne-toi · d'autres histoires vraies</div>
+          <p id="s10-credits">Photos : Wikimedia Commons (Bundesarchiv, DeFacto, D. Tonkonog, A. Taveneaux, Dunk, S. Harriyott, TedColes), Library of Congress · crédits complets en description</p>
         </div>
       </div>
 
@@ -63,6 +65,7 @@
           tl.fromTo("#s10-end .kicker", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[1] + 0.2);
           tl.fromTo("#s10-w1", { yPercent: 105 }, { yPercent: 0, duration: 0.55, ease: "power4.out" }, B[1] + 0.2);
           tl.fromTo("#s10-w2", { yPercent: 105 }, { yPercent: 0, duration: 0.55, ease: "power4.out" }, B[1] + 0.35);
+          tl.fromTo("#s10-credits", { opacity: 0 }, { opacity: 1, duration: 0.4 }, B[1] + 1.7);
           tl.fromTo("#s10-cta", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, B[1] + 1.4);
 
           window.__timelines["10-fin"] = tl;

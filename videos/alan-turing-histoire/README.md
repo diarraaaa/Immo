@@ -15,7 +15,7 @@ story.json                 ← LE texte : scènes, phrases (say = prononcé, cap
 tools/build-audio.mjs      → voix off proposition par proposition + timing.json
 tools/build-index.mjs      → index.html + compositions/{captions,chrome,transitions}.html
 compositions/scenes/*.html ← les 10 scènes animées (GSAP), écrites à la main
-assets/illustrations/      ← illustrations SVG (portrait, Londres, Cambridge, Bletchley Park)
+assets/photos/             ← 13 photos d'archives réelles (crédits et licences : CREDITS.md)
 ```
 
 Chaque scène reçoit, via la variable HyperFrames `beats`, l'instant (en secondes) où
@@ -48,19 +48,12 @@ npx hyperframes render --quality high --output renders/alan-turing-tiktok.mp4
 
 En session cloud, Chrome est déjà installé : `export HYPERFRAMES_BROWSER_PATH=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell`.
 
-## Remplacer les illustrations par de vraies photos
+## Photos
 
-Le réseau de la session de création bloquait les banques d'images (Wikimedia Commons,
-Unsplash…). Les cartes « photo » utilisent donc des illustrations SVG, marquées
-« ILLUSTRATION » à l'écran. Pour mettre de vraies photos d'archives :
-
-1. Déposer les fichiers dans `assets/photos/` (par ex. le portrait d'Alan Turing à 16 ans,
-   domaine public sur Wikimedia Commons ; une photo du manoir de Bletchley Park).
-2. Changer le `src` de l'image :
-   - `compositions/scenes/01-hook.html` → `#s01-img`
-   - `compositions/scenes/05-bombe.html` → `#s05-card img`
-3. Remplacer la légende « Illustration » par la source/crédit de la photo.
-4. `npx hyperframes check` puis `render`.
+Les 13 photos (`assets/photos/`) sont de vraies images d'archives, du domaine public ou sous
+licence Creative Commons. **Les crédits sont obligatoires** pour les licences CC BY / CC BY-SA :
+ils sont affichés sous chaque photo, résumés sur la carte finale, et détaillés dans
+[`CREDITS.md`](CREDITS.md) avec un texte prêt à coller dans la description TikTok.
 
 ## Sources des faits
 

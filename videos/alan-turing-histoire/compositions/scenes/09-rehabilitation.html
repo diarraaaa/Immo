@@ -15,7 +15,7 @@
         #s09-note { position: relative; overflow: hidden; }
         #s09-note svg { display: block; width: 960px; height: auto; }
         #s09-shine { position: absolute; top: -20%; left: 0; width: 160px; height: 140%; background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)); }
-        #s09-note-cap { margin-top: 20px; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
+        #s09-note-cap { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: space-between; font-family: var(--mono); font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
       </style>
 
       <div id="s09-root" data-composition-id="09-rehabilitation" data-width="1080" data-height="1920">
@@ -42,15 +42,13 @@
               <circle cx="670" cy="240" r="156" fill="#111111" />
               <g clip-path="url(#s09-medal)">
                 <rect x="510" y="80" width="320" height="320" fill="#e85d26" />
-                <path d="M540 400 C550 330 600 305 640 300 L700 300 C740 305 790 330 800 400 Z" fill="#111111" />
-                <path d="M648 250 L692 250 L696 305 L670 322 L644 305 Z" fill="#111111" />
-                <ellipse cx="670" cy="200" rx="62" ry="78" fill="#111111" />
+                <image href="assets/photos/turing-1951.jpg" x="514" y="84" width="312" height="312" preserveAspectRatio="xMidYMin slice" />
               </g>
               <circle cx="670" cy="240" r="156" fill="none" stroke="#111111" stroke-width="3" />
             </svg>
             <div id="s09-shine"></div>
           </div>
-          <div id="s09-note-cap"><span>Billet de 50 £ · 2021</span><span>Illustration</span></div>
+          <div id="s09-note-cap"><span>Billet de 50 £ · 2021 · stylisé</span><span>Portrait : Elliott &amp; Fry, 1951</span></div>
         </div>
       </div>
 

@@ -11,8 +11,13 @@
         #s02-year { position: absolute; left: 60px; top: 360px; line-height: 1; font-size: 330px; color: var(--fire); }
         #s02-sub { position: absolute; left: 76px; top: 720px; font-family: var(--mono); font-size: 30px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
         #s02-grid { position: absolute; left: 72px; right: 72px; top: 800px; display: grid; grid-template-columns: repeat(8, 1fr); row-gap: 10px; font-family: var(--mono); font-weight: 500; font-size: 44px; color: var(--cream-hint); text-align: center; }
-        #s02-photo { left: 180px; top: 790px; width: 720px; }
-        #s02-photo-img { overflow: hidden; }
+        #s02-photo { left: 120px; top: 770px; width: 760px; }
+        #s02-photo-img { height: 330px; }
+        #s02-plaque { position: absolute; left: 770px; top: 400px; width: 250px; height: 250px; border-radius: 50%; overflow: hidden; border: 6px solid var(--cream); }
+        #s02-plaque img { width: 100%; height: 100%; object-fit: cover; }
+        #s02-plaque-cap { position: absolute; left: 730px; top: 668px; width: 330px; text-align: center; font-family: var(--mono); font-size: 18px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-muted); }
+        #s02-teen { left: 650px; top: 236px; width: 330px; z-index: 2; }
+        #s02-teen-img { height: 360px; }
         #s02-grid span { display: block; }
         #s02-grid span.on { color: var(--fire); }
         #s02-card { position: absolute; left: 110px; top: 600px; width: 860px; padding: 40px 48px 44px; background: var(--cream); color: var(--ink); }
@@ -28,8 +33,14 @@
         <div id="s02-year" class="display">1900</div>
         <div id="s02-sub">Naissance · Maida Vale</div>
         <div id="s02-photo" class="photo-card">
-          <div id="s02-photo-img"><img id="s02-img" src="assets/illustrations/londres-1912.svg" alt="Westminster et Big Ben (illustration)" /></div>
-          <div class="photo-cap"><span>Londres · 1912</span><span>Illustration</span></div>
+          <div id="s02-photo-img" class="frame"><img id="s02-img" src="assets/photos/londres-parlement.jpg" alt="Le Parlement de Londres vu de la Tamise, photochrome" /></div>
+          <div class="photo-cap"><span>Londres · v. 1900</span><span>Library of Congress</span></div>
+        </div>
+        <div id="s02-plaque"><img src="assets/photos/memorial-manchester.jpg" alt="Plaque bleue sur la maison natale d'Alan Turing" /></div>
+        <div id="s02-plaque-cap">Maison natale · S. Harriyott · CC BY 2.0</div>
+        <div id="s02-teen" class="photo-card">
+          <div id="s02-teen-img" class="frame"><img id="s02-teen-photo" src="assets/photos/turing-16-ans.jpg" alt="Alan Turing à 16 ans" /></div>
+          <div class="photo-cap"><span>16 ans</span><span>Domaine public</span></div>
         </div>
         <div id="s02-grid"></div>
         <div id="s02-card">
@@ -58,7 +69,9 @@
           // carte illustrée : Londres en 1912, léger travelling avant
           tl.fromTo("#s02-photo", { opacity: 0, x: 140, rotation: 4 }, { opacity: 1, x: 0, rotation: 1.5, duration: 0.6, ease: "power3.out" }, B[0] + 0.1);
           tl.fromTo("#s02-img", { scale: 1.15 }, { scale: 1, duration: B[1] + 0.3, ease: "none" }, 0);
-          tl.to("#s02-photo", { opacity: 0, x: -140, duration: 0.3, ease: "power2.in" }, B[1] - 0.2);
+          tl.fromTo("#s02-plaque", { opacity: 0, scale: 0.3, rotation: -40 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.5, ease: "back.out(1.8)" }, B[0] + 0.7);
+          tl.fromTo("#s02-plaque-cap", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[0] + 1.0);
+          tl.to(["#s02-photo", "#s02-plaque", "#s02-plaque-cap"], { opacity: 0, x: -140, duration: 0.3, ease: "power2.in" }, B[1] - 0.2);
 
           // Temps 2 — grille de chiffres qui « calcule »
           const grid = document.querySelector("#s02-grid");
@@ -76,6 +89,8 @@
           tl.to(cells, { opacity: 0, duration: 0.3 }, B[2] - 0.2);
           tl.to(["#s02-year", "#s02-sub", "#s02-head"], { opacity: 0, y: -40, duration: 0.3 }, B[2] - 0.2);
           tl.fromTo("#s02-card", { opacity: 0, y: 120, rotation: 4 }, { opacity: 1, y: 0, rotation: -1.5, duration: 0.55, ease: "back.out(1.4)" }, B[2] - 0.1);
+          tl.fromTo("#s02-teen", { opacity: 0, y: -60, rotation: 8 }, { opacity: 1, y: 0, rotation: 3, duration: 0.55, ease: "back.out(1.4)" }, B[2] + 0.15);
+          tl.fromTo("#s02-teen-photo", { scale: 1.15 }, { scale: 1, duration: 3, ease: "none" }, B[2]);
           tl.fromTo("#s02-under-path", { strokeDasharray: 700, strokeDashoffset: 700 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, B[2] + 0.5);
           tl.fromTo("#s02-note", { opacity: 0 }, { opacity: 1, duration: 0.4 }, B[2] + 1.4);
 

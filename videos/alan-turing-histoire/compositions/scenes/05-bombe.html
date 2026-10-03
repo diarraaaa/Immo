@@ -8,6 +8,9 @@
       <style>
         #s05-root { position: absolute; inset: 0; overflow: hidden; }
         #s05-card { left: 72px; top: 330px; width: 936px; }
+        #s05-card-img { height: 520px; }
+        #s05-real { left: 72px; top: 410px; width: 936px; }
+        #s05-real-img { height: 600px; }
         #s05-stamp { left: 560px; top: 300px; font-size: 44px; }
         #s05-bombe { position: absolute; left: 72px; right: 72px; top: 300px; height: 860px; }
         #s05-bombe .kicker { display: block; }
@@ -21,8 +24,8 @@
 
       <div id="s05-root" data-composition-id="05-bombe" data-width="1080" data-height="1920">
         <div id="s05-card" class="photo-card">
-          <img src="assets/illustrations/bletchley-park.svg" alt="Manoir de Bletchley Park (illustration)" />
-          <div class="photo-cap"><span>Bletchley Park · 1939</span><span>Illustration</span></div>
+          <div id="s05-card-img" class="frame"><img id="s05-card-photo" src="assets/photos/bletchley-park.jpg" alt="Manoir de Bletchley Park" /></div>
+          <div class="photo-cap"><span>Bletchley Park</span><span>DeFacto · CC BY-SA 4.0</span></div>
         </div>
         <div id="s05-stamp" class="stamp">Top secret</div>
 
@@ -31,6 +34,10 @@
           <div id="s05-credit">D'après la « bomba » des cryptologues polonais</div>
           <div id="s05-cab"></div>
           <div id="s05-count"><span id="s05-n">0</span><span id="s05-n-cap">positions de rotors testées</span></div>
+        </div>
+        <div id="s05-real" class="photo-card">
+          <div id="s05-real-img" class="frame"><img id="s05-real-photo" src="assets/photos/bombe.jpg" alt="Bombe reconstruite à Bletchley Park" /></div>
+          <div class="photo-cap"><span>Bombe reconstruite · Bletchley Park</span><span>TedColes · CC0</span></div>
         </div>
       </div>
 
@@ -43,7 +50,7 @@
 
           // Temps 1 — Bletchley Park, classé secret
           tl.fromTo("#s05-card", { opacity: 0, x: -120, rotation: -4 }, { opacity: 1, x: 0, rotation: 1.5, duration: 0.6, ease: "power3.out" }, B[0] - 0.15);
-          tl.fromTo("#s05-card img", { scale: 1.12 }, { scale: 1, duration: B[1], ease: "none" }, 0);
+          tl.fromTo("#s05-card-photo", { scale: 1.12 }, { scale: 1, duration: B[1], ease: "none" }, 0);
           tl.fromTo("#s05-stamp", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.2, ease: "power4.in" }, B[0] + 0.9);
 
           // Temps 2 — la Bombe : 12 tambours, chacun avec son anneau de 26 lettres
@@ -72,8 +79,12 @@
           }
           tl.to(["#s05-card", "#s05-stamp"], { opacity: 0, y: -80, duration: 0.35, ease: "power2.in" }, B[1] - 0.25);
           tl.fromTo("#s05-bombe .kicker, #s05-credit", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, stagger: 0.1 }, B[1]);
-          tl.fromTo("#s05-cab", { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, B[1] + 0.05);
-          tl.fromTo(drums.map((d) => d.parentNode), { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, stagger: 0.03, ease: "back.out(2)" }, B[1] + 0.15);
+          // la vraie machine (photo), puis le schéma animé quand elle « s'emballe »
+          tl.fromTo("#s05-real", { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, B[1] + 0.05);
+          tl.fromTo("#s05-real-photo", { scale: 1.2, xPercent: -4 }, { scale: 1.05, xPercent: 4, duration: B[2] - B[1] + 0.3, ease: "none" }, B[1]);
+          tl.to("#s05-real", { opacity: 0, scale: 0.9, duration: 0.3, ease: "power2.in" }, B[2] - 0.3);
+          tl.fromTo("#s05-cab", { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, B[2] - 0.15);
+          tl.fromTo(drums.map((d) => d.parentNode), { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, stagger: 0.03, ease: "back.out(2)" }, B[2] - 0.1);
           // rotation : lente, puis « à toute vitesse » au temps 3 (vitesses différentes par rangée)
           const end = 8.4;
           drums.forEach((g, i) => {

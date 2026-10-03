@@ -10,6 +10,10 @@
         #s04-war { position: absolute; left: 60px; top: 300px; }
         #s04-war .display { font-size: 330px; line-height: 1; color: var(--cream); }
         #s04-war .kicker { margin: 30px 0 0 12px; font-size: 30px; }
+        #s04-front { left: 230px; top: 740px; width: 620px; }
+        #s04-front-img { height: 340px; }
+        #s04-keys { left: 72px; top: 300px; width: 936px; }
+        #s04-keys-img { height: 470px; }
         #s04-flash { position: absolute; inset: 0; background: var(--fire); opacity: 0; }
 
         #s04-machine { position: absolute; left: 90px; top: 300px; width: 900px; height: 700px; background: var(--ink-alt); border: 1px solid var(--border); transform-origin: 50% 0%; }
@@ -37,6 +41,14 @@
         <div id="s04-flash"></div>
         <div id="s04-war"><div class="display" id="s04-y">1939</div><div class="kicker">La guerre éclate</div></div>
 
+        <div id="s04-front" class="photo-card">
+          <div id="s04-front-img" class="frame"><img id="s04-front-photo" src="assets/photos/enigma-guderian-1940.jpg" alt="Le général Guderian et une machine Enigma, 1940" /></div>
+          <div class="photo-cap"><span>Enigma au front · 1940</span><span>Bundesarchiv · CC BY-SA 3.0 DE</span></div>
+        </div>
+        <div id="s04-keys" class="photo-card">
+          <div id="s04-keys-img" class="frame"><img id="s04-keys-photo" src="assets/photos/enigma-reglages.jpg" alt="Feuille de réglages Enigma de la Luftwaffe" /></div>
+          <div class="photo-cap"><span>Réglages du mois · Luftwaffe · v. 1944</span><span>Domaine public</span></div>
+        </div>
         <div id="s04-machine">
           <div class="kicker">Enigma · armée allemande</div>
           <div id="s04-rotors"></div>
@@ -73,6 +85,8 @@
           tl.fromTo("#s04-flash", { opacity: 0.85 }, { opacity: 0, duration: 0.5, ease: "power2.out" }, B[0] - 0.1);
           tl.to("#s04-war", { x: 10, duration: 0.04, yoyo: true, repeat: 7, ease: "none" }, B[0] + 0.1);
           tl.fromTo("#s04-war .kicker", { opacity: 0 }, { opacity: 1, duration: 0.3 }, B[0] + 1.1);
+          tl.fromTo("#s04-front", { opacity: 0, y: 100, rotation: -5 }, { opacity: 1, y: 0, rotation: -2, duration: 0.55, ease: "power3.out" }, B[0] + 0.5);
+          tl.fromTo("#s04-front-photo", { scale: 1.2 }, { scale: 1, duration: B[1], ease: "none" }, 0);
 
           // Temps 2 — la machine : rotors + tableau lumineux (QWERTZ)
           const rotors = document.querySelector("#s04-rotors");
@@ -90,7 +104,7 @@
             for (const ch of row) { const l = document.createElement("div"); l.className = "s04-lamp"; l.textContent = ch; r.appendChild(l); lamp[ch] = l; }
             lampsEl.appendChild(r);
           });
-          tl.to("#s04-war", { opacity: 0, y: -60, duration: 0.3, ease: "power2.in" }, B[1] - 0.25);
+          tl.to(["#s04-war", "#s04-front"], { opacity: 0, y: -60, duration: 0.3, ease: "power2.in" }, B[1] - 0.25);
           tl.fromTo("#s04-machine", { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, B[1] - 0.1);
           const word = "WETTER"; // « météo » : les bulletins météo allemands servaient de « crib » aux décrypteurs
           const out = document.querySelector("#s04-out");
@@ -123,12 +137,14 @@
 
           // Temps 4 — chaque jour, tout recommence
           const C = 2 * Math.PI * 86;
+          tl.to(["#s04-num", "#s04-machine"], { opacity: 0, duration: 0.3 }, B[3] - 0.3);
+          tl.fromTo("#s04-keys", { opacity: 0, y: 80, rotation: 3 }, { opacity: 1, y: 0, rotation: 1, duration: 0.5, ease: "power3.out" }, B[3] - 0.15);
+          tl.fromTo("#s04-keys-photo", { scale: 1.25, yPercent: -6 }, { scale: 1.05, yPercent: 0, duration: 2.2, ease: "none" }, B[3] - 0.15);
           tl.fromTo("#s04-clock", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, B[3] - 0.1);
           tl.fromTo("#s04-ring", { strokeDasharray: C, strokeDashoffset: C }, { strokeDashoffset: 0, duration: 1.0, ease: "power1.inOut" }, B[3]);
           tl.fromTo("#s04-hand", { rotation: 0, svgOrigin: "100 100" }, { rotation: 360, svgOrigin: "100 100", duration: 1.0, ease: "power1.inOut" }, B[3]);
           tl.set("#s04-time", { textContent: "00:00", color: "#e85d26" }, B[3] + 1.0);
           tl.fromTo("#s04-time", { scale: 1 }, { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, transformOrigin: "0% 50%" }, B[3] + 1.0);
-          tl.to(["#s04-n1", "#s04-n2"], { opacity: 0.35, duration: 0.3 }, B[3] + 1.0);
 
           window.__timelines["04-enigma"] = tl;
         })();

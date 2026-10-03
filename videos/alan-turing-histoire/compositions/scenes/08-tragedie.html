@@ -15,10 +15,12 @@
         .s08-field { margin-top: 26px; font-size: 26px; letter-spacing: 0.06em; line-height: 1.45; text-transform: uppercase; }
         .s08-field span { display: block; font-size: 18px; letter-spacing: 0.14em; color: rgba(17, 17, 17, 0.55); }
         #s08-stamp { left: 520px; top: 745px; font-size: 58px; }
-        #s08-life { position: absolute; left: 72px; right: 72px; top: 420px; }
+        #s08-house { left: 72px; top: 300px; width: 936px; }
+        #s08-house-img { height: 380px; }
+        #s08-life { position: absolute; left: 72px; right: 72px; top: 790px; }
         #s08-life-years { display: flex; justify-content: space-between; font-family: var(--mono); font-weight: 600; font-size: 44px; letter-spacing: 0.1em; color: var(--cream); }
         #s08-life-line { margin-top: 26px; height: 4px; background: var(--cream-hint); transform-origin: left center; }
-        #s08-age { margin-top: 70px; font-family: var(--sans); font-weight: 900; font-size: 300px; letter-spacing: -0.05em; line-height: 1.05; color: var(--fire); }
+        #s08-age { margin-top: 30px; font-family: var(--sans); font-weight: 900; font-size: 210px; letter-spacing: -0.05em; line-height: 1.05; color: var(--fire); }
         #s08-age-cap { margin-top: 36px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-muted); }
       </style>
 
@@ -34,11 +36,14 @@
         </div>
         <div id="s08-stamp" class="stamp">Condamné</div>
 
+        <div id="s08-house" class="photo-card">
+          <div id="s08-house-img" class="frame"><img id="s08-house-photo" src="assets/photos/maison-wilmslow.jpg" alt="La maison d'Alan Turing à Wilmslow" /></div>
+          <div class="photo-cap"><span>Sa maison · Wilmslow · 1950-1954</span><span>Dunk · CC BY 4.0</span></div>
+        </div>
         <div id="s08-life">
           <div id="s08-life-years"><span>1912</span><span>1954</span></div>
           <div id="s08-life-line"></div>
           <div id="s08-age">41 ans</div>
-          <div id="s08-age-cap">Mort le 7 juin 1954</div>
         </div>
       </div>
 
@@ -69,10 +74,11 @@
 
           // Temps 4 — une vie trop courte
           tl.to(["#s08-file", "#s08-stamp"], { opacity: 0, y: -40, duration: 0.4, ease: "power2.in" }, B[3] - 0.3);
+          tl.fromTo("#s08-house", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, B[3] - 0.1);
+          tl.fromTo("#s08-house-photo", { scale: 1.1, filter: "grayscale(0)" }, { scale: 1, filter: "grayscale(1)", duration: 2.6, ease: "none" }, B[3] - 0.1);
           tl.fromTo("#s08-life-years", { opacity: 0 }, { opacity: 1, duration: 0.5 }, B[3]);
           tl.fromTo("#s08-life-line", { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power2.inOut" }, B[3] + 0.1);
           tl.fromTo("#s08-age", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, B[3] + 1.0);
-          tl.fromTo("#s08-age-cap", { opacity: 0 }, { opacity: 1, duration: 0.5 }, B[3] + 1.4);
 
           window.__timelines["08-tragedie"] = tl;
         })();
