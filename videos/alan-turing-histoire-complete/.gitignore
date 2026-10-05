@@ -12,3 +12,4 @@ assets/audio/music-duck.wav
 assets/audio/sfx.wav
 # Rendu maître (376 Mo, > limite GitHub de 100 Mo) : régénérable avec npm run render
 renders/alan-turing-histoire-complete.mp4
+__pycache__/
