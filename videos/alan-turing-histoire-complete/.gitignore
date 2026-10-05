@@ -6,3 +6,7 @@ renders/.*transaction*/
 *-leger.mp4
 *-light.mp4
 assets/audio/vo/_jobs.json
+assets/audio/narration.wav
+assets/audio/music.wav
+assets/audio/music-duck.wav
+assets/audio/sfx.wav

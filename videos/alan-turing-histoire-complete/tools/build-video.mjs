@@ -329,7 +329,16 @@ for (const scene of timing.scenes) {
 // ── Sous-titres : mot à mot si captions.json existe, sinon phrase par phrase (provisoire)
 let groups;
 if (existsSync(join(ROOT, "captions.json")) && !timing.estimated) {
-  groups = JSON.parse(readFileSync(join(ROOT, "captions.json"), "utf8"));
+  groups = JSON.parse(readFileSync(join(ROOT, "captions.json"), "utf8")).filter((g) => g.end > g.start);
+  // Lisibilité : un groupe ne finit pas sur un petit mot (« à gagner la / guerre ») — fusion avec le suivant
+  const SMALL = new Set("la le les l' de du des d' un une à au aux en et qui que son sa ses leur ce cette par pour sur dans avec".split(" "));
+  for (let i = 0; i < groups.length - 1; i++) {
+    const g = groups[i], n = groups[i + 1];
+    const last = g.words.at(-1).text.toLowerCase();
+    if (SMALL.has(last) && n.start - g.end < 0.2 && g.words.length + n.words.length <= 4) {
+      groups.splice(i, 2, { start: g.start, end: n.end, words: [...g.words, ...n.words] });
+    }
+  }
 } else {
   groups = timing.scenes.flatMap((s) => s.lines.map((l) => ({ start: l.start, end: l.end, words: l.cap.split(" ").map((w) => ({ text: w, accent: /\d/.test(w) })) })));
 }
