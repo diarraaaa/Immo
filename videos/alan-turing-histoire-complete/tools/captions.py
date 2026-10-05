@@ -23,7 +23,7 @@ from num2words import num2words
 
 story = json.load(open("story.json", encoding="utf-8"))
 timing = json.load(open("timing.json", encoding="utf-8"))
-opts = {k: v for k, v in story.get("engineOptions", {}).items() if k not in ("verify", "attempts", "tempo")}
+opts = {k: v for k, v in story.get("engineOptions", {}).items() if k not in ("verify", "attempts", "tempo", "batch", "threads")}
 TEMPO = story.get("engineOptions", {}).get("tempo", 1)
 
 # Noms propres et termes mis en jaune (en plus des nombres et dates)

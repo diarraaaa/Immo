@@ -1,6 +1,16 @@
 {
-  "engine": "elevenlabs",
+  "engine": "kyutai",
   "engineOptions": {
+    "voice": "voice-donations/Hugo_the_frenchie_enhanced.wav",
+    "n_q": 32,
+    "cfg_coef": 2,
+    "temp": 0.6,
+    "seed": 1912,
+    "batch": 10,
+    "verify": true,
+    "attempts": 4
+  },
+  "elevenlabsOptions": {
     "model_id": "eleven_multilingual_v2",
     "voice_id": null,
     "voice_name": null,
