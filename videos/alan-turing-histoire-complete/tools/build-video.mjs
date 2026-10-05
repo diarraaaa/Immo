@@ -103,12 +103,18 @@ function planScene(scene, specs) {
 // ── Rendu HTML + tweens de chaque type de plan. Chaque fonction reçoit (plan, id) et renvoie
 //    { html, js } ; js est du code de timeline avec les temps déjà relatifs à la scène.
 const ERA = { sepia: GRADES.sepia, guerre: GRADES.guerre, froid: GRADES.froid };
+// Étalonnage « cuit » d'avance par tools/bake-grades.mjs (sinon shader à chaque image : très lent sans GPU)
+const bakedPath = (p) => `assets/photos/graded/${p.src.replace(/\.jpe?g$/i, "")}__${p.era}.jpg`;
+const baked = (p) => p.era && existsSync(join(ROOT, bakedPath(p)));
+const photoSrc = (p) => (baked(p) ? bakedPath(p) : `assets/photos/${p.src}`);
 const gradeAttr = (era) => (ERA[era] ? ` data-color-grading="${attr(JSON.stringify(ERA[era]))}"` : "");
 
 function labelHtml(p, id) {
   if (!p.label) return { html: "", js: "" };
   const lid = `${id}-label`;
   const n = p.label.length;
+  // « instant » : libellé complet dès la première image (miniature YouTube = premier frame)
+  if (p.instant) return { html: `<div class="chip" id="${lid}"><span class="chip-bar"></span><span class="chip-t">${esc(p.label)}</span></div>`, js: "" };
   // effet machine à écrire : le texte s'écrit lettre par lettre (états posés sur la timeline)
   const steps = Array.from({ length: n }, (_, k) => `tl.set("#${lid}-t", { textContent: ${JSON.stringify(p.label.slice(0, k + 1))} }, ${r3(p.start + 0.15 + (k * 0.5) / n)});`).join("\n");
   return {
@@ -126,7 +132,7 @@ const RENDER = {
     const z0 = p.zoom?.[0] ?? 1.04;
     const z1 = p.zoom?.[1] ?? 1.16;
     return {
-      html: `<div class="shot photo ${fit}" id="${id}"><div class="pframe" id="${id}-f"><img class="clip pimg" id="${id}-i" src="assets/photos/${p.src}" alt="" data-start="${p.start}" data-duration="${p.dur}"${gradeAttr(p.era)} /></div>${credit ? `<div class="credit">${esc(credit)}</div>` : ""}</div>`,
+      html: `<div class="shot photo ${fit}" id="${id}"><div class="pframe" id="${id}-f"><img class="clip pimg" id="${id}-i" src="${photoSrc(p)}" alt="" data-start="${p.start}" data-duration="${p.dur}"${baked(p) ? "" : gradeAttr(p.era)} /></div>${credit ? `<div class="credit">${esc(credit)}</div>` : ""}</div>`,
       js: `tl.fromTo("#${id}-i", { scale: ${z0}, transformOrigin: "${fx}% ${fy}%" }, { scale: ${z1}, duration: ${p.dur}, ease: "none" }, ${p.start});` +
         (p.punch ? `\ntl.fromTo("#${id}-f", { scale: 1 }, { scale: 1.12, duration: 0.35, ease: "power3.out", transformOrigin: "${fx}% ${fy}%", immediateRender: false }, ${r3(p.start + p.punch)});` : ""),
     };
@@ -267,7 +273,7 @@ const SFX = [];
 function sfxFor(scene, p) {
   if (scene.id === "08-pomme") return;
   const T = (t) => r3(scene.start + t);
-  if (p.label) [...p.label].forEach((_, k) => SFX.push({ type: "type", t: T(p.start + 0.15 + (k * 0.5) / p.label.length) }));
+  if (p.label && !p.instant) [...p.label].forEach((_, k) => SFX.push({ type: "type", t: T(p.start + 0.15 + (k * 0.5) / p.label.length) }));
   if (p.t === "date") [...p.text].forEach((_, k) => SFX.push({ type: "type", t: T(p.start + 0.1 + (k * 0.6) / p.text.length) }));
   if (p.t === "bombe" || p.t === "enigma") SFX.push({ type: "rotor", t: T(p.start + 0.3), dur: r3(Math.max(0.5, p.dur - 0.5)) });
   if (p.t === "tape") for (let k = 0; k < 8; k++) SFX.push({ type: "type", t: T(p.start + 0.5 + k * Math.min(0.5, (p.dur - 0.8) / 8)) });
@@ -448,7 +454,7 @@ writeFileSync(
       .mlabel { font-family: var(--sans); font-weight: 800; font-size: 40px; fill: #fff; paint-order: stroke; stroke: #0e0e0e; stroke-width: 8px; }
       .mtitle { position: absolute; left: 80px; top: 70px; font-family: var(--mono); font-size: 30px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--yellow); }
       .schema, .dtag { position: absolute; right: 36px; top: 30px; font-family: var(--mono); font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-      .tapeshot { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; padding-bottom: 170px; }
+      .tapeshot { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 110px; padding-bottom: 120px; }
       .tapewrap { position: relative; }
       .tape { display: flex; gap: 12px; }
       .tcell { width: 124px; height: 140px; border: 2px solid #555; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 72px; color: #fff; background: #171717; }

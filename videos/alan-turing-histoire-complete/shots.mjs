@@ -58,7 +58,7 @@ const portrait = { fit: "contain" };
 export const SHOTS = {
   "00-hook": [
     // Premier frame = portrait + « 1952 : condamné » (sert de miniature)
-    [P("turing-16-ans.jpg", { ...portrait, label: "1952 : condamné", focus: [50, 30], w: 2.2 }),
+    [P("turing-16-ans.jpg", { ...portrait, label: "1952 : condamné", instant: true, focus: [50, 30], w: 2.2 }),
      { t: "doc", lines: ["Royaume-Uni · 31 mars 1952", "Affaire : Alan M. Turing", "Chef d'accusation : « grossière indécence »"], w: 1 }],
     C("Son [crime] ?"),
     C("Avoir aimé [un homme].", { punch: 0.5 }),
@@ -229,6 +229,6 @@ export const SHOTS = {
     { t: "note50" },
     null,
     // Dernier frame = premier frame (boucle)
-    P("turing-16-ans.jpg", { ...portrait, label: "1952 : condamné", focus: [50, 30], hold: true }),
+    P("turing-16-ans.jpg", { ...portrait, label: "1952 : condamné", instant: true, focus: [50, 30], hold: true }),
   ],
 };
