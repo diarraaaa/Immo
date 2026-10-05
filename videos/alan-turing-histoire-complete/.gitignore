@@ -1,0 +1,8 @@
+snapshots/*.png
+node_modules/
+*.raw.wav
+renders/work-*/
+renders/.*transaction*/
+*-leger.mp4
+*-light.mp4
+assets/audio/vo/_jobs.json
