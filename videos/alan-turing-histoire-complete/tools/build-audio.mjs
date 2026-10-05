@@ -32,7 +32,8 @@ const probe = (file) =>
   );
 
 // Moteur de voix : "kokoro" (défaut, via `hyperframes tts`) ou "chatterbox"
-// (Chatterbox Multilingual, plus naturel, lancé par lot via tools/tts-chatterbox.py).
+// (Chatterbox Multilingual, local, lancé par lot via tools/tts-chatterbox.py)
+// ou "elevenlabs" (voix humaines de la Voice Library, en ligne, via tools/elevenlabs.py).
 const ENGINE = story.engine ?? "kokoro";
 const keyFor = (text) => {
   // Seules les options qui changent la voix entrent dans la clé de cache.
@@ -55,17 +56,24 @@ function trim(raw, out) {
   rmSync(raw, { force: true });
 }
 
-// Chatterbox : toutes les phrases manquantes en un seul lancement (le modèle met ~30 s à charger).
-if (ENGINE === "chatterbox") {
+// Chatterbox / ElevenLabs : toutes les phrases manquantes en un seul lancement
+// (Chatterbox met ~30 s à charger son modèle ; ElevenLabs reçoit les phrases voisines comme contexte).
+if (ENGINE === "chatterbox" || ENGINE === "elevenlabs") {
   // Reprise : une prise déjà générée mais pas encore coupée (.raw.wav) est réutilisée
   for (const sc of story.scenes) for (const l of sc.lines) {
     if (!existsSync(outFor(l.say)) && existsSync(rawFor(l.say))) trim(rawFor(l.say), outFor(l.say));
   }
-  const todo = [...new Set(story.scenes.flatMap((s) => s.lines.map((l) => l.say)))].filter((t) => !existsSync(outFor(t)));
+  const all = story.scenes.flatMap((s) => s.lines.map((l) => l.say));
+  const todo = [...new Set(all)].filter((t) => !existsSync(outFor(t)));
   if (todo.length) {
     const jobsPath = join(VO_DIR, "_jobs.json");
-    writeFileSync(jobsPath, JSON.stringify({ ...(story.engineOptions ?? {}), jobs: todo.map((text) => ({ text, out: rawFor(text) })) }));
-    execFileSync(process.env.CHATTERBOX_PYTHON || "python3", [join(ROOT, "tools/tts-chatterbox.py"), jobsPath], { stdio: ["ignore", "inherit", "inherit"] });
+    const jobs = todo.map((text) => {
+      const i = all.indexOf(text);
+      return { text, out: rawFor(text), previous_text: all.slice(Math.max(0, i - 2), i).join(" "), next_text: all[i + 1] ?? "" };
+    });
+    writeFileSync(jobsPath, JSON.stringify({ ...(story.engineOptions ?? {}), jobs }));
+    const [script, ...args] = ENGINE === "elevenlabs" ? ["tools/elevenlabs.py", "synth"] : ["tools/tts-chatterbox.py"];
+    execFileSync(process.env.CHATTERBOX_PYTHON || "python3", [join(ROOT, script), ...args, jobsPath], { stdio: ["ignore", "inherit", "inherit"] });
     rmSync(jobsPath);
     todo.forEach((text) => trim(rawFor(text), outFor(text)));
   }

@@ -33,7 +33,7 @@ royal society arnold murray copeland jack brown élisabeth londres inde angleter
 janvier février mars juin juillet septembre octobre décembre""".split())
 
 def key(text):
-    sig = f"chatterbox|{json.dumps(opts, separators=(',', ':'), ensure_ascii=False)}|{text}"
+    sig = f"{story['engine']}|{json.dumps(opts, separators=(',', ':'), ensure_ascii=False)}|{text}"
     return hashlib.sha1(sig.encode()).hexdigest()[:12]
 
 def norm_tokens(s):

@@ -1,6 +1,16 @@
 {
-  "engine": "chatterbox",
+  "engine": "elevenlabs",
   "engineOptions": {
+    "model_id": "eleven_multilingual_v2",
+    "voice_id": null,
+    "voice_name": null,
+    "stability": 0.45,
+    "similarity_boost": 0.8,
+    "style": 0.2,
+    "use_speaker_boost": true,
+    "seed": 1912
+  },
+  "chatterboxOptions": {
     "language": "fr",
     "exaggeration": 0.5,
     "cfg_weight": 0.5,
@@ -10,8 +20,8 @@
     "attempts": 8,
     "tempo": 1.1
   },
-  "gapAfterLine": 0.12,
-  "gapAfterScene": 0.35,
+  "gapAfterLine": 0.22,
+  "gapAfterScene": 0.55,
   "leadIn": 0.25,
   "tail": 3.0,
   "scenes": [
