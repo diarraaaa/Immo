@@ -5,30 +5,34 @@
     <template>
       <style>#sc0-root { position: absolute; inset: 0; overflow: hidden; background: #0e0e0e; }</style>
       <div id="sc0-root" data-composition-id="00-hook" data-width="1920" data-height="1080">
-        <div class="shotwrap" id="s0-p0-w"><div class="shot photo contain" id="s0-p0"><div class="pframe" id="s0-p0-f"><img class="clip pimg" id="s0-p0-i" src="assets/photos/turing-16-ans.jpg" alt="" data-start="0" data-duration="3.459" /></div><div class="credit">v. 1928 · domaine public</div></div><div class="chip" id="s0-p0-label"><span class="chip-bar"></span><span class="chip-t">1952 : condamné</span></div></div>
-        <div class="shotwrap" id="s0-p1-w"><div class="shot doc" id="s0-p1"><div class="paper" id="s0-p1-p"><div class="dl" id="s0-p1-l0">Royaume-Uni · 31 mars 1952</div><div class="dl" id="s0-p1-l1">Affaire : Alan M. Turing</div><div class="dl" id="s0-p1-l2">Chef d'accusation : « grossière indécence »</div><div class="dtag">Illustration · document recomposé</div></div></div></div>
-        <div class="shotwrap" id="s0-p2-w"><div class="shot card" id="s0-p2"><div class="ctext" id="s0-p2-t">Son <span class="y">crime</span> ?</div></div></div>
-        <div class="shotwrap" id="s0-p3-w"><div class="shot card" id="s0-p3"><div class="ctext" id="s0-p3-t">Avoir aimé <span class="y">un homme</span>.</div></div></div>
+        <div class="shotwrap" id="s0-p0-w"><div class="shot photo contain" id="s0-p0"><div class="pframe" id="s0-p0-f"><img class="clip pimg" id="s0-p0-i" src="assets/photos/turing-16-ans.jpg" alt="" data-start="0" data-duration="2.187" /></div><div class="credit">v. 1928 · domaine public</div></div><div class="chip" id="s0-p0-label"><span class="chip-bar"></span><span class="chip-t">1952 : condamné</span></div></div>
+        <div class="shotwrap" id="s0-p1-w"><div class="shot photo contain" id="s0-p1"><div class="pframe" id="s0-p1-f"><img class="clip pimg" id="s0-p1-i" src="assets/photos/turing-16-ans.jpg" alt="" data-start="2.187" data-duration="2.186" /></div><div class="credit">v. 1928 · domaine public</div></div></div>
+        <div class="shotwrap" id="s0-p2-w"><div class="shot doc" id="s0-p2"><div class="paper" id="s0-p2-p"><div class="dl" id="s0-p2-l0">Royaume-Uni · 31 mars 1952</div><div class="dl" id="s0-p2-l1">Affaire : Alan M. Turing</div><div class="dl" id="s0-p2-l2">Chef d'accusation : « grossière indécence »</div><div class="dtag">Illustration · document recomposé</div></div></div></div>
+        <div class="shotwrap" id="s0-p3-w"><div class="shot card" id="s0-p3"><div class="ctext" id="s0-p3-t">Son <span class="y">crime</span> ?</div></div></div>
+        <div class="shotwrap" id="s0-p4-w"><div class="shot card" id="s0-p4"><div class="ctext" id="s0-p4-t">Avoir aimé <span class="y">un homme</span>.</div></div></div>
       </div>
       <script>
         (() => {
           const tl = gsap.timeline({ paused: true });
           tl.set("#s0-p0-w", { opacity: 1 }, 0);
-          tl.set("#s0-p0-w", { opacity: 0 }, 3.459);
-          tl.fromTo("#s0-p0-i", { scale: 1.04, transformOrigin: "50% 30%" }, { scale: 1.16, duration: 3.459, ease: "none" }, 0);
-          tl.set("#s0-p1-w", { opacity: 1 }, 3.459);
-          tl.set("#s0-p1-w", { opacity: 0 }, 5.031);
-          tl.fromTo("#s0-p1-p", { opacity: 0, y: 60, rotation: 2 }, { opacity: 1, y: 0, rotation: -1, duration: 0.5, ease: "power3.out" }, 3.459);
-          tl.fromTo("#s0-p1-l0", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 3.859);
-          tl.fromTo("#s0-p1-l1", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 4.209);
-          tl.fromTo("#s0-p1-l2", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 4.559);
-          tl.set("#s0-p2-w", { opacity: 1 }, 5.031);
-          tl.set("#s0-p2-w", { opacity: 0 }, 7.578);
-          tl.fromTo("#s0-p2-t", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 5.081);
-          tl.set("#s0-p3-w", { opacity: 1 }, 7.578);
-          tl.set("#s0-p3-w", { opacity: 0 }, 8.681);
-          tl.fromTo("#s0-p3-t", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 7.628);
-          tl.fromTo("#s0-p3-t", { scale: 1 }, { scale: 1.1, duration: 0.35, ease: "power3.out", immediateRender: false }, 8.078);
+          tl.set("#s0-p0-w", { opacity: 0 }, 2.187);
+          tl.fromTo("#s0-p0-i", { scale: 1.04, transformOrigin: "50% 30%" }, { scale: 1.16, duration: 2.187, ease: "none" }, 0);
+          tl.set("#s0-p1-w", { opacity: 1 }, 2.187);
+          tl.set("#s0-p1-w", { opacity: 0 }, 4.373);
+          tl.fromTo("#s0-p1-i", { scale: 1.2799999999999998, transformOrigin: "38% 24%" }, { scale: 1.38, duration: 2.186, ease: "none" }, 2.187);
+          tl.set("#s0-p2-w", { opacity: 1 }, 4.373);
+          tl.set("#s0-p2-w", { opacity: 0 }, 6.361);
+          tl.fromTo("#s0-p2-p", { opacity: 0, y: 60, rotation: 2 }, { opacity: 1, y: 0, rotation: -1, duration: 0.5, ease: "power3.out" }, 4.373);
+          tl.fromTo("#s0-p2-l0", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 4.773);
+          tl.fromTo("#s0-p2-l1", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 5.123);
+          tl.fromTo("#s0-p2-l2", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 5.473);
+          tl.set("#s0-p3-w", { opacity: 1 }, 6.361);
+          tl.set("#s0-p3-w", { opacity: 0 }, 7.215);
+          tl.fromTo("#s0-p3-t", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 6.411);
+          tl.set("#s0-p4-w", { opacity: 1 }, 7.215);
+          tl.set("#s0-p4-w", { opacity: 0 }, 8.704);
+          tl.fromTo("#s0-p4-t", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 7.265);
+          tl.fromTo("#s0-p4-t", { scale: 1 }, { scale: 1.1, duration: 0.35, ease: "power3.out", immediateRender: false }, 7.715);
           window.__timelines["00-hook"] = tl;
         })();
       </script>

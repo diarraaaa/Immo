@@ -5,19 +5,18 @@
     <template>
       <style>#sc1-root { position: absolute; inset: 0; overflow: hidden; background: #0e0e0e; }</style>
       <div id="sc1-root" data-composition-id="01-enjeux" data-width="1920" data-height="1080">
-        <div class="shotwrap" id="s1-p0-w"><div class="shot photo contain" id="s1-p0"><div class="pframe" id="s1-p0-f"><img class="clip pimg" id="s1-p0-i" src="assets/photos/statue-manchester.jpg" alt="" data-start="0" data-duration="2.292" /></div><div class="credit">Mémorial de Manchester · KGGucwa · domaine public</div></div><div class="chip" id="s1-p0-label"><span class="chip-bar"></span><span class="chip-t" id="s1-p0-label-t"></span></div></div>
-        <div class="shotwrap" id="s1-p1-w"><div class="shot photo contain" id="s1-p1"><div class="pframe" id="s1-p1-f"><img class="clip pimg" id="s1-p1-i" src="assets/photos/statue-manchester.jpg" alt="" data-start="2.292" data-duration="2.291" /></div><div class="credit">Mémorial de Manchester · KGGucwa · domaine public</div></div></div>
-        <div class="shotwrap" id="s1-p2-w"><div class="shot photo cover" id="s1-p2"><div class="pframe" id="s1-p2-f"><img class="clip pimg" id="s1-p2-i" src="assets/photos/graded/bombe__guerre.jpg" alt="" data-start="4.583" data-duration="1.857" /></div><div class="credit">Bombe reconstruite · TedColes · CC0</div></div></div>
-        <div class="shotwrap" id="s1-p3-w"><div class="shot photo cover" id="s1-p3"><div class="pframe" id="s1-p3-f"><img class="clip pimg" id="s1-p3-i" src="assets/photos/graded/enigma-rotors-anneaux__guerre.jpg" alt="" data-start="6.44" data-duration="1.856" /></div><div class="credit">Rotors d'Enigma · TedColes · CC0</div></div></div>
-        <div class="shotwrap" id="s1-p4-w"><div class="shot photo cover" id="s1-p4"><div class="pframe" id="s1-p4-f"><img class="clip pimg" id="s1-p4-i" src="assets/photos/pomme.jpg" alt="" data-start="8.296" data-duration="1.857" /></div><div class="credit">D. Wilson / USDA · domaine public</div></div></div>
-        <div class="shotwrap" id="s1-p5-w"><div class="shot photo contain" id="s1-p5"><div class="pframe" id="s1-p5-f"><img class="clip pimg" id="s1-p5-i" src="assets/photos/graded/turing-1951__froid.jpg" alt="" data-start="10.153" data-duration="1.588" /></div><div class="credit">Elliott &amp; Fry, 1951 · domaine public</div></div><div class="chip" id="s1-p5-label"><span class="chip-bar"></span><span class="chip-t" id="s1-p5-label-t"></span></div></div>
+        <div class="shotwrap" id="s1-p0-w"><div class="shot photo contain" id="s1-p0"><div class="pframe" id="s1-p0-f"><img class="clip pimg" id="s1-p0-i" src="assets/photos/statue-manchester.jpg" alt="" data-start="0" data-duration="4.125" /></div><div class="credit">Mémorial de Manchester · KGGucwa · domaine public</div></div><div class="chip" id="s1-p0-label"><span class="chip-bar"></span><span class="chip-t" id="s1-p0-label-t"></span></div></div>
+        <div class="shotwrap" id="s1-p1-w"><div class="shot photo cover" id="s1-p1"><div class="pframe" id="s1-p1-f"><img class="clip pimg" id="s1-p1-i" src="assets/photos/graded/bombe__guerre.jpg" alt="" data-start="4.125" data-duration="2.043" /></div><div class="credit">Bombe reconstruite · TedColes · CC0</div></div></div>
+        <div class="shotwrap" id="s1-p2-w"><div class="shot photo cover" id="s1-p2"><div class="pframe" id="s1-p2-f"><img class="clip pimg" id="s1-p2-i" src="assets/photos/graded/enigma-rotors-anneaux__guerre.jpg" alt="" data-start="6.168" data-duration="2.044" /></div><div class="credit">Rotors d'Enigma · TedColes · CC0</div></div></div>
+        <div class="shotwrap" id="s1-p3-w"><div class="shot photo cover" id="s1-p3"><div class="pframe" id="s1-p3-f"><img class="clip pimg" id="s1-p3-i" src="assets/photos/pomme.jpg" alt="" data-start="8.212" data-duration="2.043" /></div><div class="credit">D. Wilson / USDA · domaine public</div></div></div>
+        <div class="shotwrap" id="s1-p4-w"><div class="shot photo contain" id="s1-p4"><div class="pframe" id="s1-p4-f"><img class="clip pimg" id="s1-p4-i" src="assets/photos/graded/turing-1951__froid.jpg" alt="" data-start="10.255" data-duration="1.969" /></div><div class="credit">Elliott &amp; Fry, 1951 · domaine public</div></div><div class="chip" id="s1-p4-label"><span class="chip-bar"></span><span class="chip-t" id="s1-p4-label-t"></span></div></div>
       </div>
       <script>
         (() => {
           const tl = gsap.timeline({ paused: true });
           tl.set("#s1-p0-w", { opacity: 1 }, 0);
-          tl.set("#s1-p0-w", { opacity: 0 }, 2.292);
-          tl.fromTo("#s1-p0-i", { scale: 1.04, transformOrigin: "50% 30%" }, { scale: 1.16, duration: 2.292, ease: "none" }, 0);
+          tl.set("#s1-p0-w", { opacity: 0 }, 4.125);
+          tl.fromTo("#s1-p0-i", { scale: 1.04, transformOrigin: "50% 30%" }, { scale: 1.16, duration: 4.125, ease: "none" }, 0);
           tl.fromTo("#s1-p0-label", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, 0.05);
           tl.set("#s1-p0-label-t", { textContent: "1" }, 0.15);
           tl.set("#s1-p0-label-t", { textContent: "19" }, 0.175);
@@ -39,33 +38,30 @@
           tl.set("#s1-p0-label-t", { textContent: "1952 → 2013 : 61 a" }, 0.575);
           tl.set("#s1-p0-label-t", { textContent: "1952 → 2013 : 61 an" }, 0.6);
           tl.set("#s1-p0-label-t", { textContent: "1952 → 2013 : 61 ans" }, 0.625);
-          tl.set("#s1-p1-w", { opacity: 1 }, 2.292);
-          tl.set("#s1-p1-w", { opacity: 0 }, 4.583);
-          tl.fromTo("#s1-p1-i", { scale: 1.2799999999999998, transformOrigin: "38% 24%" }, { scale: 1.38, duration: 2.291, ease: "none" }, 2.292);
-          tl.set("#s1-p2-w", { opacity: 1 }, 4.583);
-          tl.set("#s1-p2-w", { opacity: 0 }, 6.44);
-          tl.fromTo("#s1-p2-i", { scale: 1.04, transformOrigin: "50% 50%" }, { scale: 1.16, duration: 1.857, ease: "none" }, 4.583);
-          tl.set("#s1-p3-w", { opacity: 1 }, 6.44);
-          tl.set("#s1-p3-w", { opacity: 0 }, 8.296);
-          tl.fromTo("#s1-p3-i", { scale: 1.04, transformOrigin: "50% 50%" }, { scale: 1.16, duration: 1.856, ease: "none" }, 6.44);
-          tl.set("#s1-p4-w", { opacity: 1 }, 8.296);
-          tl.set("#s1-p4-w", { opacity: 0 }, 10.153);
-          tl.fromTo("#s1-p4-i", { scale: 1.1, transformOrigin: "50% 50%" }, { scale: 1.25, duration: 1.857, ease: "none" }, 8.296);
-          tl.set("#s1-p5-w", { opacity: 1 }, 10.153);
-          tl.set("#s1-p5-w", { opacity: 0 }, 11.741);
-          tl.fromTo("#s1-p5-i", { scale: 1.04, transformOrigin: "50% 35%" }, { scale: 1.16, duration: 1.588, ease: "none" }, 10.153);
-          tl.fromTo("#s1-p5-label", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, 10.203);
-          tl.set("#s1-p5-label-t", { textContent: "A" }, 10.303);
-          tl.set("#s1-p5-label-t", { textContent: "Al" }, 10.348);
-          tl.set("#s1-p5-label-t", { textContent: "Ala" }, 10.394);
-          tl.set("#s1-p5-label-t", { textContent: "Alan" }, 10.439);
-          tl.set("#s1-p5-label-t", { textContent: "Alan " }, 10.485);
-          tl.set("#s1-p5-label-t", { textContent: "Alan T" }, 10.53);
-          tl.set("#s1-p5-label-t", { textContent: "Alan Tu" }, 10.576);
-          tl.set("#s1-p5-label-t", { textContent: "Alan Tur" }, 10.621);
-          tl.set("#s1-p5-label-t", { textContent: "Alan Turi" }, 10.667);
-          tl.set("#s1-p5-label-t", { textContent: "Alan Turin" }, 10.712);
-          tl.set("#s1-p5-label-t", { textContent: "Alan Turing" }, 10.758);
+          tl.set("#s1-p1-w", { opacity: 1 }, 4.125);
+          tl.set("#s1-p1-w", { opacity: 0 }, 6.168);
+          tl.fromTo("#s1-p1-i", { scale: 1.04, transformOrigin: "50% 50%" }, { scale: 1.16, duration: 2.043, ease: "none" }, 4.125);
+          tl.set("#s1-p2-w", { opacity: 1 }, 6.168);
+          tl.set("#s1-p2-w", { opacity: 0 }, 8.212);
+          tl.fromTo("#s1-p2-i", { scale: 1.04, transformOrigin: "50% 50%" }, { scale: 1.16, duration: 2.044, ease: "none" }, 6.168);
+          tl.set("#s1-p3-w", { opacity: 1 }, 8.212);
+          tl.set("#s1-p3-w", { opacity: 0 }, 10.255);
+          tl.fromTo("#s1-p3-i", { scale: 1.1, transformOrigin: "50% 50%" }, { scale: 1.25, duration: 2.043, ease: "none" }, 8.212);
+          tl.set("#s1-p4-w", { opacity: 1 }, 10.255);
+          tl.set("#s1-p4-w", { opacity: 0 }, 12.224);
+          tl.fromTo("#s1-p4-i", { scale: 1.04, transformOrigin: "50% 35%" }, { scale: 1.16, duration: 1.969, ease: "none" }, 10.255);
+          tl.fromTo("#s1-p4-label", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, 10.305);
+          tl.set("#s1-p4-label-t", { textContent: "A" }, 10.405);
+          tl.set("#s1-p4-label-t", { textContent: "Al" }, 10.45);
+          tl.set("#s1-p4-label-t", { textContent: "Ala" }, 10.496);
+          tl.set("#s1-p4-label-t", { textContent: "Alan" }, 10.541);
+          tl.set("#s1-p4-label-t", { textContent: "Alan " }, 10.587);
+          tl.set("#s1-p4-label-t", { textContent: "Alan T" }, 10.632);
+          tl.set("#s1-p4-label-t", { textContent: "Alan Tu" }, 10.678);
+          tl.set("#s1-p4-label-t", { textContent: "Alan Tur" }, 10.723);
+          tl.set("#s1-p4-label-t", { textContent: "Alan Turi" }, 10.769);
+          tl.set("#s1-p4-label-t", { textContent: "Alan Turin" }, 10.814);
+          tl.set("#s1-p4-label-t", { textContent: "Alan Turing" }, 10.86);
           window.__timelines["01-enjeux"] = tl;
         })();
       </script>

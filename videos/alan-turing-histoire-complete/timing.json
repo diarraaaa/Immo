@@ -1,5 +1,5 @@
 {
-  "total": 516.223,
+  "total": 501.332,
   "scenes": [
     {
       "id": "00-hook",
@@ -8,31 +8,31 @@
         {
           "cap": "En 1952, la Grande-Bretagne condamne un homme qui l'a aidée à gagner la guerre.",
           "start": 0.25,
-          "end": 4.911
+          "end": 6.141
         },
         {
           "cap": "Son crime ?",
-          "start": 5.031,
-          "end": 7.458
+          "start": 6.361,
+          "end": 6.995
         },
         {
           "cap": "Avoir aimé un homme.",
-          "start": 7.578,
-          "end": 8.581
+          "start": 7.215,
+          "end": 8.404
         }
       ],
       "start": 0,
-      "end": 8.681,
-      "duration": 8.681,
+      "end": 8.704,
+      "duration": 8.704,
       "beats": [
         0.25,
-        5.031,
-        7.578
+        6.361,
+        7.215
       ],
       "beatEnds": [
-        4.911,
-        7.458,
-        8.581
+        6.141,
+        6.995,
+        8.404
       ]
     },
     {
@@ -41,32 +41,32 @@
       "lines": [
         {
           "cap": "61 ans plus tard, la reine lui accorde son pardon.",
-          "start": 8.931,
-          "end": 13.144
+          "start": 8.954,
+          "end": 12.609
         },
         {
           "cap": "Entre les deux, il y a une machine secrète, un code réputé incassable, et une pomme à moitié mangée.",
-          "start": 13.264,
-          "end": 18.714
+          "start": 12.829,
+          "end": 18.739
         },
         {
           "cap": "Il s'appelait Alan Turing.",
-          "start": 18.834,
-          "end": 20.322
+          "start": 18.959,
+          "end": 20.628
         }
       ],
-      "start": 8.681,
-      "end": 20.422,
-      "duration": 11.741,
+      "start": 8.704,
+      "end": 20.928,
+      "duration": 12.224,
       "beats": [
         0.25,
-        4.583,
-        10.153
+        4.125,
+        10.255
       ],
       "beatEnds": [
-        4.463,
-        10.033,
-        11.641
+        3.905,
+        10.035,
+        11.924
       ]
     },
     {
@@ -75,60 +75,60 @@
       "lines": [
         {
           "cap": "Tu connais peut-être le film.",
-          "start": 20.672,
-          "end": 23.534
+          "start": 21.178,
+          "end": 23.294
         },
         {
           "cap": "Tu connais peut-être Enigma.",
-          "start": 23.654,
-          "end": 25.36
+          "start": 23.514,
+          "end": 25.44
         },
         {
           "cap": "Mais l'histoire complète est plus étrange.",
-          "start": 25.48,
-          "end": 27.441
+          "start": 25.66,
+          "end": 28.297
         },
         {
           "cap": "Et plus dure.",
-          "start": 27.561,
-          "end": 28.442
+          "start": 28.517,
+          "end": 28.982
         },
         {
           "cap": "Aujourd'hui, on la raconte du début.",
-          "start": 28.562,
-          "end": 30.562
+          "start": 29.202,
+          "end": 31.155
         },
         {
           "cap": "Et à la fin, on reviendra sur cette pomme.",
-          "start": 30.682,
-          "end": 34.118
+          "start": 31.375,
+          "end": 33.522
         },
         {
           "cap": "Parce que personne n'est d'accord sur ce qu'elle veut dire.",
-          "start": 34.668,
-          "end": 37.353
+          "start": 34.072,
+          "end": 36.69
         }
       ],
-      "start": 20.422,
-      "end": 37.453,
-      "duration": 17.031,
+      "start": 20.928,
+      "end": 36.99,
+      "duration": 16.062,
       "beats": [
         0.25,
-        3.232,
-        5.058,
-        7.139,
-        8.14,
-        10.26,
-        14.246
+        2.586,
+        4.732,
+        7.589,
+        8.274,
+        10.447,
+        13.144
       ],
       "beatEnds": [
-        3.112,
-        4.938,
-        7.019,
-        8.02,
-        10.14,
-        13.696,
-        16.931
+        2.366,
+        4.512,
+        7.369,
+        8.054,
+        10.227,
+        12.594,
+        15.762
       ]
     },
     {
@@ -137,158 +137,158 @@
       "lines": [
         {
           "cap": "Londres, 23 juin 1912.",
-          "start": 37.703,
-          "end": 41.78
+          "start": 37.24,
+          "end": 39.792
         },
         {
           "cap": "Alan Mathison Turing naît dans une famille de fonctionnaires de l'Empire britannique.",
-          "start": 41.9,
-          "end": 46.052
+          "start": 40.012,
+          "end": 44.817
         },
         {
           "cap": "Son père travaille en Inde.",
-          "start": 46.172,
-          "end": 48.745
+          "start": 45.037,
+          "end": 47.127
         },
         {
           "cap": "Alan et son frère grandissent souvent chez des familles d'accueil en Angleterre.",
-          "start": 48.865,
-          "end": 53.155
+          "start": 47.347,
+          "end": 51.243
         },
         {
           "cap": "Très tôt, il est différent : passionné de chiffres et de chimie, indifférent au reste.",
-          "start": 53.275,
-          "end": 57.469
+          "start": 51.463,
+          "end": 56.224
         },
         {
           "cap": "À l'école de Sherborne, un pensionnat chic du sud de l'Angleterre, on veut des latinistes.",
-          "start": 57.589,
-          "end": 63.735
+          "start": 56.444,
+          "end": 61.247
         },
         {
           "cap": "Pas des scientifiques.",
-          "start": 63.855,
-          "end": 64.897
+          "start": 61.467,
+          "end": 62.76
         },
         {
           "cap": "Son directeur écrit qu'il perd son temps dans une école comme la leur.",
-          "start": 65.017,
-          "end": 68.246
+          "start": 62.98,
+          "end": 66.673
         },
         {
           "cap": "Alan est seul.",
-          "start": 68.366,
-          "end": 69.743
+          "start": 66.893,
+          "end": 67.731
         },
         {
           "cap": "Jusqu'à Christopher Morcom.",
-          "start": 69.863,
-          "end": 71.445
+          "start": 67.951,
+          "end": 69.799
         },
         {
           "cap": "Un élève un peu plus âgé, brillant, passionné d'astronomie.",
-          "start": 71.565,
-          "end": 75.027
+          "start": 70.019,
+          "end": 73.923
         },
         {
           "cap": "Pour la première fois, quelqu'un parle sa langue.",
-          "start": 75.147,
-          "end": 77.227
+          "start": 74.143,
+          "end": 76.977
         },
         {
           "cap": "Alan l'admire.",
-          "start": 77.347,
-          "end": 79.53
+          "start": 77.197,
+          "end": 78.058
         },
         {
           "cap": "Il l'aime, sans doute.",
-          "start": 79.65,
-          "end": 80.826
+          "start": 78.278,
+          "end": 79.707
         },
         {
           "cap": "Le 13 février 1930, Christopher meurt de la tuberculose.",
-          "start": 80.946,
-          "end": 84.921
+          "start": 79.927,
+          "end": 85.191
         },
         {
           "cap": "Il a 18 ans.",
-          "start": 85.041,
-          "end": 85.987
+          "start": 85.411,
+          "end": 86.314
         },
         {
           "cap": "Alan est dévasté.",
-          "start": 86.107,
-          "end": 87.191
+          "start": 86.534,
+          "end": 87.604
         },
         {
           "cap": "Et il se pose une question qui ne le lâchera plus : qu'est-ce qu'un esprit ?",
-          "start": 87.311,
-          "end": 90.843
+          "start": 87.824,
+          "end": 91.372
         },
         {
           "cap": "Est-ce que la pensée peut exister en dehors du corps ?",
-          "start": 90.963,
-          "end": 95.646
+          "start": 91.592,
+          "end": 94.145
         },
         {
           "cap": "Garde cette question en tête.",
-          "start": 95.766,
-          "end": 98.018
+          "start": 94.365,
+          "end": 95.746
         },
         {
           "cap": "Elle va revenir.",
-          "start": 98.138,
-          "end": 99.672
+          "start": 95.966,
+          "end": 96.763
         }
       ],
-      "start": 37.453,
-      "end": 99.772,
-      "duration": 62.319,
+      "start": 36.99,
+      "end": 97.063,
+      "duration": 60.073,
       "beats": [
         0.25,
-        4.447,
-        8.719,
-        11.412,
-        15.822,
-        20.136,
-        26.402,
-        27.564,
-        30.913,
-        32.41,
-        34.112,
-        37.694,
-        39.894,
-        42.197,
-        43.493,
-        47.588,
-        48.654,
-        49.858,
-        53.51,
-        58.313,
-        60.685
+        3.022,
+        8.047,
+        10.357,
+        14.473,
+        19.454,
+        24.477,
+        25.99,
+        29.903,
+        30.961,
+        33.029,
+        37.153,
+        40.207,
+        41.288,
+        42.937,
+        48.421,
+        49.544,
+        50.834,
+        54.602,
+        57.375,
+        58.976
       ],
       "beatEnds": [
-        4.327,
-        8.599,
-        11.292,
-        15.702,
-        20.016,
-        26.282,
-        27.444,
-        30.793,
-        32.29,
-        33.992,
-        37.574,
-        39.774,
-        42.077,
-        43.373,
-        47.468,
-        48.534,
-        49.738,
-        53.39,
-        58.193,
-        60.565,
-        62.219
+        2.802,
+        7.827,
+        10.137,
+        14.253,
+        19.234,
+        24.257,
+        25.77,
+        29.683,
+        30.741,
+        32.809,
+        36.933,
+        39.987,
+        41.068,
+        42.717,
+        48.201,
+        49.324,
+        50.614,
+        54.382,
+        57.155,
+        58.756,
+        59.773
       ]
     },
     {
@@ -297,151 +297,151 @@
       "lines": [
         {
           "cap": "En 1931, Turing entre au King's College de Cambridge.",
-          "start": 100.022,
-          "end": 103.88
+          "start": 97.313,
+          "end": 101.801
         },
         {
           "cap": "Il y étudie les mathématiques.",
-          "start": 104,
-          "end": 107.048
+          "start": 102.021,
+          "end": 103.222
         },
         {
           "cap": "À 22 ans, il devient membre du collège, un honneur rare.",
-          "start": 107.168,
-          "end": 110.533
+          "start": 103.442,
+          "end": 107.188
         },
         {
           "cap": "Et en 1936, il publie un article au titre aride : « Sur les nombres calculables ».",
-          "start": 110.653,
-          "end": 117.254
+          "start": 107.408,
+          "end": 112.893
         },
         {
           "cap": "À l'intérieur, une idée folle.",
-          "start": 117.374,
-          "end": 119.331
+          "start": 113.113,
+          "end": 114.789
         },
         {
           "cap": "Il imagine une machine.",
-          "start": 119.451,
-          "end": 120.83
+          "start": 115.009,
+          "end": 116.316
         },
         {
           "cap": "Pas en métal.",
-          "start": 120.95,
-          "end": 122.263
+          "start": 116.536,
+          "end": 117.268
         },
         {
           "cap": "Une machine sur le papier.",
-          "start": 122.383,
-          "end": 125.071
+          "start": 117.488,
+          "end": 118.814
         },
         {
           "cap": "Un ruban infini, une tête qui lit, écrit, efface un symbole, et avance d'une case.",
-          "start": 125.191,
-          "end": 130.943
+          "start": 119.034,
+          "end": 124.249
         },
         {
           "cap": "C'est tout.",
-          "start": 131.063,
-          "end": 131.998
+          "start": 124.469,
+          "end": 124.961
         },
         {
           "cap": "Et Turing démontre qu'une seule machine de ce type, si on lui donne les bonnes instructions, peut imiter n'importe quelle autre.",
-          "start": 132.118,
-          "end": 138.904
+          "start": 125.181,
+          "end": 132.699
         },
         {
           "cap": "Une machine universelle.",
-          "start": 139.024,
-          "end": 140.813
+          "start": 132.919,
+          "end": 134.599
         },
         {
           "cap": "Relis cette phrase.",
-          "start": 141.313,
-          "end": 143.965
+          "start": 135.099,
+          "end": 136.235
         },
         {
           "cap": "C'est l'idée de l'ordinateur.",
-          "start": 144.085,
-          "end": 145.552
+          "start": 136.455,
+          "end": 138.018
         },
         {
           "cap": "Un seul appareil, et des programmes différents.",
-          "start": 145.672,
-          "end": 150.096
+          "start": 138.238,
+          "end": 140.563
         },
         {
           "cap": "Plus de dix ans avant que le premier ordinateur de ce type fonctionne.",
-          "start": 150.216,
-          "end": 154.359
+          "start": 140.783,
+          "end": 144.13
         },
         {
           "cap": "Turing part ensuite à Princeton, aux États-Unis.",
-          "start": 154.479,
-          "end": 157.925
+          "start": 144.35,
+          "end": 146.799
         },
         {
           "cap": "Il y prépare un doctorat sous la direction du logicien Alonzo Church.",
-          "start": 158.045,
-          "end": 161.94
+          "start": 147.019,
+          "end": 150.289
         },
         {
           "cap": "Il rentre en Angleterre en 1938.",
-          "start": 162.06,
-          "end": 164.711
+          "start": 150.509,
+          "end": 153.128
         },
         {
           "cap": "Juste à temps.",
-          "start": 164.831,
-          "end": 165.536
+          "start": 153.348,
+          "end": 154.436
         }
       ],
-      "start": 99.772,
-      "end": 165.636,
-      "duration": 65.864,
+      "start": 97.063,
+      "end": 154.736,
+      "duration": 57.673,
       "beats": [
         0.25,
-        4.228,
-        7.396,
-        10.881,
-        17.602,
-        19.679,
-        21.178,
-        22.611,
-        25.419,
-        31.291,
-        32.346,
-        39.252,
-        41.541,
-        44.313,
-        45.9,
-        50.444,
-        54.707,
-        58.273,
-        62.288,
-        65.059
+        4.958,
+        6.379,
+        10.345,
+        16.05,
+        17.946,
+        19.473,
+        20.425,
+        21.971,
+        27.406,
+        28.118,
+        35.856,
+        38.036,
+        39.392,
+        41.175,
+        43.72,
+        47.287,
+        49.956,
+        53.446,
+        56.285
       ],
       "beatEnds": [
-        4.108,
-        7.276,
-        10.761,
-        17.482,
-        19.559,
-        21.058,
-        22.491,
-        25.299,
-        31.171,
-        32.226,
-        39.132,
-        41.041,
-        44.193,
-        45.78,
-        50.324,
-        54.587,
-        58.153,
-        62.168,
-        64.939,
-        65.764
+        4.738,
+        6.159,
+        10.125,
+        15.83,
+        17.726,
+        19.253,
+        20.205,
+        21.751,
+        27.186,
+        27.898,
+        35.636,
+        37.536,
+        39.172,
+        40.955,
+        43.5,
+        47.067,
+        49.736,
+        53.226,
+        56.065,
+        57.373
       ]
     },
     {
@@ -450,256 +450,256 @@
       "lines": [
         {
           "cap": "Septembre 1939.",
-          "start": 165.886,
-          "end": 169.248
+          "start": 154.986,
+          "end": 157.202
         },
         {
           "cap": "La guerre éclate.",
-          "start": 169.368,
-          "end": 170.407
+          "start": 157.422,
+          "end": 158.399
         },
         {
           "cap": "Turing rejoint un manoir discret au nord de Londres : Bletchley Park.",
-          "start": 170.527,
-          "end": 174.619
+          "start": 158.619,
+          "end": 163.004
         },
         {
           "cap": "C'est le centre secret des décrypteurs britanniques.",
-          "start": 174.739,
-          "end": 177.346
+          "start": 163.224,
+          "end": 165.827
         },
         {
           "cap": "Leur ennemi s'appelle Enigma.",
-          "start": 177.466,
-          "end": 178.943
+          "start": 166.047,
+          "end": 168.013
         },
         {
           "cap": "La machine de chiffrement de l'armée allemande.",
-          "start": 179.063,
-          "end": 182.219
+          "start": 168.233,
+          "end": 170.574
         },
         {
           "cap": "Des rotors, des fiches, des réglages qui changent chaque jour.",
-          "start": 182.339,
-          "end": 185.797
+          "start": 170.794,
+          "end": 174.067
         },
         {
           "cap": "Le nombre de combinaisons possibles se compte en milliards de milliards.",
-          "start": 185.917,
-          "end": 189.97
+          "start": 174.287,
+          "end": 177.622
         },
         {
           "cap": "Mais il faut rendre justice à quelqu'un.",
-          "start": 190.09,
-          "end": 193.284
+          "start": 177.842,
+          "end": 179.622
         },
         {
           "cap": "Les premiers à avoir cassé Enigma, ce ne sont pas les Britanniques.",
-          "start": 193.404,
-          "end": 197.823
+          "start": 179.842,
+          "end": 183.233
         },
         {
           "cap": "Ce sont des mathématiciens polonais, menés par Marian Rejewski, dès les années 1930.",
-          "start": 197.943,
-          "end": 202.927
+          "start": 183.453,
+          "end": 188.03
         },
         {
           "cap": "En juillet 1939, dans une forêt près de Varsovie, ils transmettent tout leur travail aux Britanniques et aux Français.",
-          "start": 203.047,
-          "end": 209.392
+          "start": 188.25,
+          "end": 195.125
         },
         {
           "cap": "Turing part de là.",
-          "start": 209.512,
-          "end": 211.422
+          "start": 195.345,
+          "end": 196.182
         },
         {
           "cap": "Avec Gordon Welchman, il conçoit une machine bien plus puissante : la Bombe.",
-          "start": 211.542,
-          "end": 215.904
+          "start": 196.402,
+          "end": 200.614
         },
         {
           "cap": "Une armoire bruyante, pleine de tambours qui tournent, et qui élimine les mauvais réglages à toute vitesse.",
-          "start": 216.024,
-          "end": 220.85
+          "start": 200.834,
+          "end": 206.495
         },
         {
           "cap": "La première est installée en mars 1940.",
-          "start": 220.97,
-          "end": 225.36
+          "start": 206.715,
+          "end": 209.517
         },
         {
-          "cap": "Turing prend ensuite la tête du Hut 8, la baraque chargée du code de la marine allemande.",
-          "start": 225.48,
-          "end": 229.918
+          "cap": "Turing prend ensuite la tête de la Hut 8, la baraque chargée du code de la marine allemande.",
+          "start": 209.737,
+          "end": 215.519
         },
         {
           "cap": "Le plus dur de tous.",
-          "start": 230.038,
-          "end": 231.383
+          "start": 215.739,
+          "end": 216.981
         },
         {
           "cap": "Ce code protège les sous-marins qui coulent les convois de l'Atlantique.",
-          "start": 231.503,
-          "end": 234.781
+          "start": 217.201,
+          "end": 221.006
         },
         {
           "cap": "Ces convois transportent la nourriture et les armes dont la Grande-Bretagne a besoin pour tenir.",
-          "start": 234.901,
-          "end": 240.024
+          "start": 221.226,
+          "end": 226.717
         },
         {
           "cap": "En 1941, les décrypteurs commencent à lire les messages de la marine.",
-          "start": 240.144,
-          "end": 245.242
+          "start": 226.937,
+          "end": 232.556
         },
         {
           "cap": "Mais ils manquent de tout.",
-          "start": 245.362,
-          "end": 248.373
+          "start": 232.776,
+          "end": 233.96
         },
         {
           "cap": "De personnel.",
-          "start": 248.493,
-          "end": 249.311
+          "start": 234.18,
+          "end": 235.153
         },
         {
           "cap": "De machines.",
-          "start": 249.431,
-          "end": 250.177
+          "start": 235.373,
+          "end": 236.299
         },
         {
           "cap": "Alors, en octobre 1941, Turing et trois collègues font quelque chose d'inouï.",
-          "start": 250.297,
-          "end": 256.219
+          "start": 236.519,
+          "end": 242.403
         },
         {
           "cap": "Ils écrivent directement à Winston Churchill.",
-          "start": 256.339,
-          "end": 259.027
+          "start": 242.623,
+          "end": 244.951
         },
         {
           "cap": "Sans passer par leurs chefs.",
-          "start": 259.147,
-          "end": 260.471
+          "start": 245.171,
+          "end": 246.688
         },
         {
           "cap": "La réponse de Churchill tient en une étiquette rouge : « Action ce jour ».",
-          "start": 260.591,
-          "end": 265.555
+          "start": 246.908,
+          "end": 251.411
         },
         {
           "cap": "Ils obtiennent ce qu'ils demandent.",
-          "start": 265.675,
-          "end": 268.542
+          "start": 251.631,
+          "end": 253.207
         },
         {
           "cap": "Combien de vies ce travail a-t-il sauvées ?",
-          "start": 268.662,
-          "end": 271.035
+          "start": 253.427,
+          "end": 255.664
         },
         {
           "cap": "Personne ne peut le chiffrer.",
-          "start": 271.155,
-          "end": 273.842
+          "start": 255.884,
+          "end": 257.241
         },
         {
           "cap": "Selon Bletchley Park, il aurait raccourci la guerre de jusqu'à 2 ans.",
-          "start": 273.962,
-          "end": 278.519
+          "start": 257.461,
+          "end": 261.243
         },
         {
           "cap": "C'est une estimation, et elle est débattue.",
-          "start": 278.639,
-          "end": 280.524
+          "start": 261.463,
+          "end": 264.189
         },
         {
           "cap": "Mais une chose est sûre : pendant des décennies, presque personne n'a su ce que Turing avait fait.",
-          "start": 280.644,
-          "end": 285.947
+          "start": 264.409,
+          "end": 269.5
         },
         {
           "cap": "Tout était classé secret.",
-          "start": 286.067,
-          "end": 289.077
+          "start": 269.72,
+          "end": 271.026
         }
       ],
-      "start": 165.636,
-      "end": 289.177,
-      "duration": 123.541,
+      "start": 154.736,
+      "end": 271.326,
+      "duration": 116.59,
       "beats": [
         0.25,
-        3.732,
-        4.891,
-        9.103,
-        11.83,
-        13.427,
-        16.703,
-        20.281,
-        24.454,
-        27.768,
-        32.307,
-        37.411,
-        43.876,
-        45.906,
-        50.388,
-        55.334,
-        59.844,
-        64.402,
-        65.867,
-        69.265,
-        74.508,
-        79.726,
-        82.857,
-        83.795,
-        84.661,
-        90.703,
-        93.511,
-        94.955,
-        100.039,
-        103.026,
-        105.519,
-        108.326,
-        113.003,
-        115.008,
-        120.431
+        2.686,
+        3.883,
+        8.488,
+        11.311,
+        13.497,
+        16.058,
+        19.551,
+        23.106,
+        25.106,
+        28.717,
+        33.514,
+        40.609,
+        41.666,
+        46.098,
+        51.979,
+        55.001,
+        61.003,
+        62.465,
+        66.49,
+        72.201,
+        78.04,
+        79.444,
+        80.637,
+        81.783,
+        87.887,
+        90.435,
+        92.172,
+        96.895,
+        98.691,
+        101.148,
+        102.725,
+        106.727,
+        109.673,
+        114.984
       ],
       "beatEnds": [
-        3.612,
-        4.771,
-        8.983,
-        11.71,
-        13.307,
-        16.583,
-        20.161,
-        24.334,
-        27.648,
-        32.187,
-        37.291,
-        43.756,
-        45.786,
-        50.268,
-        55.214,
-        59.724,
-        64.282,
-        65.747,
-        69.145,
-        74.388,
-        79.606,
-        82.737,
-        83.675,
-        84.541,
-        90.583,
-        93.391,
-        94.835,
-        99.919,
-        102.906,
-        105.399,
-        108.206,
-        112.883,
-        114.888,
-        120.311,
-        123.441
+        2.466,
+        3.663,
+        8.268,
+        11.091,
+        13.277,
+        15.838,
+        19.331,
+        22.886,
+        24.886,
+        28.497,
+        33.294,
+        40.389,
+        41.446,
+        45.878,
+        51.759,
+        54.781,
+        60.783,
+        62.245,
+        66.27,
+        71.981,
+        77.82,
+        79.224,
+        80.417,
+        81.563,
+        87.667,
+        90.215,
+        91.952,
+        96.675,
+        98.471,
+        100.928,
+        102.505,
+        106.507,
+        109.453,
+        114.764,
+        116.29
       ]
     },
     {
@@ -708,123 +708,123 @@
       "lines": [
         {
           "cap": "Après la guerre, il reçoit une décoration, l'OBE.",
-          "start": 289.427,
-          "end": 292.203
+          "start": 271.576,
+          "end": 274.688
         },
         {
           "cap": "Discrètement.",
-          "start": 292.323,
-          "end": 295.222
+          "start": 274.908,
+          "end": 275.766
         },
         {
           "cap": "Puis il revient à son obsession : construire sa machine universelle pour de vrai.",
-          "start": 295.342,
-          "end": 299.909
+          "start": 275.986,
+          "end": 280.349
         },
         {
           "cap": "Au Laboratoire national de physique, il dessine les plans d'un ordinateur, l'ACE.",
-          "start": 300.029,
-          "end": 304.51
+          "start": 280.569,
+          "end": 285.24
         },
         {
           "cap": "En 1948, il rejoint l'université de Manchester, où tourne l'un des premiers ordinateurs au monde.",
-          "start": 304.63,
-          "end": 311.578
+          "start": 285.46,
+          "end": 292.017
         },
         {
           "cap": "Il écrit des programmes.",
-          "start": 311.698,
-          "end": 314.776
+          "start": 292.237,
+          "end": 293.277
         },
         {
           "cap": "Et en 1950, il publie un article qui commence par une question simple : les machines peuvent-elles penser ?",
-          "start": 314.896,
-          "end": 322.159
+          "start": 293.497,
+          "end": 299.139
         },
         {
           "cap": "Plutôt que de se battre sur les mots, il propose un jeu.",
-          "start": 322.279,
-          "end": 327.172
+          "start": 299.359,
+          "end": 302.77
         },
         {
           "cap": "Un humain discute par écrit avec un interlocuteur caché.",
-          "start": 327.292,
-          "end": 330.287
+          "start": 302.99,
+          "end": 306.181
         },
         {
           "cap": "Si l'humain ne peut pas dire s'il parle à une personne ou à une machine, alors la machine a réussi.",
-          "start": 330.407,
-          "end": 335.403
+          "start": 306.401,
+          "end": 312.047
         },
         {
           "cap": "On l'appelle aujourd'hui le test de Turing.",
-          "start": 335.523,
-          "end": 337.44
+          "start": 312.267,
+          "end": 314.575
         },
         {
           "cap": "Tu te souviens de Christopher, et de la question sur l'esprit ?",
-          "start": 337.56,
-          "end": 341.519
+          "start": 314.795,
+          "end": 318
         },
         {
           "cap": "La voilà, 20 ans plus tard.",
-          "start": 341.639,
-          "end": 343.133
+          "start": 318.22,
+          "end": 320.02
         },
         {
           "cap": "En 1951, Turing entre à la Royal Society, l'une des plus prestigieuses académies scientifiques du monde.",
-          "start": 343.253,
-          "end": 349.979
+          "start": 320.24,
+          "end": 327.598
         },
         {
           "cap": "Il a 39 ans.",
-          "start": 350.099,
-          "end": 351.233
+          "start": 327.818,
+          "end": 328.803
         },
         {
           "cap": "Il est au sommet.",
-          "start": 351.353,
-          "end": 352.217
+          "start": 329.023,
+          "end": 329.866
         }
       ],
-      "start": 289.177,
-      "end": 352.317,
-      "duration": 63.14,
+      "start": 271.326,
+      "end": 330.166,
+      "duration": 58.84,
       "beats": [
         0.25,
-        3.146,
-        6.165,
-        10.852,
-        15.453,
-        22.521,
-        25.719,
-        33.102,
-        38.115,
-        41.23,
-        46.346,
-        48.383,
-        52.462,
-        54.076,
-        60.922,
-        62.176
+        3.582,
+        4.66,
+        9.243,
+        14.134,
+        20.911,
+        22.171,
+        28.033,
+        31.664,
+        35.075,
+        40.941,
+        43.469,
+        46.894,
+        48.914,
+        56.492,
+        57.697
       ],
       "beatEnds": [
-        3.026,
-        6.045,
-        10.732,
-        15.333,
-        22.401,
-        25.599,
-        32.982,
-        37.995,
-        41.11,
-        46.226,
-        48.263,
-        52.342,
-        53.956,
-        60.802,
-        62.056,
-        63.04
+        3.362,
+        4.44,
+        9.023,
+        13.914,
+        20.691,
+        21.951,
+        27.813,
+        31.444,
+        34.855,
+        40.721,
+        43.249,
+        46.674,
+        48.694,
+        56.272,
+        57.477,
+        58.54
       ]
     },
     {
@@ -833,137 +833,137 @@
       "lines": [
         {
           "cap": "Janvier 1952.",
-          "start": 352.567,
-          "end": 354.349
+          "start": 330.416,
+          "end": 332.642
         },
         {
           "cap": "Sa maison, près de Manchester, est cambriolée.",
-          "start": 354.469,
-          "end": 357.223
+          "start": 332.862,
+          "end": 335.556
         },
         {
           "cap": "Turing porte plainte.",
-          "start": 357.343,
-          "end": 359.885
+          "start": 335.776,
+          "end": 336.957
         },
         {
           "cap": "Pendant l'enquête, il explique à la police qu'il a une relation avec un jeune homme, Arnold Murray, et que le cambrioleur est une connaissance de Murray.",
-          "start": 360.005,
-          "end": 366.934
+          "start": 337.177,
+          "end": 345.708
         },
         {
           "cap": "Il ne cache rien.",
-          "start": 367.054,
-          "end": 369.881
+          "start": 345.928,
+          "end": 346.776
         },
         {
           "cap": "Il ne pense pas avoir fait quelque chose de mal.",
-          "start": 370.001,
-          "end": 371.978
+          "start": 346.996,
+          "end": 349.356
         },
         {
           "cap": "Mais en Grande-Bretagne, à cette époque, l'homosexualité masculine est un crime.",
-          "start": 372.098,
-          "end": 376.963
+          "start": 349.576,
+          "end": 353.777
         },
         {
           "cap": "La victime du cambriolage devient l'accusé.",
-          "start": 377.513,
-          "end": 379.62
+          "start": 354.327,
+          "end": 357.269
         },
         {
           "cap": "Le 31 mars 1952, Turing est reconnu coupable de « grossière indécence ».",
-          "start": 379.74,
-          "end": 385.769
+          "start": 357.489,
+          "end": 364.52
         },
         {
           "cap": "Le juge lui laisse un choix.",
-          "start": 385.889,
-          "end": 387.428
+          "start": 364.74,
+          "end": 366.367
         },
         {
           "cap": "La prison.",
-          "start": 387.548,
-          "end": 389.913
+          "start": 366.587,
+          "end": 367.236
         },
         {
           "cap": "Ou un an de mise à l'épreuve, avec un traitement hormonal destiné à supprimer sa libido.",
-          "start": 390.033,
-          "end": 394.747
+          "start": 367.456,
+          "end": 372.618
         },
         {
           "cap": "Ce qu'on appellera plus tard une castration chimique.",
-          "start": 394.867,
-          "end": 397.447
+          "start": 372.838,
+          "end": 375.96
         },
         {
           "cap": "Turing choisit le traitement, pour pouvoir continuer à travailler.",
-          "start": 397.567,
-          "end": 400.649
+          "start": 376.18,
+          "end": 380
         },
         {
           "cap": "Son corps change.",
-          "start": 400.769,
-          "end": 401.883
+          "start": 380.22,
+          "end": 381.341
         },
         {
           "cap": "Et il perd son habilitation de sécurité.",
-          "start": 402.003,
-          "end": 404.085
+          "start": 381.561,
+          "end": 383.711
         },
         {
           "cap": "L'homme qui avait cassé les codes de l'ennemi ne peut plus travailler pour les services secrets de son pays.",
-          "start": 404.205,
-          "end": 408.523
+          "start": 383.931,
+          "end": 389.477
         },
         {
           "cap": "En pleine guerre froide, on le considère comme un risque.",
-          "start": 408.643,
-          "end": 411.735
+          "start": 389.697,
+          "end": 392.834
         }
       ],
-      "start": 352.317,
-      "end": 411.835,
-      "duration": 59.518,
+      "start": 330.166,
+      "end": 393.134,
+      "duration": 62.968,
       "beats": [
         0.25,
-        2.152,
-        5.026,
-        7.688,
-        14.737,
-        17.684,
-        19.781,
-        25.196,
-        27.423,
-        33.572,
-        35.231,
-        37.716,
-        42.55,
-        45.25,
-        48.452,
-        49.686,
-        51.888,
-        56.326
+        2.696,
+        5.61,
+        7.011,
+        15.762,
+        16.83,
+        19.41,
+        24.161,
+        27.323,
+        34.574,
+        36.421,
+        37.29,
+        42.672,
+        46.014,
+        50.054,
+        51.395,
+        53.765,
+        59.531
       ],
       "beatEnds": [
-        2.032,
-        4.906,
-        7.568,
-        14.617,
-        17.564,
-        19.661,
-        24.646,
-        27.303,
-        33.452,
-        35.111,
-        37.596,
-        42.43,
-        45.13,
-        48.332,
-        49.566,
-        51.768,
-        56.206,
-        59.418
+        2.476,
+        5.39,
+        6.791,
+        15.542,
+        16.61,
+        19.19,
+        23.611,
+        27.103,
+        34.354,
+        36.201,
+        37.07,
+        42.452,
+        45.794,
+        49.834,
+        51.175,
+        53.545,
+        59.311,
+        62.668
       ]
     },
     {
@@ -972,102 +972,102 @@
       "lines": [
         {
           "cap": "Le 8 juin 1954, sa femme de ménage le trouve mort dans son lit.",
-          "start": 412.085,
-          "end": 417.608
+          "start": 393.384,
+          "end": 397.979
         },
         {
           "cap": "Il avait 41 ans.",
-          "start": 417.728,
-          "end": 419.355
+          "start": 398.199,
+          "end": 399.462
         },
         {
           "cap": "Il est mort la veille, empoisonné au cyanure.",
-          "start": 419.475,
-          "end": 422.18
+          "start": 399.682,
+          "end": 401.892
         },
         {
           "cap": "À côté de lui, une pomme à moitié mangée.",
-          "start": 422.3,
-          "end": 424.735
+          "start": 402.112,
+          "end": 404.265
         },
         {
           "cap": "L'enquête officielle conclut au suicide.",
-          "start": 424.855,
-          "end": 426.874
+          "start": 404.485,
+          "end": 406.435
         },
         {
           "cap": "C'est la version que la plupart des livres retiennent.",
-          "start": 426.994,
-          "end": 429.543
+          "start": 406.655,
+          "end": 409.374
         },
         {
           "cap": "Mais elle n'a jamais convaincu tout le monde.",
-          "start": 429.663,
-          "end": 433.111
+          "start": 409.594,
+          "end": 412.936
         },
         {
           "cap": "Sa mère pensait à un accident.",
-          "start": 433.231,
-          "end": 435.043
+          "start": 413.156,
+          "end": 415.234
         },
         {
           "cap": "Turing faisait des expériences de chimie chez lui, avec du cyanure.",
-          "start": 435.163,
-          "end": 438.833
+          "start": 415.454,
+          "end": 419.702
         },
         {
           "cap": "Et la pomme, elle, n'a jamais été analysée.",
-          "start": 438.953,
-          "end": 442
+          "start": 419.922,
+          "end": 423.234
         },
         {
           "cap": "L'historien Jack Copeland, spécialiste de Turing, estime que l'accident est possible et que les preuves sont plus faibles qu'on ne le dit.",
-          "start": 442.12,
-          "end": 449.301
+          "start": 423.454,
+          "end": 431.557
         },
         {
           "cap": "On ne saura sans doute jamais.",
-          "start": 449.421,
-          "end": 450.99
+          "start": 431.777,
+          "end": 433.314
         },
         {
           "cap": "Ce que l'on sait, c'est que les deux dernières années de sa vie ont été brisées par une condamnation injuste.",
-          "start": 451.11,
-          "end": 456.617
+          "start": 433.534,
+          "end": 439.449
         }
       ],
-      "start": 411.835,
-      "end": 456.717,
-      "duration": 44.882,
+      "start": 393.134,
+      "end": 439.749,
+      "duration": 46.615,
       "beats": [
         0.25,
-        5.893,
-        7.64,
-        10.465,
-        13.02,
-        15.159,
-        17.828,
-        21.396,
-        23.328,
-        27.118,
-        30.285,
-        37.586,
-        39.275
+        5.065,
+        6.548,
+        8.978,
+        11.351,
+        13.521,
+        16.46,
+        20.022,
+        22.32,
+        26.788,
+        30.32,
+        38.643,
+        40.4
       ],
       "beatEnds": [
-        5.773,
-        7.52,
-        10.345,
-        12.9,
-        15.039,
-        17.708,
-        21.276,
-        23.208,
-        26.998,
-        30.165,
-        37.466,
-        39.155,
-        44.782
+        4.845,
+        6.328,
+        8.758,
+        11.131,
+        13.301,
+        16.24,
+        19.802,
+        22.1,
+        26.568,
+        30.1,
+        38.423,
+        40.18,
+        46.315
       ]
     },
     {
@@ -1076,60 +1076,60 @@
       "lines": [
         {
           "cap": "Il faudra des décennies pour que le pays regarde cette histoire en face.",
-          "start": 456.967,
-          "end": 460.337
+          "start": 439.999,
+          "end": 444.211
         },
         {
           "cap": "En 2009, après une pétition, le Premier ministre Gordon Brown présente des excuses officielles au nom du gouvernement.",
-          "start": 460.457,
-          "end": 467.918
+          "start": 444.431,
+          "end": 451.233
         },
         {
           "cap": "Le 24 décembre 2013, la reine Élisabeth II accorde à Alan Turing un pardon royal.",
-          "start": 468.038,
-          "end": 474.042
+          "start": 451.453,
+          "end": 458.425
         },
         {
           "cap": "61 ans après sa condamnation.",
-          "start": 474.162,
-          "end": 476.429
+          "start": 458.645,
+          "end": 461.009
         },
         {
           "cap": "En 2017, une loi surnommée « loi Alan Turing » étend ce pardon à des milliers d'hommes condamnés pour les mêmes raisons.",
-          "start": 476.549,
-          "end": 484.542
+          "start": 461.229,
+          "end": 468.735
         },
         {
           "cap": "Et le 23 juin 2021, le jour de son anniversaire, la Banque d'Angleterre met en circulation un nouveau billet de 50 livres.",
-          "start": 484.662,
-          "end": 493.131
+          "start": 468.955,
+          "end": 478.409
         },
         {
           "cap": "Avec son visage.",
-          "start": 493.251,
-          "end": 494.294
+          "start": 478.629,
+          "end": 479.877
         }
       ],
-      "start": 456.717,
-      "end": 494.394,
-      "duration": 37.677,
+      "start": 439.749,
+      "end": 480.177,
+      "duration": 40.428,
       "beats": [
         0.25,
-        3.74,
-        11.321,
-        17.445,
-        19.832,
-        27.945,
-        36.534
+        4.682,
+        11.704,
+        18.896,
+        21.48,
+        29.206,
+        38.88
       ],
       "beatEnds": [
-        3.62,
-        11.201,
-        17.325,
-        19.712,
-        27.825,
-        36.414,
-        37.577
+        4.462,
+        11.484,
+        18.676,
+        21.26,
+        28.986,
+        38.66,
+        40.128
       ]
     },
     {
@@ -1138,53 +1138,53 @@
       "lines": [
         {
           "cap": "Alan Turing a imaginé l'ordinateur avant qu'il existe.",
-          "start": 494.644,
-          "end": 498.565
+          "start": 480.427,
+          "end": 484.469
         },
         {
           "cap": "Il a aidé à casser le code d'Enigma.",
-          "start": 498.685,
-          "end": 500.617
+          "start": 484.689,
+          "end": 487.177
         },
         {
           "cap": "Il a posé la question qui obsède encore les chercheurs en intelligence artificielle.",
-          "start": 500.737,
-          "end": 504.459
+          "start": 487.397,
+          "end": 491.657
         },
         {
           "cap": "Et son pays l'a condamné pour qui il aimait.",
-          "start": 504.579,
-          "end": 506.728
+          "start": 491.877,
+          "end": 494.129
         },
         {
           "cap": "Le pardon est arrivé.",
-          "start": 506.848,
-          "end": 508.93
+          "start": 494.349,
+          "end": 495.501
         },
         {
           "cap": "Mais il n'a jamais pu l'entendre.",
-          "start": 509.48,
-          "end": 513.223
+          "start": 496.051,
+          "end": 498.332
         }
       ],
-      "start": 494.394,
-      "end": 516.223,
-      "duration": 21.829,
+      "start": 480.177,
+      "end": 501.332,
+      "duration": 21.155,
       "beats": [
         0.25,
-        4.291,
-        6.343,
-        10.185,
-        12.454,
-        15.086
+        4.512,
+        7.22,
+        11.7,
+        14.172,
+        15.874
       ],
       "beatEnds": [
-        4.171,
-        6.223,
-        10.065,
-        12.334,
-        14.536,
-        18.829
+        4.292,
+        7,
+        11.48,
+        13.952,
+        15.324,
+        18.155
       ]
     }
   ]

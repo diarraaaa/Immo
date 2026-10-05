@@ -49,7 +49,7 @@
     {
       "id": "01-enjeux",
       "lines": [
-        { "say": "Soixante et un ans plus tard, la reine lui accorde son pardon.", "cap": "61 ans plus tard, la reine lui accorde son pardon." },
+        { "say": "61 ans plus tard, la reine lui accorde son pardon.", "cap": "61 ans plus tard, la reine lui accorde son pardon." },
         { "say": "Entre les deux, il y a une machine secrète, un code réputé incassable, et une pomme à moitié mangée.", "cap": "Entre les deux, il y a une machine secrète, un code réputé incassable, et une pomme à moitié mangée." },
         { "say": "Il s'appelait Alan Turing.", "cap": "Il s'appelait Alan Turing." }
       ]

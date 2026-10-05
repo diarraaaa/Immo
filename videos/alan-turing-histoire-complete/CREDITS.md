@@ -45,9 +45,9 @@ marqués « illustration » à l'écran.
 
 ## Voix et son
 
-- Voix off : **Chatterbox Multilingual** (Resemble AI, licence MIT ; filigrane audio inaudible
-  « Perth »), voix de référence **SIWIS French Speech Synthesis Database** (P.-E. Honnet,
-  A. Lazaridis, P. N. Garner, J. Yamagishi — CC BY 4.0).
+- Voix off : **Kyutai TTS 1.6B en/fr** (Kyutai, licence CC-BY 4.0, modèle `kyutai/tts-1.6b-en_fr`
+  sur Hugging Face), exécuté localement. Voix **« Hugo_the_frenchie »** du projet *Unmute Voice
+  Donation* (V. Volhejn, 2025) : voix donnée volontairement par son propriétaire, licence **CC0**.
 - Musique et bruitages : synthétisés pour la vidéo (FFmpeg / NumPy), libres.
 
 ## Description YouTube (à coller)
@@ -58,7 +58,7 @@ L'histoire complète d'Alan Turing, de Sherborne au pardon royal de 2013 — et 
 
 CHAPITRES — à recopier depuis chapters.txt (générés avec le timing réel de la voix)
 
-Photos : Wikimedia Commons — Elliott & Fry (DP), Bundesarchiv / E. Borchert & Walther (CC BY-SA 3.0 DE), DeFacto (CC BY-SA 4.0), D. Tonkonog (CC BY-SA 3.0), SophieHarris-Sherborne & Fuseemusee (CC BY-SA 4.0), ESO/S. Brunier (CC BY 4.0), Science Museum Group (CC BY-SA 4.0), I. Petticrew (CC BY-SA 2.0), Pnapora (CC BY-SA 3.0), A. Taveneaux (CC BY-SA 3.0), Dunk (CC BY 4.0), S. Harriyott (CC BY 2.0), Number 10 (CC BY 2.0), gouvernement britannique (OGL), TedColes (CC0), US Navy, Royal Navy, KGGucwa, USDA (DP) ; Library of Congress (photochrome). Voix : Chatterbox (MIT) + SIWIS (CC BY 4.0). Vidéo sous licence CC BY-SA 4.0.
+Photos : Wikimedia Commons — Elliott & Fry (DP), Bundesarchiv / E. Borchert & Walther (CC BY-SA 3.0 DE), DeFacto (CC BY-SA 4.0), D. Tonkonog (CC BY-SA 3.0), SophieHarris-Sherborne & Fuseemusee (CC BY-SA 4.0), ESO/S. Brunier (CC BY 4.0), Science Museum Group (CC BY-SA 4.0), I. Petticrew (CC BY-SA 2.0), Pnapora (CC BY-SA 3.0), A. Taveneaux (CC BY-SA 3.0), Dunk (CC BY 4.0), S. Harriyott (CC BY 2.0), Number 10 (CC BY 2.0), gouvernement britannique (OGL), TedColes (CC0), US Navy, Royal Navy, KGGucwa, USDA (DP) ; Library of Congress (photochrome). Voix : Kyutai TTS (CC BY 4.0), voix « Hugo » du projet Unmute Voice Donation (CC0). Vidéo sous licence CC BY-SA 4.0.
 
 #AlanTuring #Histoire #Enigma #SecondeGuerreMondiale #Informatique
 ```
