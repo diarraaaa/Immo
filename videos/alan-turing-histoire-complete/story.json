@@ -2,13 +2,15 @@
   "engine": "kyutai",
   "engineOptions": {
     "voice": "voice-donations/Hugo_the_frenchie_enhanced.wav",
-    "n_q": 32,
+    "n_q": 24,
     "cfg_coef": 2,
     "temp": 0.6,
+    "initial_padding": 6,
+    "padding_bonus": -0.5,
     "seed": 1912,
-    "batch": 10,
+    "batch": 11,
     "verify": true,
-    "attempts": 4
+    "attempts": 3
   },
   "elevenlabsOptions": {
     "model_id": "eleven_multilingual_v2",
@@ -137,7 +139,7 @@
         { "say": "Avec Gordon Welchman, il conçoit une machine bien plus puissante : la Bombe.", "cap": "Avec Gordon Welchman, il conçoit une machine bien plus puissante : la Bombe." },
         { "say": "Une armoire bruyante, pleine de tambours qui tournent, et qui élimine les mauvais réglages à toute vitesse.", "cap": "Une armoire bruyante, pleine de tambours qui tournent, et qui élimine les mauvais réglages à toute vitesse." },
         { "say": "La première est installée en mars mille neuf cent quarante.", "cap": "La première est installée en mars 1940." },
-        { "say": "Turing prend ensuite la tête du Hut huit, la baraque chargée du code de la marine allemande.", "cap": "Turing prend ensuite la tête du Hut 8, la baraque chargée du code de la marine allemande." },
+        { "say": "Turing prend ensuite la tête de la Hutte huit, la baraque chargée du code de la marine allemande.", "cap": "Turing prend ensuite la tête de la Hut 8, la baraque chargée du code de la marine allemande." },
         { "say": "Le plus dur de tous.", "cap": "Le plus dur de tous." },
         { "say": "Ce code protège les sous-marins qui coulent les convois de l'Atlantique.", "cap": "Ce code protège les sous-marins qui coulent les convois de l'Atlantique." },
         { "say": "Ces convois transportent la nourriture et les armes dont la Grande-Bretagne a besoin pour tenir.", "cap": "Ces convois transportent la nourriture et les armes dont la Grande-Bretagne a besoin pour tenir." },

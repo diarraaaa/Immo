@@ -73,7 +73,23 @@ if (BATCH[ENGINE]) {
       const i = all.indexOf(text);
       return { text, out: rawFor(text), previous_text: all.slice(Math.max(0, i - 2), i).join(" "), next_text: all[i + 1] ?? "" };
     });
-    writeFileSync(jobsPath, JSON.stringify({ ...(story.engineOptions ?? {}), jobs }));
+    // Kyutai lit des morceaux de plusieurs phrases d'une même scène (≈ 20 s, coupés aux silences
+    // voulus) pour garder l'intonation d'un récit ; il ne réécrit que les phrases manquantes.
+    const chunks = [];
+    if (ENGINE === "kyutai") {
+      const pending = new Set(todo);
+      for (const sc of story.scenes) {
+        let cur = null;
+        for (const l of sc.lines) {
+          if (!cur || cur.lines.join(" ").length + l.say.length > 300) chunks.push((cur = { lines: [], outs: [] }));
+          cur.lines.push(l.say);
+          cur.outs.push(pending.delete(l.say) ? rawFor(l.say) : null);
+          if (l.pause) cur = null;
+        }
+      }
+    }
+    const payload = ENGINE === "kyutai" ? { chunks: chunks.filter((c) => c.outs.some(Boolean)) } : { jobs };
+    writeFileSync(jobsPath, JSON.stringify({ ...(story.engineOptions ?? {}), ...payload }));
     const [script, ...args] = BATCH[ENGINE];
     const python = (ENGINE === "kyutai" ? process.env.KYUTAI_PYTHON : process.env.CHATTERBOX_PYTHON) || "python3";
     execFileSync(python, [join(ROOT, script), ...args, jobsPath], { stdio: ["ignore", "inherit", "inherit"] });
